@@ -1,0 +1,49 @@
+.container{
+    button{
+        padding: 1rem;
+        font-size: 0.9rem;
+        span:nth-child(2){
+            margin-left: 1rem;
+        }
+    }
+}
+
+.center{
+    text-align: center;
+}
+.fill{
+    button{
+        width: 100%;
+    }
+}
+
+.main{
+    background-color: var(--clr-main);
+    color: white;
+
+    &:hover{
+        background-color: var(--clr-main-light);
+    }
+}
+
+.white{
+    background-color: white;
+    color: var(--clr-main);
+
+    &:hover{
+        background-color: var(--clr-main-fade);
+    }
+}
+
+.dark{
+
+}
+
+.black{
+    background-color: black;
+    color: white;
+
+    &:hover{
+        opacity: 0.8;
+    }
+}

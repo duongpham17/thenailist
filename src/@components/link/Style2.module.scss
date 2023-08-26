@@ -1,0 +1,40 @@
+.container{
+    a{
+        display: block;
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span:nth-child(2){
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.center{
+    text-align: center;
+}
+
+.main{
+    background-color: var(--clr-main);
+    color: white;
+
+    &:hover{
+        background-color: var(--clr-main-light);
+    }
+}
+
+.white{
+    background-color: white;
+    color: var(--clr-main);
+
+    &:hover{
+        background-color: var(--clr-main-fade);
+    }
+}
+
+.dark{
+
+}

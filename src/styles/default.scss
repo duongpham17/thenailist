@@ -1,0 +1,39 @@
+html, body {
+  font-size: 18px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+  
+body{
+  background: var(--clr-background)
+}
+.bodyScrollBar{
+  overflow: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+  
+a, button, input, li, ul, p, q, textarea {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background: none;
+  list-style: none;
+  font-size: 1rem;
+  color: black;
+}
+
+img{
+  object-fit: cover;
+  display: block;
+}
+  
+button, a{
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}

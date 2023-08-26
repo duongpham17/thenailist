@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 66vh;
+
+    div{
+        text-align: center;
+    }
+    h1, b, p {
+        display: block;
+        color: var(--clr-main);
+    }
+    h1{
+        border-top: 4px solid var(--clr-main);
+        border-bottom: 4px solid var(--clr-main);
+        font-size: 3rem;
+    }
+    b{
+        margin-top: 1rem;
+    }
+    p{
+        margin-top: 7rem;
+    }
+}
