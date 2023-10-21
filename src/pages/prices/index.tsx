@@ -4,7 +4,7 @@ import api from '@database/api';
 import {IPricesApi} from '@database/models/prices';
 
 export interface PropsTypes {
-  prices: IPricesApi[]
+  prices: IPricesApi[] | []
 }; 
 
 export const getStaticProps = async () => {
