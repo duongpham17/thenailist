@@ -18,11 +18,16 @@ export const getStaticProps = async () => {
   }
 };
 
-export default function Index(props: PropsTypes) {
+const Index = (props: PropsTypes) => {
   return (
     <>
-      <Metadata title="Prices" description="price list of acrylic, ombre, pedicure, eyelashes, nails, toes, waxing, design, art" />
+      <Metadata 
+        title="Prices" 
+        description="price list of acrylic, ombre, pedicure, eyelashes, nails, toes, waxing, design, art" 
+      />
       <Prices {...props} />
     </>
   )
 }
+
+export default Index

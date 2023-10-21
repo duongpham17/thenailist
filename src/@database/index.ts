@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
     try{
-        const database = process.env.NEXT_PUBLIC_API_DATABASE as string;
+        const database = process.env.DATABASE as string;
         
         const development = process.env.NODE_ENV === "development"
 

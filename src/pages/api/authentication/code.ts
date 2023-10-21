@@ -5,9 +5,9 @@ import jwt from 'jsonwebtoken';
 
 export const createSecureToken = (id: string) => {
 
-    const secret: any = process.env.NEXT_PUBLIC_API_JWT_SECRET;
+    const secret: any = process.env.JWT_SECRET;
 
-    const expires: any = process.env.NEXT_PUBLIC_API_JWT_EXPIRES;
+    const expires: any = process.env.JWT_EXPIRES;
 
     const token = jwt.sign({ id }, secret, { expiresIn: `${expires}d` });
 

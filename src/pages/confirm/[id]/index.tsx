@@ -1,7 +1,7 @@
 import Metadata from '@metadata';
 import Confirm from 'routes/confirm/[id]';
 
-export default function Index() {
+const Index = () => {
   return (
     <>
       <Metadata title="Authentication" />
@@ -9,3 +9,5 @@ export default function Index() {
     </>
   )
 }
+
+export default Index

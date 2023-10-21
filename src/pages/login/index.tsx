@@ -1,7 +1,7 @@
 import Metadata from '@metadata';
 import Login from 'routes/login';
 
-export default function Index() {
+const Index = () =>  {
   return (
     <>
       <Metadata title="Login" />
@@ -9,3 +9,5 @@ export default function Index() {
     </>
   )
 }
+
+export default Index
