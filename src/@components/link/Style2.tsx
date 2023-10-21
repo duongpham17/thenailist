@@ -4,14 +4,14 @@ import React from 'react';
 interface Props extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
     value: any,
     href: string,
-    color?: "main" | "white" | "dark",
+    color?: "main" | "white" | "dark" | "black",
     padding?: string,
     margin?: string,
     center?: boolean,
     open?: boolean,
 }
 
-const Style1 = ({value, color="main", padding, margin, center, href, open, ...props}: Props) => (
+const Style1 = ({value, color="black", padding, margin, center, href, open, ...props}: Props) => (
     <div className={`${styles.container} ${center ? styles.center : ""}`}>
         <a 
             className={`${styles[color]}`} 

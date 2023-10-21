@@ -1,9 +1,6 @@
-// NOTE using grid template column and using fr units will break the width of the slider!
-
 import styles from './Swiper.module.scss';
-import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -13,32 +10,31 @@ interface Props<T> {
     data: T[],
     children: (data: T, index: number) => React.ReactNode,
     slidersPerView?: number,
-    arrows?: boolean
+    arrows?: boolean,
+    autoplay?: boolean,
 }
 
-const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows}: Props<T>) => {
-
-    const navigationPrevRef = useRef(null);
-    const navigationNextRef = useRef(null);
+const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay}: Props<T>) => {
 
     return (
         <div className={styles.container}>
 
            {arrows && data.length - 2 > 0 &&
-                <div className={styles.navBtnLeft} >
-                    <button ref={navigationPrevRef}><MdOutlineKeyboardArrowLeft/></button>
+                <div className={styles.navBtnLeft}>
+                    <button className='prev'><MdOutlineKeyboardArrowLeft/></button>
                 </div>
             }
 
             {!!data.length && 
                 <Swiper 
                     className={styles.swiper}
-                    modules={[Navigation, Pagination]} 
+                    modules={[Navigation, Pagination, Autoplay]} 
                     spaceBetween={5} 
+                    autoplay={autoplay ? {} : {delay: 5000}}
                     slidesPerView={slidersPerView} 
                     navigation={{
-                        prevEl: navigationPrevRef.current,
-                        nextEl: navigationNextRef.current,
+                        prevEl: ".prev",
+                        nextEl: ".next",
                     }} 
                 >
 
@@ -53,7 +49,7 @@ const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows}: Props<T
 
             {arrows && data.length - 2 > 0 &&
                 <div className={styles.navBtnRight} >
-                    <button ref={navigationNextRef}><MdOutlineKeyboardArrowRight/></button>
+                    <button className='next'><MdOutlineKeyboardArrowRight/></button>
                 </div>
             }
 

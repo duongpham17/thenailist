@@ -1,25 +1,31 @@
 .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 66vh;
 
-    div{
-        text-align: center;
-    }
-    h1, b, p {
-        display: block;
-        color: var(--clr-main);
-    }
-    h1{
-        border-top: 4px solid var(--clr-main);
-        border-bottom: 4px solid var(--clr-main);
-        font-size: 3rem;
-    }
-    b{
-        margin-top: 1rem;
-    }
-    p{
-        margin-top: 7rem;
+    .introduction{
+        position: relative;
+        .text{
+            margin-top: 6rem;
+            z-index: 10;
+            position:absolute;
+            left:0;
+            right:0;
+            max-width:500px; /* Assign a value */
+            margin: 5rem auto;
+
+            h1{
+                color: white;
+                font-size: clamp(2.5rem, 10vw, 3.5rem);
+                font-weight: 400;
+                text-align: center;
+            }
+
+            .social{
+                margin: 6rem auto;
+                text-align: center;
+            }
+        }
+        img{
+            width: 100%;
+            height: 600px;
+        }
     }
 }

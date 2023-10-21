@@ -1,8 +1,9 @@
 .container{
     margin: 2rem;
     a{
-        border-radius: 50px;
-        font-size: 1rem;
+        padding: 0.5rem 2.5rem;
+        font-weight: 200;
+        transition: ease-in-out 0.3s;
     }
 }
 
@@ -15,7 +16,9 @@
     color: white;
 
     &:hover{
-        background-color: var(--clr-main-light);
+        background-color: var(--clr-light-light);
+        border: 2px solid black;
+        color: black;
     }
 }
 
@@ -24,10 +27,31 @@
     color: var(--clr-main);
 
     &:hover{
-        background-color: var(--clr-main-fade);
+        background-color: var(--clr-light-light);
+        border: 2px solid black;
+        color: black;
     }
 }
 
 .dark{
+    background-color: var(--clr-dark);
+    color: white;
 
+    &:hover{
+        background-color: var(--clr-light-light);
+        border: 2px solid black;
+        color: black;
+    }
+}
+
+.black{
+    background-color: black;
+    color: white;
+    border: 2px solid transparent;
+
+    &:hover{
+        background-color: var(--clr-light-light);
+        border: 2px solid black;
+        color: black;
+    }
 }

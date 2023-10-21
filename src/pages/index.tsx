@@ -1,10 +1,10 @@
-import Meta from '@components/meta';
+import Metadata from '@metadata';
 import Home from 'routes/home';
 
 export default function Index() {
   return (
     <>
-      <Meta title="Home" />
+      <Metadata title="Home" />
       <Home />
     </>
   )

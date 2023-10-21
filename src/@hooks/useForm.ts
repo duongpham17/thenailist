@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 
-export const useForm = <T>(initialState: T, callback: CallableFunction, validation: any) => {
+export const useForm = <T>(initialState: T, callback: CallableFunction, validation?: any) => {
 
     const [edited, setEdited] = useState(false);
 
     const [values, setValues] = useState<T>(initialState);
 
-    const [errors, setErrors] = useState<{[key: string]: any}>({});
+    const [validationErrors, setValidationErrors] = useState<{[key: string]: any}>({});
+
+    const [customErrors, setCustomErrors] = useState<{[key: string]: any}>({});
 
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -18,6 +20,10 @@ export const useForm = <T>(initialState: T, callback: CallableFunction, validati
     const onSetValue = (v: Partial<typeof initialState | T>) => {
         setValues(state => ({...state, ...v}))
         if(!edited) setEdited(true);
+    }
+
+    const onSetCustomErrors = (v: any) => {
+        setCustomErrors(state => ({...state, ...v}))
     }
 
     const onClear = (state?: T) => {
@@ -38,21 +44,24 @@ export const useForm = <T>(initialState: T, callback: CallableFunction, validati
 
         if(loading) return;
 
-        const errors = !validation ? null : validation(values);
+        const ve = !validation ? {} : validation(values);
 
-        const noErrors = errors === null ? true : Object.keys(errors).length === 0;
+        const noErrors = ve === null ? true : Object.keys(ve).length === 0;
 
-        if(!noErrors) return setErrors(errors);
+        if(noErrors) {
+            setLoading(true);
+            await callback();
+            setLoading(false);
+            setEdited(false);
+        };
 
-        setLoading(true);
-        await callback();
-        setLoading(false);
-        setEdited(false);
+        setValidationErrors(ve);
     };
 
     return {
         values, setValues,
-        errors, setErrors,
+        validationErrors, setValidationErrors,
+        customErrors, setCustomErrors, onSetCustomErrors,
         loading, setLoading,
         edited, setEdited,
         onSetValue,
