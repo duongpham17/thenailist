@@ -5,9 +5,9 @@ import Constant from 'layout/navbar';
 import Footer from 'layout/footer';
 import UseAuthentication from '@context/useAuthentication';
 import progress from '@misc/progress';
-import { Poppins } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 
-const font = Poppins({subsets: ["latin"], weight: ["400"]})
+const font = Open_Sans({subsets: ["latin"], weight: ["300","400"]})
 progress();
 
 export default function App({ Component, pageProps }: AppProps) {

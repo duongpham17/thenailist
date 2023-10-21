@@ -19,9 +19,9 @@
         display: flex;
         a{
             display: block;
-            font-weight: 200;
             font-size: 0.9rem;
             padding: 0.5rem;
+            font-weight: 200;
             &:hover{
                 background-color: var(--clr-main-fade);
             }

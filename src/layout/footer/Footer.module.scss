@@ -1,13 +1,14 @@
 .container{
     border-top: 1px solid var(--clr-main);
     padding: 1rem;
-    background-color: var(--clr-main-fade);
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     small{
         display: block;
+        color: white;
     }
 
     .right{
