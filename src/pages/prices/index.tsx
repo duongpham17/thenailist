@@ -8,23 +8,13 @@ export interface PropsTypes {
 }; 
 
 export const getStaticProps = async () => {
-  try{
-    const res = await api.get('/api/prices');
+  const res = await api.get('/api/prices');
 
-    return {
-      props: {
-        prices: res.data.data || []
-      },
-      revalidate: 60 * 60 * 24 * 1  // in days
-    }
-  } catch(err){
-    console.log(err);
-    return {
-      props: {
-        prices: []
-      },
-      revalidate: 60 * 60 * 24 * 1  // in days
-    }
+  return {
+    props: {
+      prices: res.data.data || []
+    },
+    revalidate: 60 * 60 * 24 * 1  // in days
   }
 };
 
