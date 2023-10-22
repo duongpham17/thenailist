@@ -2,7 +2,7 @@ import styles from './Large.module.scss';
 import React from 'react';
 import Link from 'next/link';
 
-import {AiFillInstagram, AiFillFacebook, AiFillGoogleCircle} from 'react-icons/ai';
+import {AiFillInstagram, AiFillFacebook, AiFillGoogleCircle, AiOutlineClockCircle} from 'react-icons/ai';
 import {MdLocationOn, MdEmail, MdOutlineSmartphone} from 'react-icons/md';
 
 const Large = () => {
@@ -39,6 +39,10 @@ const Large = () => {
             >
               17 Example Road, <br/>Somewhere, <br/>LN19 8DS
             </Link>
+          </div>
+          <div>
+            <AiOutlineClockCircle />
+            <p> Monday - Sunday <br/>9:00 - 19:00</p>
           </div>
         </section>
 
