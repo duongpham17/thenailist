@@ -1,4 +1,4 @@
-.large{
+.container{
     border-top: 1px solid var(--clr-main);
     padding: 1rem;
     background-color: black;
@@ -15,7 +15,13 @@
             display: block;
             color: white;
             font-weight: 200
-        };
+        }
+        a, svg{
+            transition: ease-in-out 0.3s;
+            &:hover{
+                color: var(--clr-main-light);
+            }
+        }
         b{
             font-weight: 400;
             margin-bottom: 0.5rem;
