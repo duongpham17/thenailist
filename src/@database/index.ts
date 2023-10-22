@@ -4,7 +4,7 @@ const connectDB = async () => {
     try{
         const database = process.env.DATABASE as string;
         
-        const development = process.env.NODE_ENV === "development"
+        const development = process.env.NODE_ENV === "development";
 
         mongoose.set('strictQuery', true);
 

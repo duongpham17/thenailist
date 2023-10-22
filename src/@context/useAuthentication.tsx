@@ -29,11 +29,11 @@ export const useAuthentication = ({children}: Props) => {
         
         (async () => {
             try{
-                const response = await api.get("/authentication/persist");
+                const response = await api.get("/api/authentication/persist");
                 if(!response) return;
                 setUser(response.data.data);
-            } catch(err){
-                console.log(err)
+            } catch(err: any){
+                console.log(err.response)
             }
         })();
         

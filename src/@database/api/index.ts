@@ -1,17 +1,15 @@
 import axios from 'axios';
 
-const development = process.env.DEVELOPMENT_URL;
-
-const production = process.env.PRODUCTION_URL;
-
-const url = process.env.NODE_ENV === "development" ? development : production;
+const DEVELOPMENT_URL= "http://localhost:3000";
+const PRODUCTION_URL= "https://www.thenailist.co.uk";
+const url = process.env.NODE_ENV === "development" ? DEVELOPMENT_URL : PRODUCTION_URL;
 
 const storage = typeof window === "undefined" ? "" :  localStorage.getItem("user");
 
 const user = storage ? JSON.parse(storage) : {};
 
 export const api = axios.create({
-    baseURL:`${url}/api`,
+    baseURL:`${url}`,
     headers: {
         "Content-Type" : "application/json",
         "Authorization": `${user.token}`

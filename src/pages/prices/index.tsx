@@ -1,6 +1,6 @@
 import Metadata from '@metadata';
 import Prices from 'routes/prices';
-import api from '@database/api';
+import api from '@database/api'
 import {IPricesApi} from '@database/models/prices';
 
 export interface PropsTypes {
@@ -8,17 +8,28 @@ export interface PropsTypes {
 }; 
 
 export const getStaticProps = async () => {
-  const res = await api.get('/prices');
+  try{
+    const res = await api.get('/api/prices');
 
-  return {
-    props: {
-      prices: res.data.data || []
-    },
-    revalidate: 60 * 60 * 24 * 1  // in days
+    return {
+      props: {
+        prices: res.data.data || []
+      },
+      revalidate: 60 * 60 * 24 * 1  // in days
+    }
+  } catch(err){
+    console.log(err);
+    return {
+      props: {
+        prices: []
+      },
+      revalidate: 60 * 60 * 24 * 1  // in days
+    }
   }
 };
 
 const Index = (props: PropsTypes) => {
+
   return (
     <>
       <Metadata 

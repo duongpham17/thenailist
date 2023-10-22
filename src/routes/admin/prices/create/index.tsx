@@ -21,7 +21,7 @@ const Create = () => {
   
     async function callback(){
       values.timestamp = Date.now();
-      const response = await api.post("/prices", values);
+      const response = await api.post("/api/prices", values);
       setData(state => [ response.data.data, ...state])
       onClear();
     };
