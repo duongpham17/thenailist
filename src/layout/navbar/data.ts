@@ -17,12 +17,6 @@ export const links = [
       value: "services",
       href: "/services",
     },
-    {
-      id: "4",
-      name: "Contact",
-      value: "contact",
-      href: "/contact",
-    },
 ]
 
 export const adminLinks = [

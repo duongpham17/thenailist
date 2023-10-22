@@ -1,0 +1,88 @@
+.container{
+    .btn{
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 100;
+        button{
+            display: flex;
+            border-radius: 50px;
+            background-color: black;
+            border: 2px solid white;
+            padding: 0.4rem;
+            color: white;
+
+            &:hover{
+                background-color:  var(--clr-main);;
+            }
+        }
+    }
+
+    .cover{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(251,247,239, 0.7);
+        z-index: 11;
+
+        .content{
+            position: absolute;
+            bottom: 3rem;
+            right: 0.9rem;
+            animation: slidein 0.3s linear forwards;
+            overflow-y: auto;
+            text-align: bottom;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            a{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 0.5rem;
+
+                div, p{
+                    transition: ease-in-out 0.3s;
+                }
+
+                &:hover{
+                    div{
+                        background-color: var(--clr-main);
+                    }
+                    p{
+                        color: var(--clr-main);
+                    }
+                }
+
+                p{
+                    text-align: right;
+                    width: 200px;
+                    padding: 0.5rem;
+                    margin-right: 0.5rem;
+                    font-weight: 200;
+                    font-size: 0.9rem;
+                }
+                
+                div{
+                    background-color: black;
+                    padding: 0.5rem;
+                    border-radius: 50px;
+                    display: flex;
+                    font-size: 1.2rem;
+                    color: white;
+                }
+            }
+        }
+        @keyframes slidein {
+            0%{
+                height: 0px;
+            }
+            100%{
+                height: 300px;
+            }
+        }
+
+    }
+}

@@ -4,4 +4,13 @@
     justify-content: center;
     border: 3px double var(--clr-main);
     height: 1000px;
+
+    p{
+        font-size: clamp(4rem, 10vw, 12vw);
+        font-weight: 800;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        text-align: center;
+    }
 }

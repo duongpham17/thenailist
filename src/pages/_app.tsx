@@ -3,6 +3,7 @@ import styles from './_app.module.scss';
 import type { AppProps } from 'next/app';
 import Constant from 'layout/navbar';
 import Footer from 'layout/footer';
+import Helper from 'layout/helper';
 import UseAuthentication from '@context/useAuthentication';
 import progress from '@misc/progress';
 import { Open_Sans } from 'next/font/google';
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className={styles.container}> 
           <Component {...pageProps} />
         </div>
+        <Helper />
         <Footer />
       </main>
     </UseAuthentication>
