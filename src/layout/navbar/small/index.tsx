@@ -29,7 +29,7 @@ const Small = () => {
     <div className={styles.container}>
 
       <div className={`${styles.header} ${open ? styles.hamburgerIsOpen : ""}`}>      
-        <Link href="/" onClick={() => setOpen(false)}>THE NAILIST </Link>
+        <Link href="/" onClick={() => setOpen(false)}><h2>THE NAILIST</h2></Link>
         <Hamburger onToggle={onOpen} toggled={open}/>
       </div>
 

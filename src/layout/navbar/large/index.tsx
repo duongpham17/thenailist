@@ -31,7 +31,7 @@ const Large = () => {
 
       <div className={styles.brand}>
         <Link href="/">
-          THE NAILIST
+          <h2>THE NAILIST</h2>
         </Link>
       </div>
 
