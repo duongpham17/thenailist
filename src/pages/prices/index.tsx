@@ -8,7 +8,7 @@ export interface PropsTypes {
 }; 
 
 export const getStaticProps = async () => {
-  const res = await api.get('/api/prices');
+  const res = await api.get('/prices');
 
   return {
     props: {

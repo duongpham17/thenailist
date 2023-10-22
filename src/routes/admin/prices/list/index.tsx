@@ -65,7 +65,7 @@ const Element = ({element}: {element: IPricesApi} ) => {
             try{
                 const valuesUpdate = {...element};
                 valuesUpdate.prices = [values, ...valuesUpdate.prices];
-                const response = await api.patch("/api/prices", valuesUpdate);
+                const response = await api.patch("/prices", valuesUpdate);
                 onClear();
                 return onUpdateData(response.data.data);
             } catch(err){
@@ -77,7 +77,7 @@ const Element = ({element}: {element: IPricesApi} ) => {
                 const valuesUpdate = {...element};
                 const index = valuesUpdate.prices.findIndex(el => el._id === values._id);
                 valuesUpdate.prices[index] = values;
-                const response = await api.patch("/api/prices", valuesUpdate);
+                const response = await api.patch("/prices", valuesUpdate);
                 return onUpdateData(response.data.data);
             } catch(err){
                 console.log(err)
@@ -87,7 +87,7 @@ const Element = ({element}: {element: IPricesApi} ) => {
             try{
                 const valuesUpdate = {...element};
                 valuesUpdate.name = values.name;
-                const response = await api.patch("/api/prices", valuesUpdate);
+                const response = await api.patch("/prices", valuesUpdate);
                 return onUpdateData(response.data.data);
             } catch(err){
                 console.log(err)
@@ -119,7 +119,7 @@ const Element = ({element}: {element: IPricesApi} ) => {
         const dataUpdated = {...element};
         dataUpdated.prices[reorderIndex] = newData;
         dataUpdated.prices[index] = oldData;
-        const response = await api.patch("/api/prices", dataUpdated);
+        const response = await api.patch("/prices", dataUpdated);
         setReorderIndex(-1);
         return onUpdateData(response.data.data);
     };
@@ -127,14 +127,14 @@ const Element = ({element}: {element: IPricesApi} ) => {
     const onDeletePrice = async () => {
         const dataUpdated = {...element};
         dataUpdated.prices.splice(deleteIndex, 1);
-        const response = await api.patch("/api/prices", dataUpdated);
+        const response = await api.patch("/prices", dataUpdated);
         setDeleteIndex(-1);
         setOn("");
         return onUpdateData(response.data.data);
     };
 
     const onDeletePriceList = async () => {
-        const response = await api.delete(`/api/prices/${element._id}`);
+        const response = await api.delete(`/prices/${element._id}`);
         setOn("");
         return onRemoveData(response.data.data);
     };

@@ -14,8 +14,8 @@ const ReorderIndex = () => {
       const newData = data[index];
       const oldData = data[reorderIndex];
       const dataUpdated = [...data];
-      const res1 = await api.patch("/api/prices", {...dataUpdated[index], timestamp: oldData.timestamp});
-      const res2 = await api.patch("/api/prices", {...dataUpdated[reorderIndex], timestamp: newData.timestamp});
+      const res1 = await api.patch("/prices", {...dataUpdated[index], timestamp: oldData.timestamp});
+      const res2 = await api.patch("/prices", {...dataUpdated[reorderIndex], timestamp: newData.timestamp});
       dataUpdated[index] = res2.data.data;
       dataUpdated[reorderIndex] = res1.data.data;
       setData(dataUpdated);

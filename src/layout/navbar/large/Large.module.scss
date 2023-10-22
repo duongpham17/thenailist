@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+
+    .links{
+        display: flex;
+        a{
+            font-size: 0.9rem;
+            font-weight: 200;
+            padding: 0.4rem 0.5rem;
+            &:hover{
+                background-color: var(--clr-main-fade);
+            }
+        }
+        .selected{
+            background-color: var(--clr-main-fade);
+        }
+    
+    }
+
+    .login{
+
+    }
+
+}

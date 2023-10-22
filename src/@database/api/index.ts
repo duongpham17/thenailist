@@ -9,7 +9,7 @@ const storage = typeof window === "undefined" ? "" :  localStorage.getItem("user
 const user = storage ? JSON.parse(storage) : {};
 
 export const api = axios.create({
-    baseURL:`${url}`,
+    baseURL:`${url}/api`,
     headers: {
         "Content-Type" : "application/json",
         "Authorization": `${user.token}`

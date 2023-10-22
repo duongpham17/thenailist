@@ -33,7 +33,7 @@ export const useTemplateContext = ({children}: Props) => {
   
     useEffect(() => {
       (async () => {
-        const response = await api.get("/api/prices");
+        const response = await api.get("/prices");
         setData(response.data.data);
       })()
     }, []);

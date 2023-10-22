@@ -19,7 +19,7 @@ const ConfirmIdIndex = () => {
 
         (async () => {
             try{
-                const {data: {cookie, status}} = await api.post("authentication/email", {token: id});
+                const {data: {cookie, status}} = await api.post("/authentication/email", {token: id});
                 if(status === "success") {
                     localStorage.setItem("user", JSON.stringify(cookie));
                     setSuccess(true);
