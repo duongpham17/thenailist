@@ -18,7 +18,12 @@ const Small = () => {
   useEffect(() => {
     if(open) document.body.classList.add("bodyScrollBar");
     return () => document.body.classList.remove('bodyScrollBar');
-}, [open]);
+  }, [open]);
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
 
   return (
     <div className={styles.container}>
@@ -40,7 +45,7 @@ const Small = () => {
                     {el.name} 
                   </Link>
                 )}
-                <Line/>
+                {(user.role === "admin" ? adminLinks.length : userLinks.length) ? <Line/> : ""}
               </div>
             }
             {links.map((el) => 
@@ -68,9 +73,17 @@ const Small = () => {
                 <AiOutlineInstagram className={styles.insta}/>
                 <small>@thenailist</small>
               </Link>
-              <Link href="login" onClick={onOpen}>  
-                <small>Login</small>
-              </Link>
+
+              {!user 
+              ? 
+                <Link href="login" onClick={onOpen}>  
+                  <small>Login</small>
+                </Link>
+              :
+                <button onClick={logout}>
+                  Logout
+                </button>
+              }
             </div>
 
           </div>

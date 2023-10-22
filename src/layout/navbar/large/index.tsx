@@ -63,7 +63,7 @@ const Large = () => {
               <small>{user.role} | {user.email}</small>
               <Line />
               {(user.role === "admin" ? adminLinks : userLinks).map(el => 
-                <Link2 key={el.id} href={el.href} value={el.name} />  
+                <Link2 key={el.id} href={el.href} value={el.name} style={{margin: "0.5rem 0"}} />  
               )}
           </SlideIn>
         :

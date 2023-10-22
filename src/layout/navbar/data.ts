@@ -35,10 +35,5 @@ export const adminLinks = [
 ]
   
 export const userLinks = [
-  {
-    id: "1",
-    name: "",
-    value: "",
-    href: "",
-  },
+
 ]

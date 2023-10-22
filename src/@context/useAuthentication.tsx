@@ -1,5 +1,4 @@
 import React, { useEffect, useState, createContext } from 'react';
-import {useRouter} from 'next/router';
 import {IUsers} from '@database/models/users';
 import api from '@database/api';
 
@@ -9,16 +8,16 @@ interface Props {
 
 export interface PropsContextTypes {
     user: IUsers | null,
+    protect: (userAllowed: string[]) => void
 };
 
 // for consuming in children components, initial return state
 export const Context = createContext<PropsContextTypes>({
-    user: null
+    user: null,
+    protect: (userAllowed) => null
 });
 
 export const useAuthentication = ({children}: Props) => {
-
-    const router = useRouter();
 
     const [user, setUser] = useState<IUsers | null>(null);
 
@@ -39,43 +38,19 @@ export const useAuthentication = ({children}: Props) => {
         
     }, []);
 
-
-    // User must be logged in to gain access to these routes
-    useEffect(() => {
-
-        const pathname = router.pathname.replace("/", "").toLowerCase();
-
-        // const allowedRoutes = {
-        //     public: ["", "login", "confirm", "prices"],
-        //     user: [""],
-        // };
-          
-        // if(user?.role === "user"){
-        //     if(pathname.includes("admin")){
-        //         router.push("/404")
-        //     } else if(allowedRoutes.user.includes(pathname) || allowedRoutes.public.includes(pathname)) {
-        //         return;
-        //     } else if(pathname.includes("404")) {
-        //         return;
-        //     } else {
-        //         router.push("/404")
-        //     }
-        // }
-
-        // if(!user){
-        //     if (allowedRoutes.public.includes(pathname)) {
-        //         return;
-        //     } else if(pathname.includes("404")) {
-        //         return;
-        //     } else {
-        //         return;
-        //     }
-        // }
-
-    }, [router]);
+    const protect = (userAllowed: string[]) => {
+        if(user){
+            if(userAllowed.includes(user.role)){
+                return;
+            } else {
+                window.location.replace("/404")
+            }
+        }
+    };
 
     const value = {
-        user
+        user,
+        protect
     };
 
     return (
