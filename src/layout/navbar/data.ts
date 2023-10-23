@@ -53,7 +53,7 @@ export const bars = [
   },
   {
     id: 2,
-    name: "Treatment",
+    name: "Treatments",
     links: [
       {
         name: "Nails",
@@ -79,8 +79,46 @@ export const bars = [
       },
       {
         name: "Reviews",
-        href: "/reviews"
+        href: "/example"
       },
     ]
+  },
+  {
+    id: 4,
+    name: "Rewards",
+    links: [
+      {
+        name: "Example",
+        href: "/example"
+      },
+    ]
+  },
+  {
+    id: 4,
+    name: "Careers",
+    links: [
+      {
+        name: "Example",
+        href: "/example"
+      },
+    ]
+  },
+  {
+    id: 4,
+    name: "Help",
+    links: [
+      {
+        name: "Example",
+        href: "/example"
+      },
+      {
+        name: "Example",
+        href: "/example"
+      },
+      {
+        name: "Example",
+        href: "/example"
+      },
+    ],
   }
 ]
