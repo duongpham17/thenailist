@@ -39,11 +39,12 @@ const Large = () => {
             <AiOutlineClockCircle />
             <p>              
               {hours.weekdays.name}
-              <br/> {hours.weekdays.time}<br/><p></p>
+              <br/> {hours.weekdays.time}<br/>
               {hours.saturday.name}
-              <br/> {hours.saturday.time}<br/><p></p>
+              <br/> {hours.saturday.time}<br/>
               {hours.sunday.name}
-              <br/> {hours.sunday.time} <br/></p>
+              <br/> {hours.sunday.time} <br/>
+            </p>
           </div>
         </section>
 

@@ -8,7 +8,7 @@ import UseAuthentication from '@context/useAuthentication';
 import progress from '@misc/progress';
 import { Lato } from 'next/font/google';
 
-const font = Lato({subsets: ["latin"], weight: ["300","400"]})
+const font = Lato({subsets: ["latin"], weight: ["100","300","400"]})
 progress();
 
 export default function App({ Component, pageProps }: AppProps) {

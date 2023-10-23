@@ -4,8 +4,63 @@
 
     .brand{
         text-align: center;
+        margin: 1rem;
         a{
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+        }
+    }
+
+    nav{
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        .bar{
+            position: relative;
+            z-index: 10;
+
+            &:hover{
+                button{
+                    color: var(--clr-main);
+                }
+            }
+
+            button:hover + {
+                ul{
+                    display: block;
+                }
+            }
+            ul{
+                &:hover{
+                    display: block;
+                }
+            }
+
+            button{
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                width: 100%;
+                svg{
+                    margin-left: 1rem;
+                }
+            }
+
+            ul{
+                display: none;
+                position: absolute;
+                left: 0;
+                background-color: white;
+                width: 200px;
+                padding: 1rem;
+
+                li{
+                    margin-bottom: 1rem;
+
+                    a:hover{
+                        color: var(--clr-main);
+                    }
+                }
+            }
         }
     }
 

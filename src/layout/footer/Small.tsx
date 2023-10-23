@@ -2,7 +2,7 @@ import styles from './Small.module.scss';
 import React from 'react';
 import Link from 'next/link';
 
-import {AiFillInstagram, AiFillFacebook, AiFillGoogleCircle, AiOutlineClockCircle} from 'react-icons/ai';
+import {AiFillInstagram, AiFillFacebook, AiOutlineClockCircle} from 'react-icons/ai';
 import {MdLocationOn, MdEmail, MdOutlineSmartphone} from 'react-icons/md';
 
 import { google_location, instagram, facebook, phone, shop_location, hours, email } from '@data/social';
@@ -39,9 +39,9 @@ const Small = () => {
             <AiOutlineClockCircle />
             <p> 
               {hours.weekdays.name}
-              <br/> {hours.weekdays.time}<br/><p></p>
+              <br/> {hours.weekdays.time}<br/>
               {hours.saturday.name}
-              <br/> {hours.saturday.time}<br/><p></p>
+              <br/> {hours.saturday.time}<br/>
               {hours.sunday.name}
               <br/> {hours.sunday.time} <br/>
             </p>

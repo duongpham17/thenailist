@@ -31,3 +31,56 @@ export const adminLinks = [
 export const userLinks = [
 
 ]
+
+export const bars = [
+  {
+    id: 1,
+    name: "About Us",
+    links: [
+      {
+        name: "Our Team",
+        href: "/team"
+      },
+      {
+        name: "What we do",
+        href: "/whatwedo"
+      },
+      {
+        name: "Getting Here",
+        href: "/location"
+      },
+    ]
+  },
+  {
+    id: 2,
+    name: "Treatment",
+    links: [
+      {
+        name: "Nails",
+        href: "/nails"
+      },
+      {
+        name: "Beauty",
+        href: "/beauty"
+      },
+      {
+        name: "Aftercare",
+        href: "/aftercare"
+      },
+    ]
+  },
+  {
+    id: 3,
+    name: "Our Style",
+    links: [
+      {
+        name: "Gallery",
+        href: "/gallery"
+      },
+      {
+        name: "Reviews",
+        href: "/reviews"
+      },
+    ]
+  }
+]

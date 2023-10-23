@@ -2,9 +2,6 @@ import styles from './Introduction.module.scss';
 import React from 'react';
 import Swiper from '@components/swiper';
 import Link1 from '@components/link/Style1';
-import LinkRound from '@components/link/Round';
-
-import {AiFillInstagram} from 'react-icons/ai';
 
 const Index = () => {
 
@@ -23,7 +20,6 @@ const Index = () => {
           <h1>Welcome to <br/> The Nailist </h1>
           <div className={styles.social}>
             <Link1 href="/" value="Book now" open />
-            <LinkRound href="/" value={<AiFillInstagram/>} open />
           </div>
         </div>
 

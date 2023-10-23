@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {Context} from '@context/useAuthentication';
 import {useRouter} from 'next/router';
 import Link from 'next/link';
-import {links, adminLinks, userLinks} from '../data';
+import {links, adminLinks, userLinks, bars} from '../data';
 
 import Button from '@components/button/Button';
 import SlideIn from '@components/slidein/Style1';
@@ -13,7 +13,8 @@ import Square from '@components/button/Square';
 import Flex from '@components/flex/Style1';
 
 import { AiOutlineMenu } from 'react-icons/ai';
-import { MdLogout } from 'react-icons/md';
+import { MdLogout, MdKeyboardArrowDown } from 'react-icons/md';
+
 
 const Large = () => {
 
@@ -35,7 +36,20 @@ const Large = () => {
         </Link>
       </div>
 
-      <div className={styles.links}>
+      <nav>
+        {bars.map(el => 
+          <div className={styles.bar} key={el.id}>
+            <button><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></button>
+            <ul>
+              {el.links.map(l => 
+                <li><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
+              )}
+            </ul>
+          </div>
+        )}
+      </nav>
+
+      {/* <div className={styles.links}>
         {links.map((el) => 
             el.href.includes("http") ?
             <Link 
@@ -55,7 +69,7 @@ const Large = () => {
               {el.name.toUpperCase()} 
             </Link>
         )}
-      </div>
+      </div> */}
 
       {/* { user?.role 
       ?
