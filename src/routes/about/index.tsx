@@ -4,6 +4,7 @@ import { PropsTypes } from 'pages/about';
 import Introduction from './introduction';
 import Team from './team';
 import Us from './us';
+import Location from './location';
 
 const AboutIndex = (props: PropsTypes) => {
 
@@ -15,6 +16,8 @@ const AboutIndex = (props: PropsTypes) => {
       <Team {...props} />
 
       <Us {...props} />
+
+      <Location />
       
     </div>
   )

@@ -17,5 +17,6 @@
     "baseUrl": "src"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "types": ["@types/googlemaps"],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 import { NFTStorage } from 'nft.storage';
 
-const api_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEU3YmE4ZGRBZDM4RDc2NGQ2RDBlZDNlQzZhQTJhRDlGMDk2ZTY0NzIiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4MDUzMzUxOTUyNywibmFtZSI6ImVkZGllIn0.OJdLHU2LHe9Wb1vjWzcyn0zadbunuXljNmDFFutXI4U";
+const api_key = process.env.NEXT_PUBLIC_API_NFT_STORAGE_API as string;
 
 export const upload = async (image: any): Promise<{ url: string; ipfs: string}> => {
     const storage = new NFTStorage({ token: api_key || "" });
