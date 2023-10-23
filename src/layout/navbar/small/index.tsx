@@ -3,17 +3,20 @@ import React, {useEffect, useContext} from 'react';
 import {Context} from '@context/useAuthentication';
 import Link from 'next/link';
 import { Squeeze as Hamburger } from 'hamburger-react';
-import useOpen from '@hooks/useOpen';
 import { adminLinks, userLinks } from '../data';
 import Observer from '@components/observer/Observer';
 import {bars} from "../data";
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import useScroll from '@hooks/useScroll';
+import useOpen from '@hooks/useOpen';
 
 const Small = () => {
   
   const {open, setOpen, onOpen, openItems, onOpenItems} = useOpen({initialState: ""});
 
   const {user} = useContext(Context);
+
+  const {scrollY} = useScroll();
 
   useEffect(() => {
     if(open) document.body.classList.add("bodyScrollBar");
@@ -41,7 +44,7 @@ const Small = () => {
   ]
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${scrollY >= 130 ? styles.fixed : ""}`}>
 
       <div className={`${styles.header} ${open ? styles.hamburgerIsOpen : ""}`}>      
         <div className={styles.sides}>

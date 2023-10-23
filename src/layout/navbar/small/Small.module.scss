@@ -1,6 +1,5 @@
 .container{
-  padding:0 0.5rem;
-  padding-top: 0.5rem;
+  padding: 0.5rem;
 
   .header{
     display: flex;
@@ -12,12 +11,11 @@
     }
     a{
       text-align: center;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
     h2{
-      border-top: 4px solid var(--clr-main);
       border-bottom: 4px solid var(--clr-main);
-      width: 185px;
+      width: 170px;
       margin: auto;
     }
     b{
@@ -147,4 +145,12 @@
     }
   }
       
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
 }
