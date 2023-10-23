@@ -6,6 +6,7 @@ const useWindow = () => {
     width: 0,
     height: 0,
   });
+  
   useEffect(() => {
 
     const handleResize = () => {

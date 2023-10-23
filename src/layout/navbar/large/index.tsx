@@ -1,7 +1,6 @@
 import styles from './Large.module.scss';
 import React, {useContext} from 'react';
 import {Context} from '@context/useAuthentication';
-import {useRouter} from 'next/router';
 import Link from 'next/link';
 import {links, adminLinks, userLinks, bars} from '../data';
 
@@ -9,26 +8,39 @@ import Button from '@components/button/Button';
 import SlideIn from '@components/slidein/Style1';
 import Line from '@components/line/Style1';
 import Link2 from '@components/link/Style2';
-import Square from '@components/button/Square';
 import Flex from '@components/flex/Style1';
 
-import { AiOutlineMenu } from 'react-icons/ai';
 import { MdLogout, MdKeyboardArrowDown } from 'react-icons/md';
 
+import useScroll from '@hooks/useScroll';
 
 const Large = () => {
 
   const {user} = useContext(Context);
-
-  const router = useRouter();
 
   const logout = () => {
     localStorage.removeItem("user");
     window.location.reload();
   };
 
+  const {scrollY} = useScroll();
+
+  console.log(scrollY);
+
   return (
     <div className={styles.container}>
+
+    { user?.role &&
+        <div className={styles.login}>
+          <SlideIn icon={"Logged in menu"} iconOpen={<Button label1={<Flex><small>Logout</small> <MdLogout/></Flex>} onClick={logout} />}>
+              <small>{user.role} | {user.email}</small>
+              <Line />
+              {(user.role === "admin" ? adminLinks : userLinks).map(el => 
+                <Link2 key={el.id} href={el.href} value={el.name} style={{margin: "0.5rem 0"}} />  
+              )}
+          </SlideIn>
+        </div>
+    }
 
       <div className={styles.brand}>
         <Link href="/">
@@ -37,15 +49,15 @@ const Large = () => {
         </Link>
       </div>
 
-      <nav>
+      <nav className={scrollY >= 200 ? styles.fixed : ""}>
         {bars.map(el => 
           <div className={styles.bar} key={el.id}>
             {el.links.length ?
               <>
                 <button className={styles.btn}><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></button>
                 <ul>
-                  {el.links.map(l => 
-                    <li><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
+                  {el.links.map((l, i) => 
+                    <li key={i}><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
                   )}
                 </ul>
               </>
@@ -83,21 +95,6 @@ const Large = () => {
             </Link>
         )}
       </div> */}
-
-      {/* { user?.role 
-      ?
-          <SlideIn icon={<Square label1={<AiOutlineMenu/>} color="black"/>} iconOpen={<Button label1={<Flex><small>Logout</small> <MdLogout/></Flex>} onClick={logout} />}>
-              <small>{user.role} | {user.email}</small>
-              <Line />
-              {(user.role === "admin" ? adminLinks : userLinks).map(el => 
-                <Link2 key={el.id} href={el.href} value={el.name} style={{margin: "0.5rem 0"}} />  
-              )}
-          </SlideIn>
-        :
-          <div>
-            <Link href="/login">Login</Link>
-          </div>
-        } */}
 
     </div>
   )

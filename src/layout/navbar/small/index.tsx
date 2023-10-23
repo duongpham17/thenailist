@@ -39,10 +39,6 @@ const Small = () => {
       name: "Find",
       href: "/about#gettinghere"
     },
-    {
-      name: "Help",
-      href: "/help"
-    },
   ]
 
   return (
