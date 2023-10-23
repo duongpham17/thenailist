@@ -15,7 +15,7 @@
     }
     h2{
       border-bottom: 4px solid var(--clr-main);
-      width: 170px;
+      width: 180px;
       margin: auto;
     }
     b{
@@ -41,13 +41,13 @@
 
     a{
       margin: 0 0.3rem;
-      padding: 0.5rem;
+      padding: 0.4rem;
       display: block;
       background-color: var(--clr-main);
       color: white;
       width: 100px;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
 
       &:hover{
         opacity: 0.8;
