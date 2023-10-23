@@ -1,6 +1,6 @@
 import mongoose, { Types, Schema, model, Document } from 'mongoose';
 
-export interface INewsApi {
+export interface IAboutApi {
     _id: string,
     images: string[],
     description: string,
@@ -8,7 +8,7 @@ export interface INewsApi {
     timestamp: number
 }
 
-export interface INews extends Partial<Document> {
+export interface IAbout extends Partial<Document> {
     _id: Types.ObjectId,
     images: string[],
     description: string,
@@ -16,7 +16,7 @@ export interface INews extends Partial<Document> {
     timestamp: number
 };
 
-const schema = new Schema<INews>({
+const schema = new Schema<IAbout>({
     images: [
         String 
     ],
@@ -33,6 +33,6 @@ const schema = new Schema<INews>({
     },
 });
 
-const News = mongoose.models.News || model<INews>('News', schema);
+const About = mongoose.models.About || model<IAbout>('About', schema);
 
-export default News;
+export default About;

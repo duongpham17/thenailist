@@ -14,7 +14,7 @@ export interface IPrices extends Partial<Document> {
     timestamp: number
 };
 
-const PricesSchema = new Schema<IPrices>({
+const schema = new Schema<IPrices>({
     name: {
         type: String,
     },
@@ -29,6 +29,6 @@ const PricesSchema = new Schema<IPrices>({
     },
 });
 
-const Prices = mongoose.models.Prices || model<IPrices>('Prices', PricesSchema);
+const Prices = mongoose.models.Prices || model<IPrices>('Prices', schema);
 
 export default Prices;

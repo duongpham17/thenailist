@@ -7,32 +7,32 @@ export default async function(req: NextApiRequest, res: NextApiResponse){
     await connectDB();
 
     if(req.method === "GET"){
-        const news = await NewsModel.find().sort({timestamp: -1});
+        const data = await NewsModel.find().sort({timestamp: -1});
 
         return res
             .status(200)
             .json({  
-                data: news
+                data
             });
     };
 
     if(req.method === "POST"){
-        const news = await NewsModel.create(req.body);
+        const data = await NewsModel.create(req.body);
 
         return res
             .status(200)
             .json({ 
-                data: news
+                data
             });
     };
 
     if(req.method === "PATCH"){
-        const news = await NewsModel.findByIdAndUpdate(req.body._id, req.body, {new: true});
+        const data = await NewsModel.findByIdAndUpdate(req.body._id, req.body, {new: true});
 
         return res
             .status(200)
             .json({ 
-                data: news
+                data
             });
     };
 

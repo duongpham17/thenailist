@@ -7,6 +7,9 @@ const News = ({news}: PropsTypes) => {
 
   return (
     <div className={styles.container}>
+
+        <h1 className={styles.header}>LATEST NEWS</h1>
+
         {news?.map(el => 
             <div className={styles.element} key={el._id}>
                 <div className={styles.description}>
@@ -30,6 +33,7 @@ const News = ({news}: PropsTypes) => {
                 </div>
             </div>    
         )}
+        
     </div>
   )
 }

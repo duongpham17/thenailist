@@ -7,12 +7,12 @@ export default async function(req: NextApiRequest, res: NextApiResponse){
     await connectDB();
 
     if(req.method === "DELETE"){
-        const price = await PricesModel.findByIdAndDelete(req.query.id);
+        const data = await PricesModel.findByIdAndDelete(req.query.id);
 
         return res
             .status(200)
             .json({  
-                data: price
+                data
             });
     };
 

@@ -32,6 +32,18 @@ export const adminLinks = [
     value: "news",
     href: "/admin/news",
   },
+  {
+    id: "3",
+    name: "About Us",
+    value: "about",
+    href: "/admin/about",
+  },
+  {
+    id: "4",
+    name: "Team",
+    value: "team",
+    href: "/admin/teams",
+  },
 ]
   
 export const userLinks = [
@@ -45,15 +57,15 @@ export const bars = [
     links: [
       {
         name: "Our Team",
-        href: "/about#ourteam"
+        href: "/about#team"
       },
       {
         name: "What we do",
-        href: "/about#Whatwedo"
+        href: "/about#what"
       },
       {
         name: "Getting Here",
-        href: "/about#gettinghere"
+        href: "/about#location"
       },
     ]
   },

@@ -15,7 +15,7 @@ export interface IUsers extends Partial<Document>  {
     createVerifyToken: () => {hashToken: string, code: string}
 };
 
-const usersSchema = new Schema<IUsers>({
+const schema = new Schema<IUsers>({
     email:{
         type: String,
         trim: true,
@@ -48,7 +48,7 @@ const usersSchema = new Schema<IUsers>({
 });
 
 //hashing the code
-usersSchema.pre('save', async function(next){
+schema.pre('save', async function(next){
     //only run this when password has been modified
     if(!this.code) return next();
 
@@ -59,13 +59,13 @@ usersSchema.pre('save', async function(next){
 });
 
 //check if confirm code matches the encrypted code.
-usersSchema.methods.correctPassword = async function(candidateCode: string, userCode: string): Promise<boolean>{
+schema.methods.correctPassword = async function(candidateCode: string, userCode: string): Promise<boolean>{
     console.log(candidateCode, userCode)
     return bcrypt.compare(candidateCode, userCode)
 };
 
 //generate a random token to verify users email
-usersSchema.methods.createVerifyToken = function(){
+schema.methods.createVerifyToken = function(){
     const verifyToken = crypto.randomBytes(32).toString('hex');
     const hashToken = crypto.createHash('sha256').update(verifyToken).digest('hex');
 
@@ -85,7 +85,7 @@ usersSchema.methods.createVerifyToken = function(){
 };
 
 // Define the model if it doesn't already exist
-const Users =  mongoose.models.Users || model<IUsers>('Users', usersSchema);
+const Users =  mongoose.models.Users || model<IUsers>('Users', schema);
 
 // Export the model
 export default Users;

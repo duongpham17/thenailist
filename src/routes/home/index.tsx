@@ -1,9 +1,9 @@
 import React from 'react';
 import { PropsTypes } from 'pages';
 
-import Introduction from './Introduction';
-import Services from './Services';
-import News from './News';
+import Introduction from './introdcution';
+import Services from './services';
+import News from './news';
 
 const Index = (props: PropsTypes) => {
 
@@ -12,9 +12,9 @@ const Index = (props: PropsTypes) => {
 
       <Introduction />
 
-      <Services />
-
       <News {...props} />
+
+      <Services />
 
     </>
   )
