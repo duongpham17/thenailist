@@ -33,18 +33,31 @@ const Large = () => {
       <div className={styles.brand}>
         <Link href="/">
           <h1>THE NAILIST</h1>
+          <small>NAILS - BROWS - BEAUTY</small>
         </Link>
       </div>
 
       <nav>
         {bars.map(el => 
           <div className={styles.bar} key={el.id}>
-            <button><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></button>
-            <ul>
-              {el.links.map(l => 
-                <li><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
-              )}
-            </ul>
+            {el.links.length ?
+              <>
+                <button className={styles.btn}><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></button>
+                <ul>
+                  {el.links.map(l => 
+                    <li><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
+                  )}
+                </ul>
+              </>
+            : 
+              el.href ? 
+                <Link 
+                  className={`${styles.btn} ${el.name.toLowerCase() === "book now" ? styles.book : ""}`} 
+                  href={el.href}>{el.name.toUpperCase()}
+                </Link> 
+              : 
+                ""
+            }
           </div>
         )}
       </nav>

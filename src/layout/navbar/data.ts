@@ -39,15 +39,15 @@ export const bars = [
     links: [
       {
         name: "Our Team",
-        href: "/team"
+        href: "/about#ourteam"
       },
       {
         name: "What we do",
-        href: "/whatwedo"
+        href: "/about#Whatwedo"
       },
       {
         name: "Getting Here",
-        href: "/location"
+        href: "/about#gettinghere"
       },
     ]
   },
@@ -85,26 +85,6 @@ export const bars = [
   },
   {
     id: 4,
-    name: "Rewards",
-    links: [
-      {
-        name: "Example",
-        href: "/example"
-      },
-    ]
-  },
-  {
-    id: 4,
-    name: "Careers",
-    links: [
-      {
-        name: "Example",
-        href: "/example"
-      },
-    ]
-  },
-  {
-    id: 4,
     name: "Help",
     links: [
       {
@@ -120,5 +100,23 @@ export const bars = [
         href: "/example"
       },
     ],
-  }
+  },
+  {
+    id: 5,
+    name: "Rewards",
+    links: [],
+    href: "/example"
+  },
+  {
+    id: 6,
+    name: "Careers",
+    links: [],
+    href: "/example"
+  },
+  {
+    id: 7,
+    name: "Book now",
+    links: [],
+    href: "/example"
+  },
 ]

@@ -1,17 +1,52 @@
 .container{
-  padding: 0.5rem;
+  padding:0 0.5rem;
+  padding-top: 0.5rem;
 
   .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 16;
+    .sides{
+      z-index: 16;
+      width: 100px;
+    }
+    a{
+      text-align: center;
+      font-size: 1.3rem;
+      width: 100%;
+      small{
+        display: block;
+        font-size: 0.7rem;
+      }
+    }
   }
   .hamburgerIsOpen{
     position: relative;
     color: black;
     a{
       color: black;
+    }
+  }
+
+  .bars{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+
+    a{
+      margin: 0 0.3rem;
+      padding: 0.5rem;
+      display: block;
+      background-color: var(--clr-main);
+      color: white;
+      width: 100px;
+      text-align: center;
+      font-size: 0.9rem;
+
+      &:hover{
+        opacity: 0.8;
+      }
     }
   }
 
@@ -23,54 +58,42 @@
     top: 0;
     left: 0;
     right: 0;
-    padding: 1rem;
     z-index: 15;
-
-    display: flex;
-    align-items: center;
     transition: 0.3s ease-in-out;
-
     visibility: hidden;
     opacity: 0;
 
     .contents{
       position: relative;
-      width: 100%;
-      ul{      
-        a{
-          display: block;
-          font-size: clamp(1.2rem, 3vh, 8vh);
-          font-weight: 300;
-          border-right: 2px solid transparent;
-          color: black;
-  
-          &:hover{
-            border-right-color: var(--clr-main);
-            color: var(--clr-main);
-          }
+      margin-top: 4rem;
+
+      .admin{
+        a, h3{
+          padding: 1rem;
         }
       }
-  
-      .social{
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        padding: 0.5rem;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        a{
-          font-size: clamp(1.2rem, 3vh, 5vh);
-          color: black;
+      
+      .bar{
+        border-bottom: 1px solid var(--clr-dark-light);
+        .btn{
           display: flex;
           align-items: center;
-          &:hover{
-            color: var(--clr-main);
+          justify-content: space-between;
+          width: 100%;
+          padding: 1rem;
+        }
+        ul{
+          background-color: white;
+          padding: 0.5rem 1rem;
+          li{
+            margin: 0.5rem 0;
           }
-        }   
-        small{
-          font-size: 1rem;
-        }    
+          a{
+            &:hover{
+              color: var(--clr-main);
+            }
+          }
+        }
       }
     }
 
@@ -89,7 +112,7 @@
         margin-top: 10rem;
       }
       100%{
-        margin-top: 0;
+      margin-top: 4rem;
       }
     }
   }
@@ -101,7 +124,7 @@
 
     @keyframes slidedown {
       0%{
-        margin-top: 0rem;
+      margin-top: 4rem;
       }
       100%{
         margin-top: 10rem;

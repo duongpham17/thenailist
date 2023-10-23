@@ -1,12 +1,16 @@
 .container{
-
-    padding: 0.5rem;
-
+    padding: 0 0.5rem;
+    padding-top: 0.5rem;
+    
     .brand{
         text-align: center;
         margin: 1rem;
+        small{
+            display: block;
+            font-size: 0.8rem;
+        }
         a{
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
     }
 
@@ -14,18 +18,28 @@
         display: inline-flex;
         width: 100%;
         justify-content: center;
+        position: sticky;
+        top: 0;
 
         .bar{
             position: relative;
             z-index: 10;
 
             &:hover{
-                button{
+                .btn{
                     color: var(--clr-main);
                 }
             }
 
-            button:hover + {
+            .book{
+                background-color: var(--clr-main);
+                color: white;
+                &:hover{
+                    background-color: var(--clr-main-fade);
+                }
+            }
+
+            .btn:hover + {
                 ul{
                     display: block;
                 }
@@ -36,12 +50,13 @@
                 }
             }
 
-            button{
+            .btn{
                 display: flex;
                 align-items: center;
                 padding: 1rem;
                 width: 100%;
-                font-weight: 200;
+                height: 50px;
+                font-size: 0.9rem;
                 svg{
                     margin-left: 0.5rem;
                 }

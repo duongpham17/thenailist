@@ -4,13 +4,15 @@ import {Context} from '@context/useAuthentication';
 import Link from 'next/link';
 import { Squeeze as Hamburger } from 'hamburger-react';
 import useOpen from '@hooks/useOpen';
-import { links, adminLinks, userLinks } from '../data';
+import { adminLinks, userLinks } from '../data';
 import Observer from '@components/observer/Observer';
 import Line from '@components/line/Style1';
+import {bars} from "../data";
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const Small = () => {
   
-  const {open, setOpen, onOpen} = useOpen({initialState: ""});
+  const {open, setOpen, onOpen, openItems, onOpenItems} = useOpen({initialState: ""});
 
   const {user} = useContext(Context);
 
@@ -24,21 +26,69 @@ const Small = () => {
     window.location.reload();
   };
 
+  const quickbar = [
+    {
+      name: "Book",
+      href: "/"
+    },
+    {
+      name: "Services",
+      href: "/services"
+    },
+    {
+      name: "Find",
+      href: "/about#gettinghere"
+    },
+    {
+      name: "Help",
+      href: "/help"
+    },
+  ]
+
   return (
     <div className={styles.container}>
 
       <div className={`${styles.header} ${open ? styles.hamburgerIsOpen : ""}`}>      
-        <Link href="/" onClick={() => setOpen(false)}><h2>THE NAILIST</h2></Link>
-        <Hamburger onToggle={onOpen} toggled={open}/>
+        <div className={styles.sides}>
+          <Hamburger onToggle={onOpen} toggled={open}/>
+        </div>
+        <Link href="/" onClick={() => setOpen(false)}>
+          <h2>THE NAILIST</h2>
+          <small>NAILS - BROWS - BEAUTY</small>
+        </Link>
+        {open ? 
+          <div className={styles.sides}>
+            {!user 
+            ? 
+              <Link href="login" onClick={onOpen}>  
+                <small>Login</small>
+              </Link>
+            :
+              <button onClick={logout}>
+                Logout
+              </button>
+            }
+          </div>  
+          :
+          <div className={styles.sides}>
+            
+          </div>
+        }
+      </div>
+
+      <div className={styles.bars}>
+        {quickbar.map(el =>
+          <Link key={el.name} href={el.href}>{el.name.toUpperCase()}</Link>  
+        )}
       </div>
 
       <Observer>
         <div className={`${styles.menu} ${open ? styles.menuIsOpen : styles.menuIsClose}`}>
           <div className={styles.contents}>
-            <ul> 
+
             {user?.role &&
-              <div>
-                {user.role === "admin" ? <p>Admin Pages</p> : ""}
+              <div className={styles.admin}>
+                {user.role === "admin" ? <h3>Admin Pages</h3> : ""}
                 {(user.role === "admin" ? adminLinks : userLinks).map((el) => 
                   <Link key={el.id} href={el.href} onClick={onOpen}>
                     {el.name} 
@@ -47,7 +97,30 @@ const Small = () => {
                 {(user.role === "admin" ? adminLinks.length : userLinks.length) ? <Line/> : ""}
               </div>
             }
-            {links.map((el) => 
+
+            {bars.map(el => 
+              <div className={styles.bar} key={el.id}>
+                {el.links.length ?
+                  <>
+                    <button className={styles.btn} onClick={() => onOpenItems(el.id.toString())}>
+                      <span>{el.name.toUpperCase()}</span> 
+                      <MdKeyboardArrowDown />
+                    </button>
+                    { openItems.includes(el.id.toString()) &&
+                      <ul>
+                        {el.links.map(l => 
+                          <li><Link href={l.href} onClick={onOpen}>{l.name.toUpperCase()}</Link></li>  
+                        )}
+                      </ul>
+                    }
+                  </>
+                : 
+                  el.href ? <Link className={styles.btn} href={el.href} onClick={onOpen}>{el.name.toUpperCase()}</Link> : ""
+                }
+              </div>
+            )}
+
+            {/* {links.map((el) => 
               el.href.includes("http") ?
                 <Link 
                     key={el.id}
@@ -64,23 +137,9 @@ const Small = () => {
                   >
                   {el.name} 
                 </Link>
-              )}
-            </ul>
+              )} */}
 
-            <div className={styles.social}>
-              {!user 
-              ? 
-                <Link href="login" onClick={onOpen}>  
-                  <small>Login</small>
-                </Link>
-              :
-                <button onClick={logout}>
-                  Logout
-                </button>
-              }
             </div>
-
-          </div>
         </div>
       </Observer>
       

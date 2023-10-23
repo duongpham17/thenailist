@@ -1,4 +1,6 @@
 .container{
+    display: none;
+    
     .btn{
         position: fixed;
         right: 1rem;
@@ -84,5 +86,11 @@
             }
         }
 
+    }
+}
+
+@media (max-width: 600px){
+    .container{
+        display: block;
     }
 }
