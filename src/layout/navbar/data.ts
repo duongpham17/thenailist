@@ -118,7 +118,7 @@ export const bars = [
         href: "/style#gallery"
       },
       {
-        name: "What our client says",
+        name: "Clients reviews",
         href: "/style#reviews"
       },
     ]
