@@ -1,6 +1,7 @@
 .container{
     border-top: 1px solid var(--clr-main-light);
     padding: 1rem;
+    background-color: var(--clr-main-fade);
 
     .about{
         display: flex;
@@ -27,6 +28,10 @@
         a{
             width: 100%;
             text-align: center;
+
+            &:hover{
+                color: var(--clr-main);
+            }
         }
     }
 

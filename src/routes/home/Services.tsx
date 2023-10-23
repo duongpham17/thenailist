@@ -18,7 +18,7 @@ const Services = () => {
 
   return (
     <div className={styles.container}>
-      <p style={{ backgroundImage: `url(/${image}.jpg)`}}>THE NAILIST</p>
+      <p style={{ backgroundImage: `url(/home${image}.jpg)`}}>THE NAILIST</p>
     </div>
   )
 }
