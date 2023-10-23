@@ -8,9 +8,12 @@
         justify-content: space-evenly;
         text-align: center;
         padding: 1rem 0;
+        max-width: 1000px;
+        margin: auto;
         b{
             display: block;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
         p, a{
             display: block;

@@ -1,0 +1,31 @@
+.container{
+    padding: 0rem 1rem;
+    margin: 4rem 0;
+
+    h1{
+        text-align: center;
+        margin: 1rem;
+    }
+
+    .team{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+
+        .element{
+            text-align: center;
+            margin: 1rem;
+            img{
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                border: 2px solid var(--clr-main);
+            }
+            p{
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}
