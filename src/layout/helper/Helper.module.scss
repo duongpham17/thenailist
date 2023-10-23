@@ -63,12 +63,11 @@
                     width: 200px;
                     padding: 0.5rem;
                     margin-right: 0.5rem;
-                    font-weight: 200;
                     font-size: 0.9rem;
                 }
                 
                 div{
-                    background-color: black;
+                    background-color: var(--clr-main);
                     padding: 0.5rem;
                     border-radius: 50px;
                     display: flex;

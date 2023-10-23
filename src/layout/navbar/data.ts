@@ -57,15 +57,19 @@ export const bars = [
     links: [
       {
         name: "Nails",
-        href: "/nails"
+        href: "/treatments/#nails"
+      },
+      {
+        name: "Brows",
+        href: "/treatments/#brows"
       },
       {
         name: "Beauty",
-        href: "/beauty"
+        href: "/treatments/#beauty"
       },
       {
         name: "Aftercare",
-        href: "/aftercare"
+        href: "/treatments/#aftercare"
       },
     ]
   },
@@ -75,11 +79,11 @@ export const bars = [
     links: [
       {
         name: "Gallery",
-        href: "/gallery"
+        href: "/style#gallery"
       },
       {
-        name: "Reviews",
-        href: "/example"
+        name: "What our client says",
+        href: "/style#reviews"
       },
     ]
   },

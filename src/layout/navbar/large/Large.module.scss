@@ -1,7 +1,7 @@
 .container{
     padding: 0 0.5rem;
     padding-top: 0.5rem;
-    
+
     .brand{
         text-align: center;
         margin: 1rem;
@@ -15,11 +15,12 @@
     }
 
     nav{
+        position: sticky;
+        top: 0;
         display: inline-flex;
         width: 100%;
         justify-content: center;
-        position: sticky;
-        top: 0;
+        z-index: 10;
 
         .bar{
             position: relative;

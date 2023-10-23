@@ -31,27 +31,27 @@ const HelperIndex = () => {
 
                     <div onClick={e => e.stopPropagation()} className={styles.content}>
                         <Link href={instagram} rel={"noopener noreferrer"} target={"_blank"}>
-                            <p>Instagram</p>
+                            <p>INSTAGRAM</p>
                             <div><AiFillInstagram/></div>
                         </Link>
 
                         <Link href={facebook} rel={"noopener noreferrer"} target={"_blank"}>
-                            <p>Facebook</p>
+                            <p>FACEBOOK</p>
                             <div><AiFillFacebook/></div>
                         </Link>
 
                         <Link href={`mailto:${email}`}>
-                            <p>Email</p>
+                            <p>SEND AN EMAIL</p>
                             <div><MdEmail/></div>
                         </Link>
 
                         <Link href={`tel:${phone}`}>
-                            <p>Phone</p>
+                            <p>CALL US</p>
                             <div> <MdOutlineSmartphone/> </div>
                         </Link>
 
                         <Link href={google_location} rel={"noopener noreferrer"} target={"_blank"}>
-                            <p>Location</p>
+                            <p>LOCATION</p>
                             <div><MdLocationOn /></div>
                         </Link>
                     </div>

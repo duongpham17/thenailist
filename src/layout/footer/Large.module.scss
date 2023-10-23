@@ -3,69 +3,33 @@
     padding: 1rem;
     background-color: black;
 
-    .information{
-        padding: 0.5rem;
+    .about{
         display: flex;
-        justify-content: space-around;
-
-        section{
-            margin: 1rem;
-        }
-        small, p, h1, h2, h3, span, b, a, svg{
+        justify-content: space-evenly;
+        text-align: center;
+        padding: 1rem 0;
+        b{
             display: block;
-            color: white;
-            font-weight: 200
+            margin-bottom: 1rem;
         }
-        a, svg{
-            transition: ease-in-out 0.3s;
-            &:hover{
-                color: var(--clr-main-light);
-            }
+        p, a{
+            color: white;
+            display: block;
+            margin-bottom: 0.3rem;
         }
         b{
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: var(--clr-main-light);
+            color: var(--clr-main);
         }
-        svg{
-            font-size: 1.3rem;
-        }
+    }
 
-        .logo{
-            h1{
-                font-size: 3rem;
-                font-weight: 600;
-            }
-            small{
-                font-size: 0.8rem;
-            }
-            div{
-                display: flex;
-                gap: 0.4rem;
-                border-top: 1px solid white;
-                margin: 0.5rem 0;
-                padding: 0.5rem 0;
-
-                a{
-                    font-size: 1.5rem;
-                }
-            }
-        }
-
-        .us{
-            div{
-                display: flex;
-            }
-            a, p{
-                margin-bottom: 0.5rem;
-                margin-left: 0.5rem;
-            }
-        }
-
-        .links{
-            a{
-                margin-bottom: 0.5rem;
-            }
+    .links{
+        display: flex;
+        border-top: 1px solid var(--clr-light-light);
+        padding: 1rem;
+        a{
+            color: white;
+            width: 100%;
+            text-align: center;
         }
     }
 
