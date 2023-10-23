@@ -2,8 +2,10 @@ import styles from './Large.module.scss';
 import React from 'react';
 import Link from 'next/link';
 
-import {AiFillInstagram, AiFillFacebook, AiFillGoogleCircle, AiOutlineClockCircle} from 'react-icons/ai';
+import {AiFillInstagram, AiFillFacebook, AiOutlineClockCircle} from 'react-icons/ai';
 import {MdLocationOn, MdEmail, MdOutlineSmartphone} from 'react-icons/md';
+
+import { google_location, instagram, facebook, phone, shop_location, hours, email } from '@data/social';
 
 const Large = () => {
   return (
@@ -12,11 +14,10 @@ const Large = () => {
       <div className={styles.information}>
 
         <section className={styles.logo}>
-          <h1>THE <br/> NAILIST</h1>
+          <h1>THE <br/> NAILIST <br/> <small>NAILS - BROWS - BEAUTY</small></h1>
           <div>
-            <Link href={"/"} rel={"noopener noreferrer"} target={"_blank"}><AiFillInstagram/></Link>
-            <Link href={"/"} rel={"noopener noreferrer"} target={"_blank"}><AiFillFacebook/></Link>
-            <Link href={"/"} rel={"noopener noreferrer"} target={"_blank"}><AiFillGoogleCircle/></Link>
+            <Link href={instagram} rel={"noopener noreferrer"} target={"_blank"}><AiFillInstagram/></Link>
+            <Link href={facebook} rel={"noopener noreferrer"} target={"_blank"}><AiFillFacebook/></Link>
           </div>
         </section>
         
@@ -24,25 +25,25 @@ const Large = () => {
           <b>Get in Touch</b>
           <div>
             <MdEmail/>
-            <Link href="mailto:hello@thenailist.co.uk">hello@thenailist.co.uk</Link>
+            <Link href={`mailto:${email}`}>{email}</Link>
           </div>
           <div>
             <MdOutlineSmartphone/>
-            <Link href="tel:02086167977"> 000 1212 5151</Link>
+            <Link href={`tel:${phone}`}> {phone}</Link>
           </div>
           <div>
             <MdLocationOn />
-            <Link 
-              href="https://www.google.com/maps/place/Hippodrome/@51.511657,-0.131738,17z/data=!3m1!4b1!4m6!3m5!1s0x487604cd881e209d:0x144845c5aba0da3c!8m2!3d51.511657!4d-0.1291577!16zL20vMDR2Zmx3?entry=ttu"
-              rel={"noopener noreferrer"} 
-              target={"_blank"}
-            >
-              17 Example Road, <br/>Somewhere, <br/>LN19 8DS
-            </Link>
+            <Link href={google_location} rel={"noopener noreferrer"} target={"_blank"}>{shop_location}</Link>
           </div>
           <div>
             <AiOutlineClockCircle />
-            <p> Monday - Sunday <br/>9:00 - 19:00</p>
+            <p>              
+              {hours.weekdays.name}
+              <br/> {hours.weekdays.time}<br/><p></p>
+              {hours.saturday.name}
+              <br/> {hours.saturday.time}<br/><p></p>
+              {hours.sunday.name}
+              <br/> {hours.sunday.time} <br/></p>
           </div>
         </section>
 
@@ -55,7 +56,7 @@ const Large = () => {
       </div>
 
       <div className={`${styles.copyright}`}>
-        <small>@ 2023, thenailist.co.uk</small>
+        <small>@ 2023 The Nailist Limited. All rights reserved</small>
       </div>
 
     </footer>

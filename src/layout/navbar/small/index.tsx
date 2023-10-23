@@ -7,7 +7,6 @@ import useOpen from '@hooks/useOpen';
 import { links, adminLinks, userLinks } from '../data';
 import Observer from '@components/observer/Observer';
 import Line from '@components/line/Style1';
-import { AiOutlineInstagram } from 'react-icons/ai';
 
 const Small = () => {
   
@@ -69,11 +68,6 @@ const Small = () => {
             </ul>
 
             <div className={styles.social}>
-              <Link href="https://www.instagram.com/thenailist" rel="noopener noreferrer" target="_blank">  
-                <AiOutlineInstagram className={styles.insta}/>
-                <small>@thenailist</small>
-              </Link>
-
               {!user 
               ? 
                 <Link href="login" onClick={onOpen}>  

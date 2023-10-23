@@ -1,11 +1,17 @@
 .container{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+
     padding: 0.5rem;
+
+    .brand{
+        text-align: center;
+        a{
+            font-size: 1.5rem;
+        }
+    }
 
     .links{
         display: flex;
+        justify-content: center;
         a{
             font-size: 0.9rem;
             font-weight: 200;
@@ -17,11 +23,5 @@
         .selected{
             background-color: var(--clr-main-fade);
         }
-    
     }
-
-    .login{
-
-    }
-
 }

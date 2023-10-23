@@ -6,9 +6,9 @@ import Footer from 'layout/footer';
 import Helper from 'layout/helper';
 import UseAuthentication from '@context/useAuthentication';
 import progress from '@misc/progress';
-import { Open_Sans } from 'next/font/google';
+import { Lato } from 'next/font/google';
 
-const font = Open_Sans({subsets: ["latin"], weight: ["300","400"]})
+const font = Lato({subsets: ["latin"], weight: ["300","400"]})
 progress();
 
 export default function App({ Component, pageProps }: AppProps) {

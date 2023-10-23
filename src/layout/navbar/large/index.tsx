@@ -31,7 +31,7 @@ const Large = () => {
 
       <div className={styles.brand}>
         <Link href="/">
-          <h2>THE NAILIST</h2>
+          <h1>THE NAILIST</h1>
         </Link>
       </div>
 
@@ -44,7 +44,7 @@ const Large = () => {
                 className={router.pathname.includes(el.value) ? styles.selected : ""}
                 rel="noopener noreferrer" target="_blank"
               >
-              {el.name} 
+              {el.name.toUpperCase()} 
             </Link> 
           : 
               <Link 
@@ -52,12 +52,12 @@ const Large = () => {
                 href={el.href} 
                 className={router.pathname.includes(el.value) ? styles.selected : "" }
               >
-              {el.name} 
+              {el.name.toUpperCase()} 
             </Link>
         )}
       </div>
 
-      { user?.role 
+      {/* { user?.role 
       ?
           <SlideIn icon={<Square label1={<AiOutlineMenu/>} color="black"/>} iconOpen={<Button label1={<Flex><small>Logout</small> <MdLogout/></Flex>} onClick={logout} />}>
               <small>{user.role} | {user.email}</small>
@@ -70,7 +70,7 @@ const Large = () => {
           <div>
             <Link href="/login">Login</Link>
           </div>
-        }
+        } */}
 
     </div>
   )

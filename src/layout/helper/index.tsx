@@ -2,7 +2,9 @@ import styles from './Helper.module.scss';
 import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import { MdOutlineQuestionMark, MdClose, MdEmail, MdLocationOn, MdOutlineSmartphone } from 'react-icons/md';
-import { AiFillInstagram, AiFillFacebook, AiFillGoogleCircle, AiOutlineClockCircle } from 'react-icons/ai';
+import { AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
+
+import { google_location, instagram, facebook, phone, email } from '@data/social';
 
 const HelperIndex = () => {
     const [open, setOpen] = useState(false);
@@ -28,35 +30,27 @@ const HelperIndex = () => {
                 <div className={styles.cover} onClick={() => setOpen(false)}>
 
                     <div onClick={e => e.stopPropagation()} className={styles.content}>
-                        <Link href={"/"} rel={"noopener noreferrer"} target={"_blank"}>
+                        <Link href={instagram} rel={"noopener noreferrer"} target={"_blank"}>
                             <p>Instagram</p>
                             <div><AiFillInstagram/></div>
                         </Link>
 
-                        <Link href={"/"} rel={"noopener noreferrer"} target={"_blank"}>
+                        <Link href={facebook} rel={"noopener noreferrer"} target={"_blank"}>
                             <p>Facebook</p>
                             <div><AiFillFacebook/></div>
                         </Link>
-                        <Link href={"/"} rel={"noopener noreferrer"} target={"_blank"}>
-                            <p>Google</p>
-                            <div><AiFillGoogleCircle/></div>
-                        </Link>
 
-                        <Link href="mailto:hello@thenailist.co.uk">
+                        <Link href={`mailto:${email}`}>
                             <p>Email</p>
                             <div><MdEmail/></div>
                         </Link>
 
-                        <Link href="tel:02086167977">
+                        <Link href={`tel:${phone}`}>
                             <p>Phone</p>
                             <div> <MdOutlineSmartphone/> </div>
                         </Link>
 
-                        <Link 
-                            href="https://www.google.com/maps/place/Hippodrome/@51.511657,-0.131738,17z/data=!3m1!4b1!4m6!3m5!1s0x487604cd881e209d:0x144845c5aba0da3c!8m2!3d51.511657!4d-0.1291577!16zL20vMDR2Zmx3?entry=ttu"
-                            rel={"noopener noreferrer"} 
-                            target={"_blank"}
-                        >
+                        <Link href={google_location} rel={"noopener noreferrer"} target={"_blank"}>
                             <p>Location</p>
                             <div><MdLocationOn /></div>
                         </Link>
