@@ -25,8 +25,6 @@ const Large = () => {
 
   const {scrollY} = useScroll();
 
-  console.log(scrollY);
-
   return (
     <div className={styles.container}>
 

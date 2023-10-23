@@ -12,24 +12,24 @@
     }
     a{
       text-align: center;
-      font-size: 1.3rem;
-      width: 100%;
+      font-size: 1.1rem;
     }
     h2{
       border-top: 4px solid var(--clr-main);
       border-bottom: 4px solid var(--clr-main);
-      width: 220px;
+      width: 185px;
       margin: auto;
     }
     b{
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       margin-top: 0.1rem;
     }
   }
   .hamburgerIsOpen{
     position: relative;
     color: var(--clr-main);
+    font-size: 0.8rem;
     a{
       color: var(--clr-main);
     }

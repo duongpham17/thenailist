@@ -6,7 +6,6 @@ import { Squeeze as Hamburger } from 'hamburger-react';
 import useOpen from '@hooks/useOpen';
 import { adminLinks, userLinks } from '../data';
 import Observer from '@components/observer/Observer';
-import Line from '@components/line/Style1';
 import {bars} from "../data";
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
@@ -46,7 +45,7 @@ const Small = () => {
 
       <div className={`${styles.header} ${open ? styles.hamburgerIsOpen : ""}`}>      
         <div className={styles.sides}>
-          <Hamburger onToggle={onOpen} toggled={open}/>
+          <Hamburger onToggle={onOpen} toggled={open} size={20}/>
         </div>
         <Link href="/" onClick={() => setOpen(false)}>
           <h2>THE NAILIST</h2>
