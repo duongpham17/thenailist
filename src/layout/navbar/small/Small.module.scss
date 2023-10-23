@@ -16,14 +16,15 @@
       width: 100%;
     }
     h2{
-      border-top: 2px solid var(--clr-main);
-      border-bottom: 2px solid var(--clr-main);
-      width: 205px;
+      border-top: 4px solid var(--clr-main);
+      border-bottom: 4px solid var(--clr-main);
+      width: 220px;
       margin: auto;
     }
     b{
       display: block;
       font-size: 0.8rem;
+      margin-top: 0.1rem;
     }
   }
   .hamburgerIsOpen{

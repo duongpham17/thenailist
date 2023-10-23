@@ -6,9 +6,9 @@ import Footer from 'layout/footer';
 import Helper from 'layout/helper';
 import UseAuthentication from '@context/useAuthentication';
 import progress from '@misc/progress';
-import { Noto_Sans } from 'next/font/google';
+import { Libre_Franklin } from 'next/font/google';
 
-const font = Noto_Sans({subsets: ["latin"], weight: ["200","300","400"]})
+const font = Libre_Franklin({subsets: ["latin"], weight: ["200","300","400"]})
 progress();
 
 export default function App({ Component, pageProps }: AppProps) {
