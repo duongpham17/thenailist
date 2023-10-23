@@ -9,7 +9,7 @@ html, body {
 }
   
 body{
-  background: white;
+  background: var(--clr-background);
 }
 .bodyScrollBar{
   overflow: hidden;
@@ -18,14 +18,18 @@ body{
   }
 }
   
-a, button, input, li, ul, p, q, textarea {
+a, button, input, li, ul, p, q, textarea{
   text-decoration: none;
   outline: none;
   border: none;
   background: none;
   list-style: none;
   font-size: 1rem;
-  color: black;
+  color: var(--clr-main);
+}
+
+h1, h2, h3, div, small, b, span{
+  color: var(--clr-main);
 }
 
 img{

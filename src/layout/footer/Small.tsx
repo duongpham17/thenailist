@@ -13,15 +13,15 @@ const Small = () => {
         <div>
           <b>LOCATION</b>
           <Link href={google_location} rel={"noopener noreferrer"} target={"_blank"}>
-            {shop_location.split(",").map((el, index) => <p key={el}>{el}{index === 2 ? "" : ","}</p>)}
+            {shop_location.split(",").map((el, index) => <p key={el}>{el}</p>)}
           </Link>
         </div>
 
         <div>
           <b>HOURS</b>
-          <p> {hours.weekdays.name} - {hours.weekdays.time} </p>           
-          <p> {hours.saturday.name} - {hours.saturday.time} </p>    
-          <p> {hours.sunday.name} - {hours.sunday.time} </p>  
+          <p> {hours.weekdays.name} : {hours.weekdays.time} </p>           
+          <p> {hours.saturday.name} : {hours.saturday.time} </p>    
+          <p> {hours.sunday.name} : {hours.sunday.time} </p>  
         </div>
 
         <div>

@@ -50,7 +50,7 @@ const Small = () => {
         </div>
         <Link href="/" onClick={() => setOpen(false)}>
           <h2>THE NAILIST</h2>
-          <small>NAILS - BROWS - BEAUTY</small>
+          <b>NAILS - BROWS - BEAUTY</b>
         </Link>
         {open ? 
           <div className={styles.sides}>
@@ -90,7 +90,6 @@ const Small = () => {
                     {el.name} 
                   </Link>
                 )}
-                {(user.role === "admin" ? adminLinks.length : userLinks.length) ? <Line/> : ""}
               </div>
             }
 
