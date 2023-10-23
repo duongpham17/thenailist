@@ -1,7 +1,6 @@
 .container{
-    border-top: 1px solid var(--clr-main);
+    border-top: 1px solid var(--clr-main-light);
     padding: 1rem;
-    background-color: black;
 
     .about{
         padding: 1rem 0;
@@ -14,7 +13,6 @@
             margin-bottom: 0.5rem;
         }
         p, a{
-            color: white;
             display: block;
             margin-bottom: 0.3rem;
         }
@@ -24,10 +22,9 @@
     }
 
     .links{
-        border-top: 1px solid var(--clr-light-light);
+        border-top: 1px solid var(--clr-main-light);
         padding: 1rem;
         a{
-            color: white;
             width: 100%;
             text-align: center;
             display: block;
@@ -37,10 +34,10 @@
 
     .copyright{
         padding: 0.5rem;
-        border-top: 1px solid var(--clr-light-light);
+        border-top: 1px solid var(--clr-main-light);
         text-align: center;
         small{
-            color: var(--clr-light-light);
+            color: var(--clr-dark);
         }
     }
 
