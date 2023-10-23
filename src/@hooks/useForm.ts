@@ -13,7 +13,17 @@ export const useForm = <T>(initialState: T, callback: CallableFunction, validati
     const [loading, setLoading] = useState<boolean>(false);
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-        setValues({...values, [event.target.name] : event.target.value});
+        if(event.target.name.includes(".")){
+            const keys = event.target.name.split(".");
+            const nested = values as any
+            const n = nested[keys[0]];
+            setValues({...values, [keys[0]]: {
+                ...n,
+                [keys[1]]: event.target.value
+            }});
+        } else {
+            setValues({...values, [event.target.name] : event.target.value});
+        }
         if(!edited) setEdited(true);
     };
 

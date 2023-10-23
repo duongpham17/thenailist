@@ -1,0 +1,66 @@
+.container {
+    max-width: 1100px;
+    margin: auto;
+
+    .element {
+        margin: 4rem;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+
+        &:nth-child(odd) {
+            grid-template-areas: 
+            "description images";
+        }
+
+        &:nth-child(even) {
+            grid-template-areas: 
+            "images description";
+        }
+        
+        .description, .images{
+
+        }
+
+        .description {
+            grid-area: description;
+            padding: 1rem;
+            h2 {
+                font-weight: 600;
+                font-size: 2rem;
+            }
+            p, b, small{
+                margin: 1rem 0;
+                display: block;
+                font-weight: 400;
+                line-height: 1.5rem;
+                font-size: 0.9rem;
+            }
+            small {
+                font-size: 0.8rem;
+            }
+            a{
+                display: block;
+                background-color: var(--clr-main-fade);
+                padding: 0.7rem;
+                text-align: center;
+                max-width: 200px;
+
+                &:hover{
+                    background-color: var(--clr-main);
+                    color: var(--clr-main-fade);
+                }
+            }
+        }
+
+        .images {
+            grid-area: images;
+
+            img {
+                width: 450px;
+                height: 300px;
+            }
+        }
+    }
+}
