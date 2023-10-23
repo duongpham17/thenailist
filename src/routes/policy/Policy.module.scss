@@ -1,0 +1,35 @@
+.container{
+    h1{
+        text-align: center;
+        padding: 3rem 1rem;
+        font-size: 3rem;
+    }
+
+    .map{
+        background-color: white;
+        .element{
+            h2{
+                text-align: center;
+                padding: 2rem 1rem;
+                font-size: 1.5rem;
+                background-color: var(--clr-main-fade);
+            }
+            .text{
+                max-width: 800px;
+                margin: auto;
+                padding: 2rem;
+                div{
+                    display: flex;
+                    margin-bottom: 1rem;
+                }
+                b{
+                    font-size: 1.3rem;
+                    margin-right: 1rem;
+                }
+                p{
+                    margin: 1rem;
+                }
+            }
+        }
+    }
+}

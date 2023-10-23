@@ -44,6 +44,24 @@ export const adminLinks = [
     value: "team",
     href: "/admin/teams",
   },
+  {
+    id: "5",
+    name: "Terms and conditions",
+    value: "terms and conditions",
+    href: "/admin/terms",
+  },
+  {
+    id: "6",
+    name: "Policy",
+    value: "policy",
+    href: "/admin/policy",
+  },
+  {
+    id: "7",
+    name: "Frequently asked questions",
+    value: "faq",
+    href: "/admin/faq",
+  },
 ]
   
 export const userLinks = [

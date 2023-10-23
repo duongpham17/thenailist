@@ -1,0 +1,85 @@
+.container{
+    h1{
+        text-align: center;
+        padding: 3rem 1rem;
+        font-size: 3rem;
+    }
+
+    .search{
+        h3{
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        form{
+            max-width: 500px;
+            margin: auto;
+            margin-bottom: 3rem;
+            input{
+                background-color: var(--clr-light-light);
+                padding: 0.5rem 1rem;
+                text-align: center;
+                width: 100%;
+                border-radius: 50px;
+                transition: 0.2s ease-in-out;
+                margin-bottom: 0.5rem;
+                box-sizing: border-box;
+                
+                &:hover{
+                    border-color: var(--clr-main);
+                }
+            }
+        }
+        .results{
+            background-color: white;
+            padding: 5rem 1rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            .item{
+                display: flex;
+                margin-bottom: 1rem;
+                p{
+                    margin-bottom: 0.5rem;
+                }
+                .answer{
+                    color: rgb(62, 62, 62);
+                }
+            }
+            b{
+                font-size: 1.3rem;
+                width: 50px;
+            }
+        }
+    }
+
+    .map{
+        background-color: white;
+        .element{
+            h2{
+                text-align: center;
+                padding: 2rem 1rem;
+                font-size: 1.5rem;
+                background-color: var(--clr-main-fade);
+            }
+            .text{
+                max-width: 800px;
+                margin: auto;
+                padding: 2rem;
+                .item{
+                    display: flex;
+                    margin-bottom: 1rem;
+                    p{
+                        margin-bottom: 0.5rem;
+                    }
+                    .answer{
+                        color: rgb(62, 62, 62);
+                    }
+                }
+                b{
+                    font-size: 1.3rem;
+                    width: 50px;
+                }
+            }
+        }
+    }
+}

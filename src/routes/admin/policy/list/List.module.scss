@@ -1,0 +1,39 @@
+.container{
+    margin: 1rem;
+
+    .element{
+        border: 1px solid black;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .map{
+
+            .item{
+                border-bottom: 1px dashed var(--clr-dark-light);
+                padding: 0.3rem 0;
+                cursor: pointer;
+                display: flex;
+
+                button{
+                    margin-right: 1rem;
+                    min-width: 50px;
+                    border: 1px solid black;
+                }
+                p{
+                   white-space: pre-line;
+                }
+            }
+            .selected{
+                background-color: var(--clr-light);
+            }
+        }
+    }
+
+}
