@@ -10,6 +10,7 @@ export interface PropsTypes {
 }; 
 
 export const getStaticProps = async () => {
+  try{
   const about = await api.get('/about');
   const teams = await api.get('/teams');
 
@@ -19,6 +20,15 @@ export const getStaticProps = async () => {
       teams: teams.data.data || []
     },
     revalidate: 60 * 60 * 24 * 1  // in days
+  } 
+  } catch(err){
+    return {
+      props: {
+        about: [],
+        teams: []
+      },
+      revalidate: 60 * 60 * 24 * 1  // in days
+    } 
   }
 };
 
