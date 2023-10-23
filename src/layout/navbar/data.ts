@@ -26,6 +26,12 @@ export const adminLinks = [
     value: "prices",
     href: "/admin/prices",
   },
+  {
+    id: "2",
+    name: "News",
+    value: "news",
+    href: "/admin/news",
+  },
 ]
   
 export const userLinks = [

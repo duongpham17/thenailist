@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { MdOutlineQuestionMark, MdClose, MdEmail, MdLocationOn, MdOutlineSmartphone } from 'react-icons/md';
 import { AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
 
-import { google_location, instagram, facebook, phone, email } from '@data/social';
+import { google_location, instagram, facebook, phone, email } from '@data/business';
 
 const HelperIndex = () => {
     const [open, setOpen] = useState(false);

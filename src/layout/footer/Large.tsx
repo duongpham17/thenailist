@@ -2,7 +2,7 @@ import styles from './Large.module.scss';
 import React from 'react';
 import Link from 'next/link';
 
-import { google_location, phone, shop_location, hours, email } from '@data/social';
+import { google_location, phone, shop_location, hours, email } from '@data/business';
 
 const Large = () => {
   return (

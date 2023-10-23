@@ -1,11 +1,11 @@
 import Metadata from '@metadata';
-import Prices from 'routes/admin/prices';
+import News from 'routes/admin/news';
 
 const Index = () => {
   return (
     <>
-      <Metadata title="Admin Prices" />
-      <Prices />
+      <Metadata title="Admin News" />
+      <News />
     </>
   )
 }
