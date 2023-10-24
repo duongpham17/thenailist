@@ -1,6 +1,6 @@
 .container{
 
-    .login{
+    .loggedInContainer{
         border-bottom: 1px solid black;
         justify-content: center;
         padding: 0.5rem;
@@ -11,7 +11,7 @@
         }
     }
 
-    .brand{
+    .logoContainer{
         text-align: center;
         padding: 1rem;
         h1{
@@ -31,16 +31,13 @@
         }
     }
 
-    nav{
+    .barsContainer{
         display: inline-flex;
         width: 100%;
         justify-content: center;
-        z-index: 10;
-
         .bar{
-            position: relative;
             z-index: 10;
-
+            position: relative;
             &:hover{
                 .btn{
                     color: var(--clr-main-light);
@@ -54,7 +51,6 @@
                     background-color: var(--clr-main-fade);
                 }
             }
-
             .btn:hover + {
                 ul{
                     display: block;
@@ -69,9 +65,9 @@
             .btn{
                 display: flex;
                 align-items: center;
-                padding: 1rem;
+                padding: 0.5rem 0.7rem;
                 width: 100%;
-                height: 50px;
+                height: 40px;
                 font-size: 0.8rem;
                 svg{
                     margin-left: 0.5rem;
@@ -98,12 +94,6 @@
             }
         }
     }
-    .fixed{
-        position: fixed;
-        background-color: white;
-        top: 0px;
-    }
-
     .links{
         display: flex;
         justify-content: center;
@@ -118,5 +108,14 @@
         .selected{
             background-color: var(--clr-main-fade);
         }
+    }
+
+    .fixedContainer{
+        z-index: 10;
+        position: fixed;
+        background-color: white;
+        top: 0;
+        left: 0;
+        width: 100%;
     }
 }

@@ -14,7 +14,26 @@ import { MdLogout, MdKeyboardArrowDown } from 'react-icons/md';
 
 import useScroll from '@hooks/useScroll';
 
-const Large = () => {
+const LargeIndex = () => {
+
+  return (
+    <div className={styles.container}>
+
+      <Fixed />
+
+      <LoggedIn />
+
+      <Logo />
+
+      <Bars />
+
+    </div>
+  )
+}
+
+export default LargeIndex;
+
+const LoggedIn = () => {
 
   const {user} = useContext(Context);
 
@@ -23,79 +42,67 @@ const Large = () => {
     window.location.reload();
   };
 
+  return ( user?.role ?
+      <div className={styles.loggedInContainer}>
+        <SlideIn icon={"Logged in menu"} iconOpen={<Button label1={<Flex><small>Logout</small> <MdLogout/></Flex>} onClick={logout} />}>
+            <small>{user.role} | {user.email}</small>
+            <Line />
+            {(user.role === "admin" ? adminLinks : userLinks).map(el => 
+              <Link2 key={el.id} href={el.href} value={el.name} style={{margin: "0.5rem 0"}} color="black" />  
+            )}
+        </SlideIn>
+      </div>
+    : 
+    null
+  )
+};
+
+const Fixed = () => {
   const {scrollY} = useScroll();
 
-  return (
-    <div className={styles.container}>
-
-    { user?.role &&
-        <div className={styles.login}>
-          <SlideIn icon={"Logged in menu"} iconOpen={<Button label1={<Flex><small>Logout</small> <MdLogout/></Flex>} onClick={logout} />}>
-              <small>{user.role} | {user.email}</small>
-              <Line />
-              {(user.role === "admin" ? adminLinks : userLinks).map(el => 
-                <Link2 key={el.id} href={el.href} value={el.name} style={{margin: "0.5rem 0"}} color="black" />  
-              )}
-          </SlideIn>
-        </div>
-    }
-
-      <div className={styles.brand}>
-        <Link href="/">
-          <h1>THE NAILIST</h1>
-          <b>NAILS - BROWS - BEAUTY</b>
-        </Link>
-      </div>
-
-      <nav className={scrollY >= 200 ? styles.fixed : ""}>
-        {bars.map(el => 
-          <div className={styles.bar} key={el.id}>
-            {el.links.length ?
-              <>
-                <button className={styles.btn}><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></button>
-                <ul>
-                  {el.links.map((l, i) => 
-                    <li key={i}><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
-                  )}
-                </ul>
-              </>
-            : 
-              el.href ? 
-                <Link 
-                  className={`${styles.btn} ${el.name.toLowerCase() === "book now" ? styles.book : ""}`} 
-                  href={el.href}>{el.name.toUpperCase()}
-                </Link> 
-              : 
-                ""
-            }
-          </div>
-        )}
-      </nav>
-
-      {/* <div className={styles.links}>
-        {links.map((el) => 
-            el.href.includes("http") ?
-            <Link 
-                key={el.id}
-                href={el.href} 
-                className={router.pathname.includes(el.value) ? styles.selected : ""}
-                rel="noopener noreferrer" target="_blank"
-              >
-              {el.name.toUpperCase()} 
-            </Link> 
-          : 
-              <Link 
-                key={el.id}
-                href={el.href} 
-                className={router.pathname.includes(el.value) ? styles.selected : "" }
-              >
-              {el.name.toUpperCase()} 
-            </Link>
-        )}
-      </div> */}
-
+  return ( scrollY >= 240 ?
+    <div className={styles.fixedContainer}>
+      <LoggedIn />
+      <Bars />
     </div>
+    : 
+    null
   )
 }
 
-export default Large
+const Logo = () => {
+  return (
+    <div className={styles.logoContainer}>
+      <Link href="/">
+        <h1>THE NAILIST</h1>
+        <b>NAILS - BROWS - BEAUTY</b>
+      </Link>
+    </div>
+  )
+};
+
+const Bars = () => {
+  return (
+    <div className={styles.barsContainer}>
+      {bars.map(el => 
+        <div className={styles.bar} key={el.id}>
+          {el.links.length ?
+            <>
+              <button className={styles.btn}><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></button>
+              <ul>
+                {el.links.map((l, i) => 
+                  <li key={i}><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
+                )}
+              </ul>
+            </>
+          : 
+            el.href ?  el.href.includes("http") 
+            ? <Link href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link> 
+            : <Link className={`${styles.btn} ${el.name.toLowerCase() === "book now" ? styles.book : ""}`} href={el.href}>{el.name.toUpperCase()}</Link> 
+            : null
+          }
+        </div>
+      )}
+    </div>
+  )
+};

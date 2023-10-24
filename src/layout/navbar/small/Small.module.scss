@@ -1,79 +1,87 @@
 .container{
   padding: 0.5rem;
 
-  .header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .sides{
-      z-index: 16;
-      width: 100px;
-    }
+  .headerContainer{
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    z-index: 10;
     a{
       text-align: center;
-      font-size: 1rem;
-    }
-    h2{
-      border-bottom: 4px solid var(--clr-main);
       width: 180px;
       margin: auto;
     }
+    h2{
+      border-bottom: 4px solid var(--clr-main);
+    }
     b{
-      display: block;
       font-size: 0.7rem;
       margin-top: 0.1rem;
     }
-  }
-  .hamburgerIsOpen{
-    position: relative;
-    color: var(--clr-main);
-    font-size: 0.8rem;
-    a{
-      color: var(--clr-main);
+    @media (max-width: 400px) {
+      b{
+        font-size: 0.6rem;
+        display: none;
+      }
+      h2{
+        border-bottom: none;
+      }
     }
   }
+  .hamburgerIsOpen{
+    color: var(--clr-main);
+    font-size: 0.8rem;
+  }
 
-  .bars{
+  .barsContainer{
     width: 100%;
     margin-top: 1rem;
     display: flex;
     justify-content: center;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
 
     a{
-      margin: 0 0.3rem;
       padding: 0.4rem;
-      display: block;
       background-color: var(--clr-main);
       color: white;
       width: 100px;
       text-align: center;
       font-size: 0.7rem;
-
       &:hover{
-        opacity: 0.8;
+        background-color: var(--clr-main-dark);
       }
+    }
+
+    @media (max-width: 400px) {
+      margin-top: 0rem;
     }
   }
 
-  .menu{
+  .menuContainer{
     background-color: var(--clr-main-fade);
     position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 15;
+    z-index: 12;
     transition: 0.3s ease-in-out;
     visibility: hidden;
     opacity: 0;
+    overflow-y: auto;
 
-    .contents{
+    .actions{
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+    }
+
+    .content{
       position: relative;
-      margin-top: 4rem;
+      margin-top: 0rem;
 
       .admin{
-        border: 1px solid var(--clr-dark);
+        border-bottom: 1px solid var(--clr-dark);
         h3, a{
           padding: 0.5rem 1rem;
           display: block;
@@ -109,48 +117,43 @@
         }
       }
     }
-
   }
-
   .menuIsOpen{
     visibility:visible;
     opacity: 1;
-    
-    .contents{
+    .content{
       animation: slideup 0.5s linear;
     }
-
     @keyframes slideup {
       0%{
         margin-top: 10rem;
       }
       100%{
-      margin-top: 4rem;
+        margin-top: 0;
       }
     }
   }
-
   .menuIsClose{
-    .contents{
+    .content{
       animation: slidedown 0.5s linear;
     }
-
     @keyframes slidedown {
       0%{
-      margin-top: 4rem;
+        margin-top: 0;
       }
       100%{
         margin-top: 10rem;
       }
     }
   }
-      
 }
 
-.fixed{
+.fixedContainer{
   position: fixed;
   top: 0;
-  z-index: 10;
   background-color: white;
   width: 100%;
+  left: 0;
+  z-index: 10;
+  padding: 0.5rem 0;
 }

@@ -1,32 +1,92 @@
 import styles from './Small.module.scss';
 import React, {useEffect, useContext} from 'react';
+import {IUsers} from '@database/models/users';
 import {Context} from '@context/useAuthentication';
 import Link from 'next/link';
-import { Squeeze as Hamburger } from 'hamburger-react';
-import { adminLinks, userLinks } from '../data';
-import Observer from '@components/observer/Observer';
-import {bars} from "../data";
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { adminLinks, userLinks, bars } from '../data';
 import useScroll from '@hooks/useScroll';
 import useOpen from '@hooks/useOpen';
 
-const Small = () => {
+import Observer from '@components/observer/Observer';
+
+import { Squeeze as Hamburger } from 'hamburger-react';
+import { MdKeyboardArrowDown } from 'react-icons/md';
+
+interface Props {
+  open: boolean,
+  user: IUsers | null,
+  openItems: any[],
+  onOpen: () => void,
+  onOpenItems: (value: string) => void,
+}
+
+const SmallIndex = () => {
   
-  const {open, setOpen, onOpen, openItems, onOpenItems} = useOpen({initialState: ""});
+  const {open, onOpen, openItems, onOpenItems} = useOpen({initialState: ""});
 
   const {user} = useContext(Context);
-
-  const {scrollY} = useScroll();
 
   useEffect(() => {
     if(open) document.body.classList.add("bodyScrollBar");
     return () => document.body.classList.remove('bodyScrollBar');
   }, [open]);
 
-  const logout = () => {
-    localStorage.removeItem("user");
-    window.location.reload();
-  };
+  const props = {
+    open, 
+    onOpen, 
+    openItems,
+    onOpenItems, 
+    user,
+  }
+
+  return (
+    <div className={styles.container}>
+
+      <Fixed {...props} />
+
+      <Header {...props} />
+
+      <Bars />
+
+      <Menu {...props} />
+      
+    </div>
+  )
+}
+
+export default SmallIndex;
+
+const Fixed = (props: Props) => {
+  const {scrollY} = useScroll();
+
+  return ( scrollY >= 160 ?
+    <div className={styles.fixedContainer}>
+      <Header {...props} />
+      <Bars />
+    </div>
+    : null
+  )
+}
+
+const Header = ({open, onOpen}: Props) => {
+
+  return (
+    <div className={`${styles.headerContainer} ${open ? styles.hamburgerIsOpen : ""}`}>      
+      <div className={styles.sides}>
+        <Hamburger onToggle={onOpen} toggled={open} size={20}/>
+      </div>
+      <Link href="/">
+        <h2>THE NAILIST</h2>
+        <b>NAILS - BROWS - BEAUTY</b>
+      </Link>
+      <div>
+        
+      </div>
+    </div>
+  )
+}
+
+const Bars = () => {
 
   const quickbar = [
     {
@@ -41,49 +101,37 @@ const Small = () => {
       name: "Find",
       href: "/about#gettinghere"
     },
-  ]
+  ];
 
   return (
-    <div className={`${styles.container} ${scrollY >= 130 ? styles.fixed : ""}`}>
+    <div className={styles.barsContainer}>
+      {quickbar.map(el =>
+        <Link key={el.name} href={el.href}>{el.name.toUpperCase()}</Link>  
+      )}
+    </div>
+  )
+}
 
-      <div className={`${styles.header} ${open ? styles.hamburgerIsOpen : ""}`}>      
-        <div className={styles.sides}>
-          <Hamburger onToggle={onOpen} toggled={open} size={20}/>
-        </div>
-        <Link href="/" onClick={() => setOpen(false)}>
-          <h2>THE NAILIST</h2>
-          <b>NAILS - BROWS - BEAUTY</b>
-        </Link>
-        {open ? 
-          <div className={styles.sides}>
+const Menu = ({user, open, onOpen, onOpenItems, openItems}: Props) => {
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+
+  return (
+    <Observer>
+        <div className={`${styles.menuContainer} ${open ? styles.menuIsOpen : styles.menuIsClose}`}>
+
+          <div className={styles.actions}>
+            <Hamburger onToggle={onOpen} toggled={open} size={20}/>
             {!user 
-            ? 
-              <Link href="login" onClick={onOpen}>  
-                <small>Login</small>
-              </Link>
-            :
-              <button onClick={logout}>
-                Logout
-              </button>
+              ? <Link href="login" onClick={onOpen}> Login </Link>
+              : <button onClick={logout}> Logout </button>
             }
-          </div>  
-          :
-          <div className={styles.sides}>
-            
           </div>
-        }
-      </div>
-
-      <div className={styles.bars}>
-        {quickbar.map(el =>
-          <Link key={el.name} href={el.href}>{el.name.toUpperCase()}</Link>  
-        )}
-      </div>
-
-      <Observer>
-        <div className={`${styles.menu} ${open ? styles.menuIsOpen : styles.menuIsClose}`}>
-          <div className={styles.contents}>
-
+          
+          <div className={styles.content}>
             {user?.role &&
               <div className={styles.admin}>
                 {user.role === "admin" ? <h3>Admin Pages</h3> : ""}
@@ -97,8 +145,9 @@ const Small = () => {
 
             {bars.map(el => 
               <div className={styles.bar} key={el.id}>
-                {el.links.length ?
-                  <>
+
+                {!!el.links.length &&
+                  <div>
                     <button className={styles.btn} onClick={() => onOpenItems(el.id.toString())}>
                       <span>{el.name.toUpperCase()}</span> 
                       <MdKeyboardArrowDown />
@@ -110,38 +159,21 @@ const Small = () => {
                         )}
                       </ul>
                     }
-                  </>
-                : 
-                  el.href ? <Link className={styles.btn} href={el.href} onClick={onOpen}>{el.name.toUpperCase()}</Link> : ""
+                  </div>
                 }
+
+                {!el.links.length && el.href 
+                    ? el.href.includes("http") 
+                    ? <Link className={styles.btn} href={el.href} rel="noopener noreferrer" target="_blank"> {el.name} </Link> 
+                    : <Link className={styles.btn} href={el.href} onClick={onOpen}>{el.name} </Link> 
+                    : ""
+                }
+
               </div>
             )}
-
-            {/* {links.map((el) => 
-              el.href.includes("http") ?
-                <Link 
-                    key={el.id}
-                    href={el.href} 
-                    rel="noopener noreferrer" target="_blank"
-                  >
-                  {el.name} 
-                </Link> 
-              : 
-                  <Link 
-                    key={el.id}
-                    href={el.href} 
-                    onClick={onOpen}
-                  >
-                  {el.name} 
-                </Link>
-              )} */}
 
             </div>
         </div>
       </Observer>
-      
-    </div>
   )
 }
-
-export default Small
