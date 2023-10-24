@@ -14,7 +14,7 @@ interface Props<T> {
     autoplay?: boolean,
 }
 
-const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay}: Props<T>) => {
+const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay=false}: Props<T>) => {
 
     return (
         <div className={styles.container}>
@@ -30,7 +30,7 @@ const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay
                     className={styles.swiper}
                     modules={[Navigation, Pagination, Autoplay]} 
                     spaceBetween={5} 
-                    autoplay={autoplay ? {} : {delay: 5000}}
+                    autoplay={!autoplay ? false : {delay: 5000}}
                     slidesPerView={slidersPerView} 
                     navigation={{
                         prevEl: ".prev",

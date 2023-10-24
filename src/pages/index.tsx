@@ -7,7 +7,7 @@ import {IReviewsApi} from '@database/models/reviews';
 
 export interface PropsTypes {
   news: INewsApi[] | [],
-  reviews: IReviewsApi | []
+  reviews: IReviewsApi[] | []
 }; 
 
 export const getStaticProps = async () => {
