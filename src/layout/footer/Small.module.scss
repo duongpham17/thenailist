@@ -1,7 +1,6 @@
 .container{
     border-top: 1px solid var(--clr-main-light);
     padding: 1rem;
-    background-color: var(--clr-main-fade);
 
     .about{
         padding: 1rem 0;
@@ -21,29 +20,4 @@
             color: var(--clr-main-dark);
         }
     }
-
-    .links{
-        border-top: 1px solid var(--clr-main-light);
-        padding: 1rem;
-        a{
-            width: 100%;
-            text-align: center;
-            display: block;
-            margin: 0.3rem 0;
-
-            &:hover{
-                color: var(--clr-main-light);
-            }
-        }
-    }
-
-    .copyright{
-        padding: 0.5rem;
-        border-top: 1px solid var(--clr-main-light);
-        text-align: center;
-        small{
-            color: var(--clr-dark);
-        }
-    }
-
 }

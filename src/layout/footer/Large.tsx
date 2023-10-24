@@ -32,16 +32,6 @@ const Large = () => {
 
       </section>
 
-      <section className={styles.links}>
-        <Link href="/faq">FAQ</Link>
-        <Link href="/policy">Privacy Policy</Link>
-        <Link href="/terms">Terms & Conditions</Link>
-      </section>
-
-      <section className={`${styles.copyright}`}>
-        <small>@ 2023 The Nailist Limited. All rights reserved</small>
-      </section>
-
     </footer>
   )
 }
