@@ -40,7 +40,10 @@
             position: relative;
             &:hover{
                 .btn{
-                    color: var(--clr-main-light);
+                    *{
+                        color:var(--clr-main-dark);
+                    }
+                    color:var(--clr-main-dark);
                 }
             }
 
@@ -48,7 +51,7 @@
                 background-color: var(--clr-main);
                 color: white;
                 &:hover{
-                    background-color: var(--clr-main-fade);
+                    background-color: var(--clr-main-dark);
                 }
             }
             .btn:hover + {
@@ -84,7 +87,7 @@
                 li{
                     padding: 0.3rem 1rem;
                     a:hover{
-                        color: var(--clr-main-light);
+                        color: var(--clr-main-dark);
                     }
 
                     a{

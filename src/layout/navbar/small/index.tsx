@@ -1,7 +1,8 @@
 import styles from './Small.module.scss';
 import React, {useEffect, useContext} from 'react';
 import {IUsers} from '@database/models/users';
-import {Context} from '@context/useAuthentication';
+import {Context as ServicesContext} from '@context/useServices';
+import {Context as AuthenticationContext} from '@context/useAuthentication';
 import Link from 'next/link';
 import { adminLinks, userLinks, bars } from '../data';
 import useScroll from '@hooks/useScroll';
@@ -24,7 +25,7 @@ const SmallIndex = () => {
   
   const {open, onOpen, openItems, onOpenItems} = useOpen({initialState: ""});
 
-  const {user} = useContext(Context);
+  const {user} = useContext(AuthenticationContext);
 
   useEffect(() => {
     if(open) document.body.classList.add("bodyScrollBar");
@@ -114,6 +115,8 @@ const Bars = () => {
 
 const Menu = ({user, open, onOpen, onOpenItems, openItems}: Props) => {
 
+  const {services} = useContext(ServicesContext);
+
   const logout = () => {
     localStorage.removeItem("user");
     window.location.reload();
@@ -142,6 +145,20 @@ const Menu = ({user, open, onOpen, onOpenItems, openItems}: Props) => {
                 )}
               </div>
             }
+
+          <div className={styles.bar}>
+              <button className={styles.btn} onClick={() => onOpenItems("services123123")}>
+                <span>SERVICES</span> 
+                <MdKeyboardArrowDown />
+              </button>
+              {openItems.includes("services123123") &&
+                <ul>
+                  {services.map(el => 
+                    el.href ? <li key={el.href}><Link href={el.href}>{el.href.toUpperCase()}</Link></li> : "" 
+                  )}
+                </ul>
+              }
+            </div>
 
             {bars.map(el => 
               <div className={styles.bar} key={el.id}>
