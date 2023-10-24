@@ -4,6 +4,7 @@ import { PropsTypes } from 'pages';
 import Introduction from './introdcution';
 import Services from './services';
 import News from './news';
+import Others from './others';
 
 const Index = (props: PropsTypes) => {
 
@@ -15,6 +16,8 @@ const Index = (props: PropsTypes) => {
       <News {...props} />
 
       <Services />
+
+      <Others {...props} />
 
     </>
   )

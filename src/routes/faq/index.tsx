@@ -2,7 +2,13 @@ import styles from './Faq.module.scss';
 import React, {useState} from 'react';
 import {PropsTypes} from 'pages/faq';
 
+import useOpen from '@hooks/useOpen';
+import {MdArrowRight} from 'react-icons/md';
+import {BsDot} from 'react-icons/bs';
+
 const Faq = (props: PropsTypes) => {
+
+    const {openItems, onOpenItems} = useOpen({initialState: ""});
 
     const {faq} = props;
 
@@ -28,7 +34,7 @@ const Faq = (props: PropsTypes) => {
 
     return (
         <div className={styles.container}>
-            <h1>FAQ</h1>
+            <h1>FIND AN ANSWER</h1>
 
             <div className={styles.search}>
 
@@ -43,8 +49,8 @@ const Faq = (props: PropsTypes) => {
                         <div className={styles.item} key={el._id}>
                             <b>{index+1}.</b>
                             <div>
-                                <p>{el.question}</p>
-                                <p className={styles.answer}>Answer: {el.answer}</p>
+                                {el.question && <p>{el.question}</p>}
+                                <p className={styles.answer}>{el.answer}</p>
                             </div>
                         </div>    
                     )}
@@ -55,18 +61,20 @@ const Faq = (props: PropsTypes) => {
             <div className={styles.map}>
                 {faq.map(el => 
                     <div className={styles.element} key={el._id}>
-                        <h2>{el.name}</h2>
-                        <div className={styles.text}>
-                            {el.questions.map((x, index) => 
-                                <div className={styles.item} key={x._id}>
-                                    <b>{index+1}.</b>
-                                    <div>
-                                        <p>{x.question}</p>
-                                        <p className={styles.answer}>Answer: {x.answer}</p>
-                                    </div>
-                                </div>  
-                            )}
-                        </div>
+                        <button onClick={() => onOpenItems(el._id)}>
+                            <MdArrowRight className={openItems.includes(el._id) ? styles.open : ""}/>
+                            <b>{el.name.toUpperCase()}</b>
+                        </button>
+                       {openItems.includes(el._id) && 
+                            <div className={styles.text}>
+                                {el.questions.map((x) => 
+                                    <div className={styles.item} key={x._id}>
+                                        {x.question && <p className={styles.question}><BsDot/> {x.question}</p>}
+                                        <p className={styles.answer}>{x.answer}</p>
+                                    </div>  
+                                )}
+                            </div>
+                        }
                     </div>
                 )}
             </div>

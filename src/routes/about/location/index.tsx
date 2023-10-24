@@ -1,3 +1,4 @@
+import styles from './Location.module.scss';
 import React, { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 
@@ -36,7 +37,8 @@ const GoogleMap = () => {
   }, []);
 
   return (
-    <div id="location">
+    <div id="location" className={styles.container}>
+      <h1>GETTING HERE</h1>
       <div ref={mapContainer} style={{ height: '550px', width: '100%' }} />
     </div>
   );

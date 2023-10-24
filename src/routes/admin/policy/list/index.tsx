@@ -92,12 +92,12 @@ const Element = ({element}: {element: IPolicyApi} ) => {
         }
     };
 
-    const onCreatePrice = () => {
+    const onCreate = () => {
         setOn("create");
         setValues(initialState)
     };
 
-    const onEditPrices = (data: IPolicyApi["policy"][0], index: number) => {
+    const onEdit = (data: IPolicyApi["policy"][0], index: number) => {
         setOn("edit");
         setDeleteIndex(index)
         onSetValue(data)
@@ -121,7 +121,7 @@ const Element = ({element}: {element: IPolicyApi} ) => {
         return onUpdateData(response.data.data);
     };
 
-    const onDeletePrice = async () => {
+    const onDelete = async () => {
         const dataUpdated = {...element};
         dataUpdated.policy.splice(deleteIndex, 1);
         const response = await api.patch("/policy", dataUpdated);
@@ -130,7 +130,7 @@ const Element = ({element}: {element: IPolicyApi} ) => {
         return onUpdateData(response.data.data);
     };
 
-    const onDeletePriceList = async () => {
+    const onDeleteList = async () => {
         const response = await api.delete(`/policy/${element._id}`);
         setOn("");
         return onRemoveData(response.data.data);
@@ -140,14 +140,14 @@ const Element = ({element}: {element: IPolicyApi} ) => {
         <div className={styles.element}>
             <header>
                 <Button label1={<h2>{element.name}</h2>} onClick={() => onEditHeader(element.name)} />
-                <Round label1={<AiOutlinePlus size={13}/>} color="black" onClick={onCreatePrice}/>
+                <Round label1={<AiOutlinePlus size={13}/>} color="black" onClick={onCreate}/>
             </header>
 
             <Line color="black"/>
 
             <div className={styles.map}>
                 {element.policy.map((el, index) => 
-                    <div key={el._id} className={`${styles.item} ${index === reorderIndex ? styles.selected : ""}`} onClick={() => onEditPrices(el, index)}>
+                    <div key={el._id} className={`${styles.item} ${index === reorderIndex ? styles.selected : ""}`} onClick={() => onEdit(el, index)}>
                         <button onClick={(e) => onReorder(e, index)}>{index+1}.</button>
                         <p>{el.description}</p>
                     </div>
@@ -160,7 +160,7 @@ const Element = ({element}: {element: IPolicyApi} ) => {
                         <form onSubmit={onSubmit}>
                             <header>
                                 <h2>{element.name}</h2>
-                                <Button label1={"delete"} color="red" onClick={onDeletePrice}/>
+                                <Button label1={"delete"} color="red" onClick={onDelete}/>
                             </header>
                             
                             <Line />
@@ -179,7 +179,7 @@ const Element = ({element}: {element: IPolicyApi} ) => {
                         <form onSubmit={onSubmit}>
                             <header>
                                 <h2>{element.name}</h2>
-                                <Button label1={"Delete List"} color="red" onClick={onDeletePriceList}/>
+                                <Button label1={"Delete List"} color="red" onClick={onDeleteList}/>
                             </header>
 
                             <Line />

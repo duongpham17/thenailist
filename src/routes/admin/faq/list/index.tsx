@@ -11,6 +11,7 @@ import Button from '@components/button/Button';
 import Container from '@components/containers/Style1';
 import Cover from '@components/cover';
 import Input from '@components/inputs/Input';
+import Textarea from '@components/inputs/Textarea';
 
 import {AiOutlinePlus} from 'react-icons/ai'
 
@@ -151,7 +152,7 @@ const Element = ({element}: {element: IFaqApi} ) => {
                         <button onClick={(e) => onReorder(e, index)}>{index+1}.</button>
                         <div>
                             <p>Question: {el.question}</p>
-                            <p>Answer: {el.answer}</p>
+                            <p>Answer: <br/> {el.answer}</p>
                         </div>
                     </div>
                 )}
@@ -168,9 +169,9 @@ const Element = ({element}: {element: IFaqApi} ) => {
                             
                             <Line />
 
-                            <Input label1="Question" name="question" value={values.question} onChange={onChange} />
+                            <Textarea label1="Question" name="question" value={values.question} onChange={onChange} />
 
-                            <Input label1="Answer" name="answer" value={values.answer} onChange={onChange} />
+                            <Textarea label1="Answer" name="answer" value={values.answer} onChange={onChange} />
                 
                             <Button label1={on === "create" ? "create" : "update"} type="submit" loading={loading} color="black" />
                         </form>

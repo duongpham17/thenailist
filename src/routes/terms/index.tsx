@@ -18,7 +18,7 @@ const Terms = (props: PropsTypes) => {
                             {el.terms.map((x, index) => 
                                 <div key={x._id}>
                                     <b>{index+1}.</b>
-                                    <span>{x.description}</span>
+                                    <p>{x.description}</p>
                                 </div>  
                             )}
                         </div>

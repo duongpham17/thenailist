@@ -28,11 +28,13 @@
                 }
                 p{
                    margin: 0.5rem 0;
+                   white-space: pre-line;
                 }
             }
             .selected{
                 background-color: var(--clr-light);
             }
+
         }
     }
 

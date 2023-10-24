@@ -3,19 +3,33 @@ import Metadata from '@metadata';
 import Home from 'routes/home';;
 
 import {INewsApi} from '@database/models/news';
+import {IReviewsApi} from '@database/models/reviews';
 
 export interface PropsTypes {
-  news: INewsApi[] | []
+  news: INewsApi[] | [],
+  reviews: IReviewsApi | []
 }; 
 
 export const getStaticProps = async () => {
-  const res = await api.get('/news');
-
-  return {
-    props: {
-      news: res.data.data || []
-    },
-    revalidate: 60 * 60 * 24 * 1  // in days
+  try{
+    const news = await api.get('/news');
+    const reviews = await api.get('/reviews');
+  
+    return {
+      props: {
+        news: news.data.data || [],
+        reviews: reviews.data.data || [],
+      },
+      revalidate: 60 * 60 * 24 * 1  // in days
+    }
+  } catch(err){
+    return {
+      props: {
+        news: [],
+        reviews: [],
+      },
+      revalidate: 60 * 60 * 24 * 1  // in days
+    }
   }
 };
 

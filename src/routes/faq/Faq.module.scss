@@ -1,8 +1,9 @@
 .container{
     h1{
         text-align: center;
-        padding: 3rem 1rem;
-        font-size: 3rem;
+        padding: 2rem 1rem;
+        font-size: 2rem;
+        background-color: var(--clr-light-light);
     }
 
     .search{
@@ -12,7 +13,7 @@
         }
         form{
             max-width: 500px;
-            margin: auto;
+            margin: 2rem auto;
             margin-bottom: 3rem;
             input{
                 background-color: var(--clr-light-light);
@@ -46,39 +47,49 @@
                 }
             }
             b{
-                font-size: 1.3rem;
+                font-size: 1rem;
                 width: 50px;
             }
         }
     }
 
     .map{
-        background-color: white;
+        padding: 1rem;
         .element{
-            h2{
-                text-align: center;
-                padding: 2rem 1rem;
-                font-size: 1.5rem;
-                background-color: var(--clr-main-fade);
-            }
-            .text{
-                max-width: 800px;
-                margin: auto;
-                padding: 2rem;
-                .item{
+            border-bottom: 1px solid var(--clr-dark-light);
+            margin: 1rem auto;
+            max-width: 1000px;
+            padding: 0.5rem;
+            button{
+                display: flex;
+                align-items: center;
+                svg{
+                    transition: 0.5s;
+                    font-size: 1.5rem;
                     display: flex;
-                    margin-bottom: 1rem;
-                    p{
-                        margin-bottom: 0.5rem;
-                    }
-                    .answer{
-                        color: rgb(62, 62, 62);
-                    }
                 }
-                b{
-                    font-size: 1.3rem;
-                    width: 50px;
+            }
+            .open{
+                transition: 0.5s;
+                rotate: 90deg;
+            }
+
+            .question, .answer{
+                white-space: pre-line;
+            }
+
+            .question{
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                svg{
+                    font-size: 2rem;
+                    display: flex;
                 }
+            }
+            .answer{
+                padding: 0.5rem 0;
+
             }
         }
     }
