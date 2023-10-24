@@ -20,7 +20,9 @@ const Faq = (props: PropsTypes) => {
 
     const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        const filtered = AllQuestions.filter(el => el.question.includes(value));
+        const filtered = AllQuestions.filter(el => 
+           el.question.toLowerCase().includes(value.toLowerCase()) || el.answer.toLowerCase().includes(value.toLowerCase())
+        );
         if(!value){
           setResults([])
           setSearch(value);
@@ -29,8 +31,6 @@ const Faq = (props: PropsTypes) => {
           setResults(filtered);
         }
     };
-
-    console.log(results);
 
     return (
         <div className={styles.container}>
