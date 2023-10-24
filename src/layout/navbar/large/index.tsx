@@ -1,8 +1,9 @@
 import styles from './Large.module.scss';
 import React, {useContext} from 'react';
-import {Context} from '@context/useAuthentication';
+import {Context as ServicesContext} from '@context/useServices';
+import {Context as AuthenticationContext} from '@context/useAuthentication';
 import Link from 'next/link';
-import {links, adminLinks, userLinks, bars} from '../data';
+import {adminLinks, userLinks, bars} from '../data';
 
 import Button from '@components/button/Button';
 import SlideIn from '@components/slidein/Style1';
@@ -35,7 +36,7 @@ export default LargeIndex;
 
 const LoggedIn = () => {
 
-  const {user} = useContext(Context);
+  const {user} = useContext(AuthenticationContext);
 
   const logout = () => {
     localStorage.removeItem("user");
@@ -82,6 +83,11 @@ const Logo = () => {
 };
 
 const Bars = () => {
+
+  const {services} = useContext(ServicesContext);
+
+  console.log(services);
+
   return (
     <div className={styles.barsContainer}>
       {bars.map(el => 
