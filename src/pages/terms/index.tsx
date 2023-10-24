@@ -15,14 +15,14 @@ export const getStaticProps = async () => {
       props: {
         terms: res.data.data || []
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      //revalidate: 60 * 60 * 24 * 1  // in days
     }
   } catch(err){
     return {
         props: {
           terms: []
         },
-        revalidate: 60 * 60 * 24 * 1  // in days
+        //revalidate: 60 * 60 * 24 * 1  // in days
       }
   }
 };

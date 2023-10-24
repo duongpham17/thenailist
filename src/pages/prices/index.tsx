@@ -14,7 +14,7 @@ export const getStaticProps = async () => {
     props: {
       prices: res.data.data || []
     },
-    revalidate: 60 * 60 * 24 * 1  // in days
+    //revalidate: 60 * 60 * 24 * 1  // in days
   }
 };
 

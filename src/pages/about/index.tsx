@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
       about: about.data.data || [],
       teams: teams.data.data || []
     },
-    revalidate: 60 * 60 * 24 * 1  // in days
+    // revalidate: 60 * 60 * 24 * 1  // in days
   } 
   } catch(err){
     return {
@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
         about: [],
         teams: []
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      // revalidate: 60 * 60 * 24 * 1  // in days
     } 
   }
 };

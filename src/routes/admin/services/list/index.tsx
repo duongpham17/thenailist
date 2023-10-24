@@ -1,17 +1,13 @@
 import styles from './List.module.scss';
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../Context';
-import {INewsApi} from '@database/models/news';
+import {IServicesApi} from '@database/models/services';
 import {api} from '@database/api';
 import {upload, remove} from '@thirdparty/nftstorage';
 import useForm from '@hooks/useForm';
-
-import Line from '@components/line/Style1';
-import Button from '@components/button/Button';
-import Container from '@components/containers/Style1';
-import Cover from '@components/cover';
 import Input from '@components/inputs/Input';
-
+import Textarea from '@components/inputs/Textarea';
+import Button from '@components/button/Button';
 import File from './File';
 
 const List = () => {
@@ -40,19 +36,17 @@ const List = () => {
 
 export default List;
 
-const Child = ({data, index}: {data: INewsApi, index: number}) => {
+const Child = ({data, index}: {data: IServicesApi, index: number}) => {
     const {onRemoveData, onUpdateData} = useContext(Context);
 
-    const [openButtonEdit, setOpenButtonEdit] = useState(false);
-
-    const {values, onChange, onSubmit, edited, loading, onSetValue} = useForm(data, callback);
+    const {values, onChange, onSubmit, edited, onSetValue, loading} = useForm(data, callback);
 
     async function callback(){
         try{
-            const response = await api.patch("/news", values);
+            const response = await api.patch("/services", values);
             onUpdateData(response.data.data)
         } catch(err){
-            console.log(err);
+            console.log(err)
         }
     };
 
@@ -65,7 +59,7 @@ const Child = ({data, index}: {data: INewsApi, index: number}) => {
         const updatedImages = [...values.images, ...urls];
         onSetValue({images: updatedImages});
         values.images = updatedImages;
-        await api.patch("/news", values)
+        await api.patch("/services", values)
     };
 
     const onDeleteImage = async (cid: string, index: number) => {
@@ -73,11 +67,11 @@ const Child = ({data, index}: {data: INewsApi, index: number}) => {
         const removedImage = values.images.filter((el, i) => index !== i);
         values.images = removedImage;
         onSetValue({images: removedImage});
-        await api.patch("/news", values);
+        await api.patch("/services", values);
     };
 
-    const onDeleteNews = async () => {
-        await api.delete(`/news/${data._id}`);
+    const onDeleteList = async () => {
+        await api.delete(`/services/${data._id}`);
         onRemoveData(data);
     };
     
@@ -89,20 +83,32 @@ const Child = ({data, index}: {data: INewsApi, index: number}) => {
                         <p>{index+1}.</p>
                     </div>
 
-                    <div className={styles.delete} onClick={onDeleteNews}>
+                    <div className={styles.delete} onClick={onDeleteList}>
                         <button>Remove</button>
                     </div>
                 </div>
 
                 <form className={styles.description} onSubmit={onSubmit}>
-                    <textarea
-                        name="description"
-                        value={values.description}
+                    <Input
+                        label1="Href (dropdown for services)"
+                        placeholder='Leave empty to ignore from dropdown'
+                        name="href"
+                        value={values.href || ""}
                         onChange={onChange}
                     />
-                    {edited && <Button label1="save" type="submit" color="black" />}
-
-                    <button className={styles.button} type="button" onClick={() => setOpenButtonEdit(true)}>{values.button.name || "link"}</button>
+                    <Input
+                        label1="Name"
+                        name="name"
+                        value={values.name || ""}
+                        onChange={onChange}
+                    />
+                    <Textarea
+                        label1="Description"
+                        name="description"
+                        value={values.description || ""}
+                        onChange={onChange}
+                    />
+                    {edited && <Button label1="save" type="submit" color="black" loading={loading} />}
                 </form>
 
                 <div className={styles.images}>
@@ -113,26 +119,6 @@ const Child = ({data, index}: {data: INewsApi, index: number}) => {
                         onDelete={onDeleteImage}
                     />
                 </div>
-
-            {openButtonEdit &&
-                <Cover onClose={() => setOpenButtonEdit(false)}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
-                        <form onSubmit={onSubmit}>
-                            <header>
-                                <h2>{index+1}.</h2>
-                            </header>
-
-                            <Line />
-
-                            <Input label1="Name of button" name="button.name" value={values.button.name} onChange={onChange} />
-
-                            <Input label1="Href / Link" name="button.href" value={values.button.href} onChange={onChange} />
-            
-                            <Button label1="update" type="submit" loading={loading} color="black" />
-                        </form>
-                    </Container>
-                </Cover>
-            }
 
         </div>
     )

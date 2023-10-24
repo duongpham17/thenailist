@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Context } from '@context/useAuthentication';
-import UseContextPrices from './Context';
+import UseContext from './Context';
 import Actions from './actions';
 import List from './list';
 import Reorder from './reorder';
@@ -12,7 +12,7 @@ const AdminPricesIndex = () => {
   protect(["admin"]);
 
   return (
-    <UseContextPrices>
+    <UseContext>
 
       <Actions />
 
@@ -20,7 +20,7 @@ const AdminPricesIndex = () => {
 
       <Reorder />
       
-    </UseContextPrices>
+    </UseContext>
   )
 }
 

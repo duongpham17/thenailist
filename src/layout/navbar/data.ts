@@ -68,6 +68,12 @@ export const adminLinks = [
     value: "reviews",
     href: "/admin/reviews",
   },
+  {
+    id: "9",
+    name: "Services",
+    value: "services",
+    href: "/admin/services",
+  },
 ]
   
 export const userLinks = [
@@ -95,23 +101,23 @@ export const bars = [
   },
   {
     id: 2,
-    name: "Treatments",
+    name: "Services",
     links: [
       {
         name: "Nails",
-        href: "/treatments/#nails"
+        href: "/services/#nails"
       },
       {
         name: "Brows",
-        href: "/treatments/#brows"
+        href: "/services/#brows"
       },
       {
         name: "Beauty",
-        href: "/treatments/#beauty"
+        href: "/services/#beauty"
       },
       {
         name: "Aftercare",
-        href: "/treatments/#aftercare"
+        href: "/services/#aftercare"
       },
     ]
   },

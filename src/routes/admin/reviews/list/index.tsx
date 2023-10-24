@@ -6,14 +6,12 @@ import {api} from '@database/api';
 import useForm from '@hooks/useForm';
 
 import Line from '@components/line/Style1';
-import Round from '@components/button/Round';
 import Button from '@components/button/Button';
 import Container from '@components/containers/Style1';
 import Cover from '@components/cover';
 import Input from '@components/inputs/Input';
 import Textarea from '@components/inputs/Textarea';
 
-import {AiOutlinePlus} from 'react-icons/ai'
 
 const List = () => {
 
@@ -43,7 +41,7 @@ export default List;
 
 const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
 
-    const {onUpdateData, onRemoveData, setData} = useContext(Context);
+    const {onUpdateData, onRemoveData} = useContext(Context);
 
     const [on, setOn] = useState<"edit" | "">("");
 
@@ -52,7 +50,7 @@ const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
         name: ""
     };
 
-    const {onChange, onSubmit, values, onClear, loading, setValues} = useForm(initialState, callback);
+    const {onChange, onSubmit, values, loading, setValues} = useForm(initialState, callback);
 
     async function callback(){
         try{
@@ -63,14 +61,15 @@ const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
         }
     };
 
-    const onEditReview = () => {
+    const onEdit = () => {
         setOn("edit");
         setValues(element)
     };
 
-    const onDeleteReview = async () => {
+    const onDeleteList = async () => {
         try{
             const response = await api.delete(`/reviews/${element._id}`);
+            onRemoveData(response.data.data)
             return onUpdateData(response.data.data);
         } catch(err){
             console.log(err)
@@ -80,7 +79,7 @@ const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
     return (
         <div className={styles.element}>
 
-            <div className={styles.review} onClick={onEditReview}>
+            <div className={styles.review} onClick={onEdit}>
                 <p>{index+1}. {element.name}</p>
                 <p>{element.review}</p>
             </div>
@@ -91,7 +90,7 @@ const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
                         <form onSubmit={onSubmit}>
                             <header>
                                 <h2>{index+1}. {element.name}</h2>
-                                <Button label1={"delete"} color="red" onClick={onDeleteReview}/>
+                                <Button label1={"delete"} color="red" onClick={onDeleteList}/>
                             </header>
                             
                             <Line />
