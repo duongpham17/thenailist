@@ -146,20 +146,6 @@ const Menu = ({user, open, onOpen, onOpenItems, openItems}: Props) => {
               </div>
             }
 
-          <div className={styles.bar}>
-              <button className={styles.btn} onClick={() => onOpenItems("services123123")}>
-                <span>SERVICES</span> 
-                <MdKeyboardArrowDown />
-              </button>
-              {openItems.includes("services123123") &&
-                <ul>
-                  {services.map(el => 
-                    el.href ? <li key={el.href}><Link href={el.href}>{el.href.toUpperCase()}</Link></li> : "" 
-                  )}
-                </ul>
-              }
-            </div>
-
             {bars.map(el => 
               <div className={styles.bar} key={el.id}>
 

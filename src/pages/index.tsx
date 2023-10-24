@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
         news: news.data.data || [],
         reviews: reviews.data.data || [],
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      //revalidate: 60 * 60 * 24 * 1  // in days
     }
   } catch(err){
     return {
@@ -28,7 +28,7 @@ export const getStaticProps = async () => {
         news: [],
         reviews: [],
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      //revalidate: 60 * 60 * 24 * 1  // in days
     }
   }
 };

@@ -89,15 +89,6 @@ const Bars = () => {
   return (
     <div className={styles.barsContainer}>
 
-      <div className={styles.bar}>
-        <button className={styles.btn}><span>SERVICES</span> <MdKeyboardArrowDown /></button>
-          <ul>
-            {services.map(el => 
-              el.href ? <li key={el.href}><Link href={el.href}>{el.href.toUpperCase()}</Link></li> : "" 
-            )}
-          </ul>
-      </div>
-
       {bars.map(el => 
         <div className={styles.bar} key={el.id}>
           {el.links.length ?

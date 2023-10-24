@@ -100,6 +100,24 @@ export const bars = [
     ]
   },
   {
+    id: 2,
+    name: "Services",
+    links: [
+      {
+        name: "Nails",
+        href: "/services#nails"
+      },
+      {
+        name: "Brows",
+        href: "/services#brows"
+      },
+      {
+        name: "Beauty",
+        href: "/services#beauty"
+      },
+    ]
+  },
+  {
     id: 3,
     name: "Our Style",
     links: [
@@ -118,16 +136,16 @@ export const bars = [
     name: "Help",
     links: [
       {
-        name: "Example",
-        href: "/example"
+        name: "faq",
+        href: "/faq"
       },
       {
-        name: "Example",
-        href: "/example"
+        name: "privacy policy",
+        href: "/policy"
       },
       {
-        name: "Example",
-        href: "/example"
+        name: "T&C",
+        href: "/terms"
       },
     ],
   },

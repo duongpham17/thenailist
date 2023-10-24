@@ -1,8 +1,16 @@
 import React from 'react';
+import {PropsTypes} from 'pages/services';
 
-const ServicesIndex = () => {
+import Introduction from './introduction';
+import List from './list';
+
+const ServicesIndex = (props: PropsTypes) => {
   return (
-    <div>ServicesIndex</div>
+    <>
+      <Introduction />
+
+      <List {...props} />
+    </>
   )
 }
 
