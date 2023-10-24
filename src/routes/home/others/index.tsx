@@ -21,61 +21,44 @@ const Others = (props: PropsTypes) => {
         </div>
       </section>
 
-      <section className={styles.box2}>
-        <Swiper data={images} slidersPerView={1} arrows autoplay>
-          {(el) => 
-            <div key={el} className={styles.review}>
-              <img src={el} alt={el}/>
-            </div>
-          }
-        </Swiper>
-      </section>
+      <Images />
 
-      <section className={styles.box3}>
-        <Swiper data={reviews} slidersPerView={1} arrows autoplay>
-          {(el) => 
-            <div key={el._id} className={styles.review}>
-              <b>{el.name}</b>
-              <q> {el.review} </q>
-            </div>
-          }
-        </Swiper>
-      </section>
-        
+      <Reviews {...props} />
+
     </div>
   )
 }
 
 export default Others
 
-// const Box = () => {
-//   const images = ["home1.jpg", "home2.jpg", "home3.jpg", "home4.jpg"]
+const Images = () => {
+  const images = ["home1.jpg", "home2.jpg", "home3.jpg", "home4.jpg"]
 
-//   return (
-//     <section className={styles.box2}>
-//       <Swiper data={images} slidersPerView={1} arrows autoplay>
-//         {(el) => 
-//           <div key={el} className={styles.review}>
-//             <img src={el} alt={el}/>
-//           </div>
-//         }
-//       </Swiper>
-//     </section>
-//   )
-// }
+  return (
+    <section className={styles.box2}>
+      <Swiper data={images} slidersPerView={1} arrows autoplay={6000} id={"1"}>
+        {(el, index) => 
+          <div key={index} className={styles.review}>
+            <img src={el} alt={el}/>
+          </div>
+        }
+      </Swiper>
+    </section>
+  )
+}
 
-// const Reviews = ({reviews}: PropsTypes) => {
+const Reviews = ({reviews}: PropsTypes) => {
 
-//   return (
-//     <section className={styles.box3}>
-//       <Swiper data={reviews} slidersPerView={1} arrows autoplay>
-//         {(el) => 
-//           <div key={el._id} className={styles.review}>
-//               <b>{el.name}</b>
-//               <q> {el.review} </q>
-//           </div>
-//         }
-//       </Swiper>
-//     </section>
-//   )
-// }
+  return (
+    <section className={styles.box3}>
+      <Swiper data={reviews} slidersPerView={1} arrows autoplay={7000} id={"2"}>
+        {(el) => 
+          <div key={el._id} className={styles.review}>
+              <b>{el.name}</b>
+              <q> {el.review} </q>
+          </div>
+        }
+      </Swiper>
+    </section>
+  )
+}

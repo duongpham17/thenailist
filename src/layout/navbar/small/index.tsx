@@ -99,7 +99,7 @@ const Bars = () => {
     },
     {
       name: "Find",
-      href: "/about#gettinghere"
+      href: "/about#location"
     },
   ];
 

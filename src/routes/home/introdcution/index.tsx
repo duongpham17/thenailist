@@ -13,7 +13,7 @@ const Index = () => {
 
   return (
     <div className={styles.container}>
-      <Swiper data={data} slidersPerView={1} arrows autoplay>
+      <Swiper data={data} slidersPerView={1} arrows autoplay={10000}>
         {(el) => 
           <div key={el.image}>
             <img src={el.image} alt="home" />

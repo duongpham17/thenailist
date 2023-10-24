@@ -11,17 +11,18 @@ interface Props<T> {
     children: (data: T, index: number) => React.ReactNode,
     slidersPerView?: number,
     arrows?: boolean,
-    autoplay?: boolean,
+    autoplay?: number,
+    id?: string,
 }
 
-const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay=false}: Props<T>) => {
+const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay=0, id="1"}: Props<T>) => {
 
     return (
         <div className={styles.container}>
 
            {arrows && data.length - 2 > 0 &&
                 <div className={styles.navBtnLeft}>
-                    <button className='prev'><MdOutlineKeyboardArrowLeft/></button>
+                    <button className={`prev-${id}`}><MdOutlineKeyboardArrowLeft/></button>
                 </div>
             }
 
@@ -30,11 +31,11 @@ const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay
                     className={styles.swiper}
                     modules={[Navigation, Pagination, Autoplay]} 
                     spaceBetween={5} 
-                    autoplay={!autoplay ? false : {delay: 5000}}
+                    autoplay={!autoplay ? false : {delay: autoplay || 5000}}
                     slidesPerView={slidersPerView} 
                     navigation={{
-                        prevEl: ".prev",
-                        nextEl: ".next",
+                        prevEl: `.prev-${id}`,
+                        nextEl: `.next-${id}`,
                     }} 
                 >
 
@@ -49,7 +50,7 @@ const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay
 
             {arrows && data.length - 2 > 0 &&
                 <div className={styles.navBtnRight} >
-                    <button className='next'><MdOutlineKeyboardArrowRight/></button>
+                    <button className={`next-${id}`}><MdOutlineKeyboardArrowRight/></button>
                 </div>
             }
 

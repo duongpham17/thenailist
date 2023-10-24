@@ -4,12 +4,13 @@
 
     h1{
         text-align: center;
+        margin: 1rem;
         padding: 3rem 1rem;
     }
 
-    h1{
-        text-align: center;
-        margin: 1rem;
+    .content{
+        max-width: 1200px;
+        margin: auto;
     }
 
     .element {
