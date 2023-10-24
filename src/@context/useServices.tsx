@@ -24,14 +24,14 @@ export const useAuthentication = ({children}: Props) => {
         (async () => {
             try{
                 const response = await api.get("/services");
-                if(!response) return;
                 setServices(response.data.data);
             } catch(err: any){
                 console.log(err.response)
             }
-        });
+        })();
         
     }, []);
+
 
     const value = {
         services

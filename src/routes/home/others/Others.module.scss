@@ -40,11 +40,11 @@
 
     .box3{
         padding: 1rem;
-        text-align: center;
-        border: 1px solid red;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        text-align: center;
+
         .review{
             b{
                 display: block;
@@ -57,7 +57,7 @@
                 font-weight: 200;
                 display: block;
                 overflow-y: auto;
-                max-height: 150px;
+                height: 150px;
             }
         }
     }
@@ -92,11 +92,16 @@
         }
 
         .box3{
-            height: 150px;
+            height: 250px;
+            q{
+                overflow-y: auto;
+                height: 70px;
+            }
+            
         }
     }
 
-    @media (max-width: 400px){
+    @media (max-width: 500px){
         padding: 0.5rem;
         display: block;
         justify-content: center;
@@ -134,7 +139,11 @@
         }
 
         .box3{
-            height: 150px;
+            .review{
+                q{
+                    height: 120px;
+                }
+            }
         }
     }
 }

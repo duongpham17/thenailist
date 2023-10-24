@@ -36,7 +36,7 @@ const Images = () => {
 
   return (
     <section className={styles.box2}>
-      <Swiper data={images} slidersPerView={1} arrows autoplay={6000} id={"1"}>
+      <Swiper data={images} slidersPerView={1} arrows autoplay={10000} id={"1"}>
         {(el, index) => 
           <div key={index} className={styles.review}>
             <img src={el} alt={el}/>
@@ -51,7 +51,7 @@ const Reviews = ({reviews}: PropsTypes) => {
 
   return (
     <section className={styles.box3}>
-      <Swiper data={reviews} slidersPerView={1} arrows autoplay={7000} id={"2"}>
+      <Swiper data={reviews} slidersPerView={1} autoplay={15000} id={"2"}>
         {(el) => 
           <div key={el._id} className={styles.review}>
               <b>{el.name}</b>

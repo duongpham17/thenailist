@@ -86,8 +86,6 @@ const Bars = () => {
 
   const {services} = useContext(ServicesContext);
 
-  console.log(services);
-
   return (
     <div className={styles.barsContainer}>
       {bars.map(el => 
