@@ -1,13 +1,13 @@
-import styles from './News.module.scss';
+import styles from './Others.module.scss';
 import React from 'react';
 import { PropsTypes } from 'pages';
 
-const Others = ({}: PropsTypes) => {
+const Others = ({reviews}: PropsTypes) => {
 
   return (
     <div className={styles.container}>
 
-    Others
+     Others
         
     </div>
   )
