@@ -75,4 +75,13 @@
             }
         }
     }
+
+    @media (max-width: 800px){
+        .childItemsContainer{
+            grid-template-columns: 1fr ;
+            grid-template-areas: 
+            "images"
+            "information";
+        }
+    }
 }

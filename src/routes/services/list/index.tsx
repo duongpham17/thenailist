@@ -1,19 +1,36 @@
 import styles from './List.module.scss';
 import React from 'react';
-import {PropsTypes} from 'pages/services';
+import Link from 'next/link';
+import { PropsTypes } from 'pages/services';
 
 const List = ({services}: PropsTypes) => {
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="what">
+
       <div className={styles.content}>
-        {services?.map(el =>
-          <div key={el._id} className={styles.element} id={el._id}>
-            {/* <img src={el.images[0]} alt={el.name}/>
-            <b>{el.name.toUpperCase()}</b>
-            <p>{el.description}</p> */}
-          </div>  
-        )}
+
+        <h1 className={styles.header}>WHAT WE DO</h1>
+
+          {services?.map(el => 
+              <div className={styles.element} key={el._id} id={el.name.toLowerCase()}>
+                <h2>{el.name.toUpperCase()}</h2>
+                {el.items.map(item => 
+                  <div key={item._id} className={styles.item}>
+                      <div className={styles.information}>
+                        <b>{item.name}</b>
+                        <p>{item.description}</p>
+                      </div>
+                      <div className={styles.images}>
+                        <img src={item.images[0]} alt="THENAILST" />
+                      </div> 
+                  </div>
+                )}
+              </div>    
+          )}
+
       </div>
+        
     </div>
   )
 }

@@ -1,42 +1,94 @@
-.container{
-    padding: 1rem;
-    margin-top: 2rem;
+.container {
+    background-color: white;
+    padding: 3rem 0;
+
+    .header{
+        text-align: center;
+        padding: 2rem 1rem;
+    }
 
     .content{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1200px;
         margin: auto;
-        text-align: center;
-        max-width: 1000px;
-        margin: auto;
-        gap: 2rem;
     }
 
     .element{
-        img{
-            width: 120px;
-            height: 120px;
-            margin: auto;
-        }
-        b{
-            margin: 1.3rem;
-            display: block;
-        }
-        p{
-            white-space: pre-line;
-            font-size: 0.9rem;
-            font-weight: 200;
+        h2{
+            text-align: center;
+            background-color: var(--clr-main-light);
+            padding: 1rem;
+            margin: 1rem;
         }
     }
 
-    @media (max-width: 1000px){
-        .content{
-            grid-template-columns: 1fr 1fr;
+    .item {
+        padding: 1rem;
+        margin: 3rem 0;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+
+        &:nth-child(odd) {
+            grid-template-areas: 
+            "information images";
+        }
+
+        &:nth-child(even) {
+            grid-template-areas: 
+            "images information";
+        }
+
+        .information {
+            grid-area: information;
+            b{
+                font-size: 1.5rem;
+                display: block;
+                margin: 0.5rem 0;
+            }
+            p{
+                white-space: pre-line;
+            }
+        }
+
+        .images {
+            grid-area: images;
+
+            img {
+                width: 100%;
+                height: 300px;
+            }
         }
     }
-    @media (max-width: 600px){
-        .content{
-            grid-template-columns: 1fr;
+
+
+    @media (max-width: 800px){
+        .item{
+            margin:1rem;
+            gap: 1rem;
+
+            &:nth-child(odd) {
+                grid-template-areas: 
+                "information information"
+                "images images";
+            }
+
+            &:nth-child(even) {
+                grid-template-areas: 
+                "information information"
+                "images images";
+            }
+
+            .images {
+                grid-area: images;
+    
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 300px;
+                }
+            }
         }
     }
+
 }

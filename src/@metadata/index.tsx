@@ -3,6 +3,7 @@ import Head from 'next/head';
 const defaultDescription = "";
 const defaultKeywords = "";
 const defaultOgTitle = "";
+const defaultOgImage = "https://bafkreighnkcamp7pp5vvz2yuqhkfrux7yaz6eew3owh4spyzqpej6rtezm.ipfs.nftstorage.link"
 
 interface Props {
   title?: any,
@@ -30,7 +31,7 @@ export const Metadata = (
     <meta name="og:title" content={ogTitle} key="og:title" />
     <meta property="og:url" content="https://www.exmple.co.uk" key="og:url"/>
     <meta property="og:type" content="website" key="og:type"/>
-    <meta property="og:image" content={image || "/main.png"} key="ogimage"/>
+    <meta property="og:image" content={image || defaultOgImage} key="ogimage"/>
     <meta property="og:description" content={description} />
     <meta name="keywords" content={keywords} />
   </Head>

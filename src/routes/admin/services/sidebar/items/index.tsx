@@ -38,7 +38,7 @@ const Items = () => {
             ?
                 <div key={el._id} className={styles.selected} onClick={() => onSelectedData(el)}>
                     <div className={styles.boxed}>
-                        <p>{el.name}</p>
+                        <p>{el.name} [ {el.items.length} ]</p>
                     </div>
                     {!!el.items.length &&
                         <div className={styles.items}>

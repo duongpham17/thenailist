@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 150px 1fr;
     grid-template-areas: "sidebar content";
+    max-width: 1200px;
+    margin: auto;
 
     .sidebar{
         position: relative;
