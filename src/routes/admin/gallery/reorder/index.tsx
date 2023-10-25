@@ -10,12 +10,13 @@ const ReorderIndex = () => {
     const [reorderIndex, setReorderIndex] = useState(-1);
 
     const onReorder = async (index: number) => {
+      if(reorderIndex === index) return setReorderIndex(-1);
       if(reorderIndex === -1) return setReorderIndex(index);
       const newData = data[index];
       const oldData = data[reorderIndex];
       const dataUpdated = [...data];
-      const res1 = await api.patch("/policy", {...dataUpdated[index], timestamp: oldData.timestamp});
-      const res2 = await api.patch("/policy", {...dataUpdated[reorderIndex], timestamp: newData.timestamp});
+      const res1 = await api.patch("/gallery", {...dataUpdated[index], timestamp: oldData.timestamp});
+      const res2 = await api.patch("/gallery", {...dataUpdated[reorderIndex], timestamp: newData.timestamp});
       dataUpdated[index] = res2.data.data;
       dataUpdated[reorderIndex] = res1.data.data;
       setData(dataUpdated);
@@ -23,17 +24,16 @@ const ReorderIndex = () => {
     };
     
     return ( actions === "reorder" 
-    ?
-      <div className={styles.container}>
-        {data.map((el, index) => 
-          <div className={`${styles.element} ${reorderIndex === index ? styles.selected : ""}`} key={el._id} onClick={() => onReorder(index)}>
-            <h3>{index+1}. {el.name}</h3>
-            <p>Policy [ {el.policy.length} ]</p>
-          </div>  
-        )}
-      </div>
+      ?
+        <div className={styles.container}>
+          {data.map((el, index) => 
+            <div className={`${styles.element} ${reorderIndex === index ? styles.selected : ""}`} key={el._id} onClick={() => onReorder(index)}>
+              <h3>[ {el.src.length} ] {el.name}</h3>
+            </div>  
+          )}
+        </div>
       :
-      null
+        null
     )
 }
 

@@ -10,6 +10,7 @@ const ReorderIndex = () => {
     const [reorderIndex, setReorderIndex] = useState(-1);
 
     const onReorder = async (index: number) => {
+      if(reorderIndex === index) return setReorderIndex(-1);
       if(reorderIndex === -1) return setReorderIndex(index);
       const newData = data[index];
       const oldData = data[reorderIndex];
