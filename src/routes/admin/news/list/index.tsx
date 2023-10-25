@@ -90,7 +90,7 @@ const Child = ({data, index}: {data: INewsApi, index: number}) => {
                         <button className={styles.description} onClick={() => setOn("name")}>
                             <p>{values.description}</p>
                         </button>
-                        <button className={styles.button} type="button" onClick={() => setOn("button")}>
+                        <button className={styles.button} onClick={() => setOn("button")}>
                             {values.button.name || "link"}
                         </button>
                     </div>

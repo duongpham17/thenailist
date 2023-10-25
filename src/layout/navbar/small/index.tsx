@@ -77,7 +77,7 @@ const Header = ({open, onOpen}: Props) => {
         <Hamburger onToggle={onOpen} toggled={open} size={20}/>
       </div>
       <Link href="/">
-        <Image src={"/logo.jpg"} width={200} height={100} alt="THENAILIST"/>
+        <Image src={"/logo.jpg"} width={200} height={70} alt="THENAILIST"/>
       </Link>
       <div>
       </div>

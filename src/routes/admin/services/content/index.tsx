@@ -131,7 +131,7 @@ const ChildItems = ({element, index}: {element: IServicesApi["items"][0], index:
 
     const {onUpdateData, selectedData} = useContext(Context);
 
-    const [on, setOn] = useState<"edit" | "image" | "">("");
+    const [on, setOn] = useState<"edit" | "image" | "button" | "">("");
 
     const {values, onChange, onSubmit, loading, onSetValue} = useForm(element, callback);
 
@@ -185,11 +185,17 @@ const ChildItems = ({element, index}: {element: IServicesApi["items"][0], index:
         await api.patch("/services", newData);
     };
 
+    const onButton = (e: any) =>{
+        e.stopPropagation();
+        setOn("button")
+    }
+
     return(
         <div className={styles.childItemsContainer} id={element._id}>
-            <div className={styles.information} onClick={() => setOn("edit")}>
+            <div className={styles.information} onClick={(e) => setOn("edit")}>
                 <h2>{element.name}</h2>
                 <p>{element.description}</p>
+                <button className={styles.button} onClick={onButton}>{element.button.name || "link"}</button>
             </div>
 
             <div className={styles.images} onClick={() => setOn("image")}>
@@ -223,6 +229,24 @@ const ChildItems = ({element, index}: {element: IServicesApi["items"][0], index:
                             onUpload={onUploadImage}
                             onDelete={onDeleteImage}
                         />
+                    </Container>
+                </Cover>
+            }
+
+            {on === "button" &&
+                <Cover onClose={() => setOn("")}>
+                    <Container style={{"maxWidth": "500px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                        <form onSubmit={onSubmit}>
+                            <Button label1="delete" warning color="red" onClick={onDeleteItem} style={{fontSize: "0.8rem"}}/>
+                        
+                            <Line />
+
+                            <Input label1="Name of button" name="button.name" value={values.button.name} onChange={onChange} />
+
+                            <Input label1="Url / Link" name="button.href" value={values.button.href} onChange={onChange} />
+                
+                            <Button label1="update" type="submit" loading={loading} color="black" />
+                        </form>
                     </Container>
                 </Cover>
             }

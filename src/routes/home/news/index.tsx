@@ -24,8 +24,11 @@ const News = ({news}: PropsTypes) => {
                         <h2 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h2>
                     : ""
                 )}
-                {el.button.href &&
-                    <Link href={`/${el.button.href}`}>{el.button.name.toUpperCase()}</Link>
+                {
+                      el.button.href ?  el.button.href.includes("http") 
+                      ? <Link href={el.button.href} rel="noopener noreferrer" target="_blank">{el.button.name} </Link> 
+                      : <Link className={`${styles.btn} ${el.button.name.toLowerCase() === "book now" ? styles.book : ""}`} href={el.button.href}>{el.button.name}</Link> 
+                      : null
                 }
                 </div>
                 <div className={styles.images}>

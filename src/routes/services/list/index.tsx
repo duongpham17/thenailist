@@ -20,6 +20,12 @@ const List = ({services}: PropsTypes) => {
                       <div className={styles.information}>
                         <b>{item.name}</b>
                         <p>{item.description}</p>
+                        {
+                          item.button.href ?  item.button.href.includes("http") 
+                          ? <Link href={item.button.href} rel="noopener noreferrer" target="_blank">{item.button.name} </Link> 
+                          : <Link className={`${styles.btn} ${item.button.name.toLowerCase() === "book now" ? styles.book : ""}`} href={item.button.href}>{item.button.name}</Link> 
+                          : null
+                        }
                       </div>
                       <div className={styles.images}>
                         <img src={item.images[0]} alt="THENAILST" />

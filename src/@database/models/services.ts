@@ -8,6 +8,7 @@ export interface IServicesApi {
         name: string,
         description: string,
         images: string[],
+        button: { href: string, name: string }
     }],
     timestamp: number
 }
@@ -19,6 +20,7 @@ export interface IServices extends Partial<Document> {
         name: string,
         description: string,
         images: string[],
+        button: { href: string, name: string }
     }],
     timestamp: number
 };
@@ -30,7 +32,8 @@ const schema = new Schema<IServices>({
     items: [{
         name: String,
         description: String,
-        images: []
+        images: [],
+        button: {href: String, name: String}
     }],
     timestamp: {
         type: Number,

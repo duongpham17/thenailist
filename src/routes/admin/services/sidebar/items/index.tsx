@@ -21,6 +21,7 @@ const Items = () => {
                 images: [],
                 name: "unknown",
                 description: "",
+                button: {href: "", name: ""}
             };
             const newData = {...selectedData};
             newData.items.push(data);
