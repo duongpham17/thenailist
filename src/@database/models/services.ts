@@ -4,6 +4,7 @@ export interface IServicesApi {
     _id: string,
     name: string,
     items: [{
+        _id?: string,
         name: string,
         description: string,
         images: string[],

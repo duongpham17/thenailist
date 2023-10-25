@@ -2,68 +2,69 @@
     padding: 1rem;
 
     .child{
+        background-color: var(--clr-light-light);
         position: relative;
-        border: 1px solid black;
         margin: 1rem 0;
         padding: 0 0.5rem;
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-        "header header"
-        "description images";
 
-        .header{
-            grid-area: header;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--clr-dark-light) ;
-            padding: 1rem 0;
-        }
+        .information{
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "left right";
 
-        .delete{
-            button{
-                width: 100px;
-                color: white;
-                padding: 0.2rem 0.5rem;
-                text-align: center;
-                background-color: var(--clr-red);
-            }
-        }   
-
-        .description{
-            grid-area: description;
-
-            textarea{
-                background-color: white;
-                width: 100%;
-                min-height: 200px;
-                resize: vertical;
-                padding: 1rem;
+            .left{
+                grid-area: left;
+                button{
+                    display: block;
+                    border: 1px solid transparent;
+                    padding: 0.5rem;
+                    margin: 1rem 0;
+                    text-align: left;
+                    p{
+                        white-space: pre-line;
+                    }
+                    &:hover{
+                        border-color: var(--clr-blue);
+                    }
+                }
+    
+                .button{
+                    background-color:var(--clr-main-dark);
+                    color: white;
+                    width: 150px;
+                    text-align: center;
+                }
             }
 
-            .button{
-                margin: 1rem 0;
-                padding: 0.5rem 0;
-                background-color:black;
-                color: white;
-                width: 150px;
-                text-align: center;
+            .right{
+                grid-area: right;
+                display: flex;
+                justify-content: center;
+                border: 1px solid transparent;
+                cursor: pointer;
+                padding: 0.5rem;
+                &:hover{
+                    border-color: var(--clr-blue);
+                }
+                img{
+                    width: 100%;
+                    height: 300px;
+                }
             }
-        }
-        .images{
-            grid-area: images;
+
+    
         }
     }
 
     @media (max-width: 700px){
         .child{
-            grid-template-columns: 1fr;
-            grid-template-areas: 
-            "header"
-            "images"
-            "description";
+            .information{
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                "right"
+                "left";
+            }
         }
     }
 }

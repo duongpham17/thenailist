@@ -1,5 +1,5 @@
 import styles from './List.module.scss';
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../Context';
 import {ITeamsApi} from '@database/models/teams';
 import {api} from '@database/api';
@@ -7,6 +7,10 @@ import {upload, remove} from '@thirdparty/nftstorage';
 import useForm from '@hooks/useForm';
 
 import File from './File';
+import Line from '@components/line/Style1';
+import Container from '@components/containers/Style1';
+import Cover from '@components/cover';
+import Textarea from '@components/inputs/Textarea';
 import Input from '@components/inputs/Input';
 import Button from '@components/button/Button';
 import Round from '@components/button/Round';
@@ -22,7 +26,7 @@ const List = () => {
             ?
                 <div className={styles.container}>
                     {data.map((el, index) => 
-                        <Child key={el._id} data={el} index={index} />
+                        <Child key={el._id} data={el} />
                     )}
                 </div>
             :
@@ -39,10 +43,13 @@ const List = () => {
 
 export default List;
 
-const Child = ({data, index}: {data: ITeamsApi, index: number}) => {
+const Child = ({data}: {data: ITeamsApi}) => {
+
+    const [on, setOn] = useState<"image" | "name" | "">("")
+
     const {onRemoveData} = useContext(Context);
 
-    const {values, onChange, onSubmit, edited, onSetValue, loading} = useForm(data, callback);
+    const {values, onChange, onSubmit, onSetValue, loading} = useForm(data, callback);
 
     async function callback(){
         await api.patch("/teams", values)
@@ -68,7 +75,7 @@ const Child = ({data, index}: {data: ITeamsApi, index: number}) => {
         await api.patch("/teams", values);
     };
 
-    const onDeleteNews = async () => {
+    const onDeleteList = async () => {
         await api.delete(`/teams/${data._id}`);
         onRemoveData(data);
     };
@@ -76,24 +83,43 @@ const Child = ({data, index}: {data: ITeamsApi, index: number}) => {
     return(
         <div className={styles.child}>
 
-            <form className={styles.description} onSubmit={onSubmit}>
-                <div className={styles.flex}>
-                    <Input placeholder="Name" name="name" value={values.name || ""} onChange={onChange} />
-                    <div>
-                        <Round label1={<RiDeleteBin4Line/>} type="button" onClick={onDeleteNews} color="red" loading={loading} />
-                    </div>
+            <div className={styles.information}>
+                <div>
+                    <button onClick={() => setOn("image")}><img src={values.images[0]} alt="THENAILIST" /></button>
+                    <button onClick={() => setOn("name")}>{values.name}</button>
                 </div>
-                {edited && <Button label1="save" type="submit" color="black" loading={loading} />}
-            </form>
-
-            <div className={styles.images}>
-                <File 
-                    id={values._id}
-                    src={values.images}
-                    onUpload={onUploadImage}
-                    onDelete={onDeleteImage}
-                />
             </div>
+
+            { on === "name" &&
+                <Cover onClose={() => setOn("")}>
+                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                        <form onSubmit={onSubmit}>
+                            <header>
+                                <Button warning label1={"delete person"} color="red" onClick={onDeleteList}/>
+                            </header>
+
+                            <Line />
+
+                            <Input placeholder="Name" name="name" value={values.name || ""} onChange={onChange} />
+            
+                            <Button label1="update" type="submit" loading={loading} color="black" />
+                        </form>
+                    </Container>
+                </Cover>
+            }
+
+            { on === "image" &&
+                <Cover onClose={() => setOn("")}>
+                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                        <File 
+                            id={values._id}
+                            src={values.images}
+                            onUpload={onUploadImage}
+                            onDelete={onDeleteImage}
+                        />
+                    </Container>
+                </Cover>
+            }
 
         </div>
     )

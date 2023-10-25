@@ -4,6 +4,7 @@
     grid-template-areas: "sidebar content";
 
     .sidebar{
+        position: relative;
         grid-area: sidebar;
         height: 100%;
     }

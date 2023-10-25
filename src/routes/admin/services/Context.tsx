@@ -43,7 +43,7 @@ export const useTemplateContext = ({children}: Props) => {
         setData(response.data.data);
       })()
     }, []);
-    
+
     const onUpdateData = (data: IServicesApi) => {
         setData(state => state.map(el => el._id === data._id ? data : el));
         setSelectedData(data)

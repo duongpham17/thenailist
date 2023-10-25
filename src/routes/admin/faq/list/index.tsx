@@ -12,6 +12,7 @@ import Container from '@components/containers/Style1';
 import Cover from '@components/cover';
 import Input from '@components/inputs/Input';
 import Textarea from '@components/inputs/Textarea';
+import Flex from '@components/flex/Style1';
 
 import {AiOutlinePlus} from 'react-icons/ai'
 
@@ -122,7 +123,7 @@ const Element = ({element}: {element: IFaqApi} ) => {
         return onUpdateData(response.data.data);
     };
 
-    const onDeletePrice = async () => {
+    const onDelete = async () => {
         const dataUpdated = {...element};
         dataUpdated.questions.splice(deleteIndex, 1);
         const response = await api.patch("/faq", dataUpdated);
@@ -131,7 +132,7 @@ const Element = ({element}: {element: IFaqApi} ) => {
         return onUpdateData(response.data.data);
     };
 
-    const onDeletePriceList = async () => {
+    const onDeleteList = async () => {
         const response = await api.delete(`/faq/${element._id}`);
         setOn("");
         return onRemoveData(response.data.data);
@@ -139,10 +140,11 @@ const Element = ({element}: {element: IFaqApi} ) => {
 
     return (
         <div className={styles.element}>
-            <header>
-                <Button label1={<h2>{element.name}</h2>} onClick={() => onEditHeader(element.name)} />
+            
+            <div className={styles.header}>
+                <Button label1={<h3>{element.name}</h3>} onClick={() => onEditHeader(element.name)} />
                 <Round label1={<AiOutlinePlus size={13}/>} color="black" onClick={onCreatePrice}/>
-            </header>
+            </div>
 
             <Line color="black"/>
 
@@ -160,12 +162,12 @@ const Element = ({element}: {element: IFaqApi} ) => {
             
             {(on === "create" || on === "edit") &&
                 <Cover onClose={() => setOn("")}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                    <Container style={{"maxWidth": "600px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
-                            <header>
-                                <h2>{element.name}</h2>
-                                <Button label1={"delete"} color="red" onClick={onDeletePrice}/>
-                            </header>
+                            <Flex>
+                                <p>{element.name}</p>
+                                {on === "edit" && <Button warning label1={"delete"} color="red" onClick={onDelete}/>}
+                            </Flex>
                             
                             <Line />
 
@@ -181,11 +183,10 @@ const Element = ({element}: {element: IFaqApi} ) => {
 
             { on === "header" &&
                 <Cover onClose={() => setOn("")}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                    <Container style={{"maxWidth": "600px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
                             <header>
-                                <h2>{element.name}</h2>
-                                <Button label1={"Delete List"} color="red" onClick={onDeletePriceList}/>
+                                <Button warning label1={"Delete List"} color="red" onClick={onDeleteList}/>
                             </header>
 
                             <Line />

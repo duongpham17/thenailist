@@ -11,20 +11,34 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border: 1px solid transparent;
+            &:hover{
+                border: 1px solid var(--clr-blue);
+            }
         }
 
         .map{
 
             .item{
+                border: 1px solid transparent;
                 border-bottom: 1px dashed var(--clr-dark-light);
                 padding: 0.3rem 0;
                 cursor: pointer;
                 display: flex;
 
+                &:hover{
+                    border: 1px solid var(--clr-blue);
+                }
+
                 button{
                     margin-right: 1rem;
                     min-width: 50px;
                     border: 1px solid black;
+
+                    &:hover{
+                        border: 1px solid var(--clr-blue);
+                        background-color: var(--clr-blue);
+                    }
                 }
                 p{
                    white-space: pre-line;

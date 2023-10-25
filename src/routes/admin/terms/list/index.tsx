@@ -139,7 +139,7 @@ const Element = ({element}: {element: ITermsApi} ) => {
     return (
         <div className={styles.element}>
             <header>
-                <Button label1={<h2>{element.name}</h2>} onClick={() => onEditHeader(element.name)} />
+                <Button label1={<h3>{element.name}</h3>} onClick={() => onEditHeader(element.name)} />
                 <Round label1={<AiOutlinePlus size={13}/>} color="black" onClick={onCreate}/>
             </header>
 
@@ -156,16 +156,16 @@ const Element = ({element}: {element: ITermsApi} ) => {
             
             {(on === "create" || on === "edit") &&
                 <Cover onClose={() => setOn("")}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                    <Container style={{"maxWidth": "600px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
                             <header>
                                 <h2>{element.name}</h2>
-                                <Button label1={"delete"} color="red" onClick={onDelete}/>
+                                {on === "edit" && <Button warning label1={"delete"} color="red" onClick={onDelete}/>}
                             </header>
                             
                             <Line />
 
-                            <Textarea label1="Description" name="description" value={values.description} onChange={onChange} />
+                            <Textarea placeholder="Description" name="description" value={values.description} onChange={onChange} />
                 
                             <Button label1={on === "create" ? "create" : "update"} type="submit" loading={loading} color="black" />
                         </form>
@@ -175,7 +175,7 @@ const Element = ({element}: {element: ITermsApi} ) => {
 
             { on === "header" &&
                 <Cover onClose={() => setOn("")}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                    <Container style={{"maxWidth": "600px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
                             <header>
                                 <h2>{element.name}</h2>
@@ -184,14 +184,13 @@ const Element = ({element}: {element: ITermsApi} ) => {
 
                             <Line />
 
-                            <Input label1="" name="description" value={values.description} onChange={onChange} />
+                            <Input placeholder="description" name="description" value={values.description} onChange={onChange} />
             
                             <Button label1="update" type="submit" loading={loading} color="black" />
                         </form>
                     </Container>
                 </Cover>
             }
-
         </div>
     )
 }

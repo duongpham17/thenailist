@@ -13,6 +13,7 @@ import Cover from '@components/cover';
 import Input from '@components/inputs/Input';
 
 import File from './File';
+import Textarea from '@components/inputs/Textarea';
 
 const List = () => {
 
@@ -43,9 +44,9 @@ export default List;
 const Child = ({data, index}: {data: INewsApi, index: number}) => {
     const {onRemoveData, onUpdateData} = useContext(Context);
 
-    const [openButtonEdit, setOpenButtonEdit] = useState(false);
+    const [on, setOn] = useState<"name" | "button" | "image" | "">("");
 
-    const {values, onChange, onSubmit, edited, loading, onSetValue} = useForm(data, callback);
+    const {values, onChange, onSubmit, loading, onSetValue} = useForm(data, callback);
 
     async function callback(){
         try{
@@ -76,7 +77,7 @@ const Child = ({data, index}: {data: INewsApi, index: number}) => {
         await api.patch("/news", values);
     };
 
-    const onDeleteNews = async () => {
+    const onDeleteList = async () => {
         await api.delete(`/news/${data._id}`);
         onRemoveData(data);
     };
@@ -84,39 +85,53 @@ const Child = ({data, index}: {data: INewsApi, index: number}) => {
     return(
         <div className={styles.child}>
 
-                <div className={styles.header}>
-                    <div>
-                        <p>{index+1}.</p>
+                <div className={styles.information}>
+                    <div className={styles.left}>
+                        <button className={styles.description} onClick={() => setOn("name")}>
+                            <p>{values.description}</p>
+                        </button>
+                        <button className={styles.button} type="button" onClick={() => setOn("button")}>
+                            {values.button.name || "link"}
+                        </button>
                     </div>
-
-                    <div className={styles.delete} onClick={onDeleteNews}>
-                        <button>Remove</button>
+                    <div className={styles.right} onClick={() => setOn("image")}>
+                        <img src={values.images[0]} alt="THENAILIST" />
                     </div>
                 </div>
 
-                <form className={styles.description} onSubmit={onSubmit}>
-                    <textarea
-                        name="description"
-                        value={values.description}
-                        onChange={onChange}
-                    />
-                    {edited && <Button label1="save" type="submit" color="black" />}
 
-                    <button className={styles.button} type="button" onClick={() => setOpenButtonEdit(true)}>{values.button.name || "link"}</button>
-                </form>
+            {on === "name" &&
+                <Cover onClose={() => setOn("")}>
+                    <Container style={{"maxWidth": "600px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                        <form onSubmit={onSubmit}>
+                            <Button label1="Delete List" warning color="red" onClick={onDeleteList} />
 
-                <div className={styles.images}>
-                    <File 
-                        id={values._id}
-                        src={values.images}
-                        onUpload={onUploadImage}
-                        onDelete={onDeleteImage}
-                    />
-                </div>
+                            <Line />
 
-            {openButtonEdit &&
-                <Cover onClose={() => setOpenButtonEdit(false)}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                            <Textarea placeholder="description <h><p><small>" name="description" value={values.description} onChange={onChange} style={{"height": "300px"}} />
+            
+                            <Button label1="update" type="submit" loading={loading} color="black" />
+                        </form>
+                    </Container>
+                </Cover>
+            }
+
+            {on === "image" &&
+                <Cover onClose={() => setOn("")}>
+                    <Container style={{"maxWidth": "600px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                        <File 
+                            id={values._id}
+                            src={values.images}
+                            onUpload={onUploadImage}
+                            onDelete={onDeleteImage}
+                        />
+                    </Container>
+                </Cover>
+            }
+
+            {on === "button" &&
+                <Cover onClose={() => setOn("")}>
+                    <Container style={{"maxWidth": "600px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
                             <header>
                                 <h2>{index+1}.</h2>

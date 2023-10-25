@@ -1,56 +1,41 @@
 .container{
     padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    display: inline-flex;
+    gap: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 
     .child{
-        position: relative;
-        border: 1px solid black;
-        padding: 0.5rem;
         
-        .remove{
-            grid-area: header;
+        .information{
+            text-align: center;
+            border: 1px solid transparent;
+            background-color: var(--clr-light-light);
+            width: 220px;
+            height: 220px;
+            border-radius: 5px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-        }
+            justify-content: center;
 
-        .delete{
             button{
-                width: 100px;
-                color: white;
-                padding: 0.2rem 0.5rem;
-                text-align: center;
-                background-color: var(--clr-red);
-            }
-        }   
-
-        .description{
-            margin-bottom: 1rem;
-
-            .flex{
-                display: flex;
-                justify-content: space-between;
-                gap: 1rem;
-            }
-
-            textarea{
-                background-color: white;
+                display: block;
                 width: 100%;
-                min-height: 200px;
-                resize: vertical;
-                padding: 1rem;
-            }
-
-            .button{
                 margin: 1rem 0;
-                padding: 0.5rem 0;
-                background-color:black;
-                color: white;
-                width: 150px;
-                text-align: center;
+                border: 1px solid transparent;
+                padding: 0.5rem;
+
+                &:hover{
+                    border-color: var(--clr-blue);
+                }
+            }
+            
+            img{
+                width: 120px;
+                height: 120px;
+                border-radius:  100px;
+                border: 2px solid black;
             }
         }
     }

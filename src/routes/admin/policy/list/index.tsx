@@ -139,7 +139,7 @@ const Element = ({element}: {element: IPolicyApi} ) => {
     return (
         <div className={styles.element}>
             <header>
-                <Button label1={<h2>{element.name}</h2>} onClick={() => onEditHeader(element.name)} />
+                <Button label1={<h3>{element.name}</h3>} onClick={() => onEditHeader(element.name)} />
                 <Round label1={<AiOutlinePlus size={13}/>} color="black" onClick={onCreate}/>
             </header>
 
@@ -156,16 +156,16 @@ const Element = ({element}: {element: IPolicyApi} ) => {
             
             {(on === "create" || on === "edit") &&
                 <Cover onClose={() => setOn("")}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                    <Container style={{"maxWidth": "800px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
                             <header>
                                 <h2>{element.name}</h2>
-                                <Button label1={"delete"} color="red" onClick={onDelete}/>
+                                {on === "edit" && <Button warning label1={"delete"} color="red" onClick={onDelete}/>}
                             </header>
                             
                             <Line />
 
-                            <Textarea label1="Description" name="description" value={values.description} onChange={onChange} />
+                            <Textarea placeholder="Description" name="description" value={values.description} onChange={onChange} style={{"height": "300px"}} />
                 
                             <Button label1={on === "create" ? "create" : "update"} type="submit" loading={loading} color="black" />
                         </form>
@@ -175,11 +175,10 @@ const Element = ({element}: {element: IPolicyApi} ) => {
 
             { on === "header" &&
                 <Cover onClose={() => setOn("")}>
-                    <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                    <Container style={{"maxWidth": "800px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
                             <header>
-                                <h2>{element.name}</h2>
-                                <Button label1={"Delete List"} color="red" onClick={onDeleteList}/>
+                                <Button warning label1={"Delete List"} color="red" onClick={onDeleteList}/>
                             </header>
 
                             <Line />
