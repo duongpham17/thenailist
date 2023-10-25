@@ -167,8 +167,8 @@ const Menu = ({user, open, onOpen, onOpenItems, openItems}: Props) => {
 
                 {!el.links.length && el.href 
                     ? el.href.includes("http") 
-                    ? <Link className={styles.btn} href={el.href} rel="noopener noreferrer" target="_blank"> {el.name} </Link> 
-                    : <Link className={styles.btn} href={el.href} onClick={onOpen}>{el.name} </Link> 
+                    ? <Link className={styles.btn} href={el.href} rel="noopener noreferrer" target="_blank"> {el.name.toUpperCase()} </Link> 
+                    : <Link className={styles.btn} href={el.href} onClick={onOpen}>{el.name.toUpperCase()} </Link> 
                     : ""
                 }
 

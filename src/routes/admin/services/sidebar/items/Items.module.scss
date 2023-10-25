@@ -1,0 +1,24 @@
+.container{
+    padding: 0.1rem;
+    div{
+        border: 2px solid transparent;
+        background-color: white;
+        padding: 0.5rem;
+        margin: 0.2rem 0;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.8;
+        }
+        p{
+            font-size: 0.9rem;
+        }
+        small{
+            font-size: 0.6rem;
+            color: grey;
+        }
+    }
+    .selected{
+        border: 2px solid black;
+    }
+}

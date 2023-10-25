@@ -1,7 +1,9 @@
 import styles from './Actions.module.scss';
 import React, {useContext} from 'react';
-import {Context} from '../Context';
+import {Context} from '../../Context';
 import {api} from '@database/api';
+
+import {AiOutlinePlus, AiOutlineOrderedList} from 'react-icons/ai';
 
 const Actions = () => {
 
@@ -9,19 +11,17 @@ const Actions = () => {
 
   const create = async () => {
     const response = await api.post("/services", {
-      images: [],
-      description: "",
-      name: "",
-      href: "",
-      timestamp: Date.now(),
+      items: [],
+      name: "unknown",
+      timestamp: Date.now()
     });
     setData(state => [ response.data.data, ...state])
   }
 
   return (
     <div className={styles.container}>
-        <button onClick={create}>Create</button>
-        <button onClick={() => actions === "reorder" ? setActions("") : setActions("reorder")}>{actions === "reorder" ? "done" : "reorder"}</button>
+        <button onClick={create}><AiOutlinePlus/></button>
+        <button onClick={() => actions === "reorder" ? setActions("") : setActions("reorder")}><AiOutlineOrderedList/></button>
     </div>
   )
 }

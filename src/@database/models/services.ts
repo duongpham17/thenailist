@@ -2,35 +2,35 @@ import mongoose, { Types, Schema, model, Document } from 'mongoose';
 
 export interface IServicesApi {
     _id: string,
-    href: string,
-    description: string,
     name: string,
-    images: string[],
+    items: [{
+        name: string,
+        description: string,
+        images: string,
+    }],
     timestamp: number
 }
 
 export interface IServices extends Partial<Document> {
     _id: Types.ObjectId,
-    href: string,
-    description: string,
     name: string,
-    images: string[],
+    items: [{
+        name: string,
+        description: string,
+        images: string,
+    }],
     timestamp: number
 };
 
 const schema = new Schema<IServices>({
-    href: {
-        type: String,
-    },
-    description: {
-        type: String
-    },
     name: {
         type: String,
     },
-    images: [
-        String 
-    ],
+    items: [{
+        name: String,
+        description: String,
+        images: []
+    }],
     timestamp: {
         type: Number,
         default: Date.now()

@@ -14,8 +14,8 @@ const ReorderIndex = () => {
       const newData = data[index];
       const oldData = data[reorderIndex];
       const dataUpdated = [...data];
-      const res1 = await api.patch("/services", {...dataUpdated[index], timestamp: oldData.timestamp});
-      const res2 = await api.patch("/services", {...dataUpdated[reorderIndex], timestamp: newData.timestamp});
+      const res1 = await api.patch("/news", {...dataUpdated[index], timestamp: oldData.timestamp});
+      const res2 = await api.patch("/news", {...dataUpdated[reorderIndex], timestamp: newData.timestamp});
       dataUpdated[index] = res2.data.data;
       dataUpdated[reorderIndex] = res1.data.data;
       setData(dataUpdated);
@@ -27,7 +27,6 @@ const ReorderIndex = () => {
       <div className={styles.container}>
         {data.map((el, index) => 
           <div className={`${styles.element} ${reorderIndex === index ? styles.selected : ""}`} key={el._id} onClick={() => onReorder(index)}>
-            <img src={el.images[0]} alt="sample"/>
             <p>{el.name}</p>
           </div>  
         )}
