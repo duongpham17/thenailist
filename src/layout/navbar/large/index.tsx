@@ -1,10 +1,9 @@
 import styles from './Large.module.scss';
 import React, {useContext} from 'react';
-import {Context as ServicesContext} from '@context/useServices';
 import {Context as AuthenticationContext} from '@context/useAuthentication';
 import Link from 'next/link';
+import Image from 'next/image';
 import {adminLinks, userLinks, bars} from '../data';
-
 import Button from '@components/button/Button';
 import SlideIn from '@components/slidein/Style1';
 import Line from '@components/line/Style1';
@@ -75,17 +74,13 @@ const Logo = () => {
   return (
     <div className={styles.logoContainer}>
       <Link href="/">
-        <h1>THE NAILIST</h1>
-        <b>NAILS - BROWS - BEAUTY</b>
+        <Image src={"/logo.jpg"} width={300} height={100} alt="the nailist"/>
       </Link>
     </div>
   )
 };
 
 const Bars = () => {
-
-  const {services} = useContext(ServicesContext);
-
   return (
     <div className={styles.barsContainer}>
 

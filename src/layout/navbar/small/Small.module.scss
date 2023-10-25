@@ -5,31 +5,12 @@
     display: grid;
     grid-template-columns: 40px 1fr 40px;
     z-index: 10;
-    a{
-      text-align: center;
-      width: 180px;
-      margin: auto;
-    }
-    h2{
-      border-bottom: 3px solid var(--clr-main);
-      border-top: 3px solid var(--clr-main);
-    }
-    b{
-      font-size: 0.7rem;
-      margin-top: 0.1rem;
-    }
-    @media (max-width: 400px) {
-      a{
-        font-size: 0.8rem;
-        width: 100%;
-      }
-      b{
-        font-size: 0.6rem;
-        display: none;
-      }
-      h2{
-        border: none;
-      }
+    text-align: center;
+    margin: auto;
+    img{
+      object-fit: contain;
+      display: flex;
+      width: 100%;
     }
   }
   .hamburgerIsOpen{

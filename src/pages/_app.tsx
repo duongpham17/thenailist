@@ -5,7 +5,6 @@ import Constant from 'layout/navbar';
 import Footer from 'layout/footer';
 import Helper from 'layout/helper';
 import UseAuthentication from '@context/useAuthentication';
-import UseServicesContext from '@context/useServices';
 import progress from '@misc/progress';
 import { Libre_Franklin } from 'next/font/google';
 
@@ -15,7 +14,6 @@ progress();
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <UseAuthentication>
-      <UseServicesContext>
         <main className={font.className}>
           <Constant />
           <div className={styles.container}> 
@@ -24,7 +22,6 @@ export default function App({ Component, pageProps }: AppProps) {
           <Helper />
           <Footer />
         </main>
-      </UseServicesContext>
     </UseAuthentication>
   )
 }

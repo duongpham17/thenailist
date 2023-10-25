@@ -1,9 +1,9 @@
 import styles from './Small.module.scss';
 import React, {useEffect, useContext} from 'react';
 import {IUsers} from '@database/models/users';
-import {Context as ServicesContext} from '@context/useServices';
 import {Context as AuthenticationContext} from '@context/useAuthentication';
 import Link from 'next/link';
+import Image from 'next/image';
 import { adminLinks, userLinks, bars } from '../data';
 import useScroll from '@hooks/useScroll';
 import useOpen from '@hooks/useOpen';
@@ -77,11 +77,9 @@ const Header = ({open, onOpen}: Props) => {
         <Hamburger onToggle={onOpen} toggled={open} size={20}/>
       </div>
       <Link href="/">
-        <h2>THE NAILIST</h2>
-        <b>NAILS - BROWS - BEAUTY</b>
+        <Image src={"/logo.jpg"} width={200} height={100} alt="THENAILIST"/>
       </Link>
       <div>
-        
       </div>
     </div>
   )
@@ -114,8 +112,6 @@ const Bars = () => {
 }
 
 const Menu = ({user, open, onOpen, onOpenItems, openItems}: Props) => {
-
-  const {services} = useContext(ServicesContext);
 
   const logout = () => {
     localStorage.removeItem("user");
