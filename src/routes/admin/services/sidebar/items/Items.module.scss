@@ -1,5 +1,6 @@
 .container{
     padding: 0.1rem;
+
     .element{
         border: 2px solid transparent;
         background-color: white;
@@ -20,5 +21,30 @@
     }
     .selected{
         border: 2px solid black;
+
+        .boxed{
+            border: 2px solid transparent;
+            background-color: white;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+        .button{
+            button{
+                padding: 0.3rem;
+                background-color: black;
+                color: white;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                svg{
+                    font-size: 1.2rem;
+                    display: flex;
+                    justify-content: center;
+                }
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+        }
     }
 }

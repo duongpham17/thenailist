@@ -6,7 +6,7 @@ export interface IServicesApi {
     items: [{
         name: string,
         description: string,
-        images: string,
+        images: string[],
     }],
     timestamp: number
 }
@@ -17,7 +17,7 @@ export interface IServices extends Partial<Document> {
     items: [{
         name: string,
         description: string,
-        images: string,
+        images: string[],
     }],
     timestamp: number
 };
