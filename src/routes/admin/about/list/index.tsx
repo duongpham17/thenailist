@@ -46,7 +46,7 @@ const Child = ({data, index}: {data: IAboutApi, index: number}) => {
 
     const [on, setOn] = useState<"button" | "name" | "image" | "">("")
 
-    const {values, onChange, onSubmit, edited, loading, onSetValue} = useForm(data, callback);
+    const {values, onChange, onSubmit, loading, onSetValue} = useForm(data, callback);
 
     async function callback(){
         await api.patch("/about", values)

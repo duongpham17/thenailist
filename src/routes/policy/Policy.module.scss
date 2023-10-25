@@ -17,17 +17,16 @@
             .text{
                 max-width: 800px;
                 margin: auto;
-                padding: 2rem;
+                padding: 1rem;
                 div{
                     display: flex;
-                    margin-bottom: 1rem;
                 }
                 b{
                     font-size: 1.3rem;
                     margin-right: 1rem;
                 }
                 p{
-                    margin: 1rem;
+                    margin: 0.5rem 0; 
                     white-space: pre-line;
                 }
             }

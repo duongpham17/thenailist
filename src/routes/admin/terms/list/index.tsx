@@ -61,7 +61,7 @@ const Element = ({element}: {element: ITermsApi} ) => {
         if(on === "create"){
             try{
                 const valuesUpdate = {...element};
-                valuesUpdate.terms = [values, ...valuesUpdate.terms];
+                valuesUpdate.terms = [...valuesUpdate.terms, values];
                 const response = await api.patch("/terms", valuesUpdate);
                 onClear();
                 return onUpdateData(response.data.data);
@@ -110,6 +110,7 @@ const Element = ({element}: {element: ITermsApi} ) => {
 
     const onReorder = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
         e.stopPropagation();
+        if(reorderIndex === index) return setReorderIndex(-1);
         if(reorderIndex === -1) return setReorderIndex(index);
         const newData = element.terms[index];
         const oldData = element.terms[reorderIndex];

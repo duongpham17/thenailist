@@ -61,7 +61,7 @@ const Element = ({element}: {element: IPolicyApi} ) => {
         if(on === "create"){
             try{
                 const valuesUpdate = {...element};
-                valuesUpdate.policy = [values, ...valuesUpdate.policy];
+                valuesUpdate.policy = [...valuesUpdate.policy, values];
                 const response = await api.patch("/policy", valuesUpdate);
                 onClear();
                 return onUpdateData(response.data.data);
@@ -110,6 +110,7 @@ const Element = ({element}: {element: IPolicyApi} ) => {
 
     const onReorder = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
         e.stopPropagation();
+        if(reorderIndex === index) return setReorderIndex(-1);
         if(reorderIndex === -1) return setReorderIndex(index);
         const newData = element.policy[index];
         const oldData = element.policy[reorderIndex];

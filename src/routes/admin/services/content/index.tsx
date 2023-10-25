@@ -34,6 +34,7 @@ const ContentIndex = () => {
 
     const onReorder = async (index: number) => {
         if(!selectedData) return;
+        if(reorderIndex === index) return setReorderIndex(-1);
         if(reorderIndex === -1) return setReorderIndex(index);
         setReorderIndex(-1);
         const newData = {...selectedData};

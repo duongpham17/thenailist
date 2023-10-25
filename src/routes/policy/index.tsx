@@ -15,7 +15,7 @@ const Policy = (props: PropsTypes) => {
                     <div className={styles.element} key={el._id}>
                         <h2>{el.name}</h2>
                         <div className={styles.text}>
-                            {el.policy.map((x, index) => 
+                            {el.policy.map((x) => 
                                 <div key={x._id}>
                                     <p>{x.description}</p>
                                 </div>  

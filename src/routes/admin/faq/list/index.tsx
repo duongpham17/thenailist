@@ -112,6 +112,7 @@ const Element = ({element}: {element: IFaqApi} ) => {
 
     const onReorder = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => {
         e.stopPropagation();
+        if(reorderIndex === index) return setReorderIndex(-1);
         if(reorderIndex === -1) return setReorderIndex(index);
         const newData = element.questions[index];
         const oldData = element.questions[reorderIndex];
