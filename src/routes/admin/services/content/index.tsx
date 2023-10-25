@@ -33,9 +33,7 @@ const ContentIndex = () => {
     }
 
     return ( actions === "reorder" ?
-                <div className={styles.empty}>
-                    <p>Select a data set to edit</p>
-                </div>
+                null
             :
              !selectedData ? 
                 <div className={styles.empty}>

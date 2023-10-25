@@ -2,14 +2,32 @@ import styles from './Items.module.scss';
 import React, {useContext} from 'react';
 import {Context} from '../../Context';
 
+import {AiOutlinePlus} from 'react-icons/ai';
+
 const Items = () => {
 
-    const {data, setSelectedData, selectedData} = useContext(Context);
+    const {data, setSelectedData, selectedData, setActions} = useContext(Context);
+
+    const onSelectedData = (data: typeof selectedData) => {
+        setActions("");
+        setSelectedData(data)
+    };
 
     return (
         <div className={styles.container}>
-            {data.map((el, index) => 
-                <div key={el._id} className={selectedData?._id === el._id ? styles.selected : ""} onClick={() => setSelectedData(el)}>
+            {data.map((el, index) => selectedData?._id === el._id 
+            ?
+                <div key={el._id} className={`${styles.element} ${styles.selected}`} onClick={() => onSelectedData(el)}>
+                    <div className={styles.boxed}>
+                        <p>{index+1}. {el.name}</p>
+                        <small>{el._id.slice(-6).toUpperCase()}</small>
+                    </div>
+                    <div onClick={(e) => e.stopPropagation()}>
+                        <button><AiOutlinePlus/></button>
+                    </div>
+                </div>
+            :
+                <div className={styles.element} key={el._id} onClick={() => onSelectedData(el)}>
                     <p>{index+1}. {el.name}</p>
                     <small>{el._id.slice(-6).toUpperCase()}</small>
                 </div>

@@ -80,7 +80,8 @@ const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
         <div className={styles.element}>
 
             <div className={styles.review} onClick={onEdit}>
-                <p>{index+1}. {element.name}</p>
+                <p>{element.name}</p>
+                <br/>
                 <p>{element.review}</p>
             </div>
             
@@ -89,7 +90,6 @@ const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
                     <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
                             <header>
-                                <h2>{index+1}. {element.name}</h2>
                                 <Button label1={"delete"} color="red" onClick={onDeleteList}/>
                             </header>
                             
