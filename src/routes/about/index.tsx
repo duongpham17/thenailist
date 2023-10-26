@@ -5,6 +5,7 @@ import Introduction from './introduction';
 import Team from './team';
 import Us from './us';
 import Location from './location';
+import Transport from './transport';
 
 const AboutIndex = (props: PropsTypes) => {
 
@@ -18,6 +19,8 @@ const AboutIndex = (props: PropsTypes) => {
       <Us {...props} />
 
       <Location />
+
+      <Transport />
       
     </div>
   )

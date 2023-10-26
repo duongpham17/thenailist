@@ -31,9 +31,10 @@ const Gallery = ({gallery}: PropsTypes) => {
                             key={"10"} 
                             data={dataInsta} 
                             link={instagram} 
-                            username="the_nailist"
-                            likes={`${100+dataInsta.length}`}
-                            text={`#brows #nails #beauty`} 
+                            username="the_nailist_london"
+                            likes={`999_999`}
+                            text={`#nails #brows #beauty`} 
+                            time={"1 minute ago"}
                         >
                             <Swiper data={dataInsta} slidersPerView={1} autoplay={5000} id={"123"}>
                                 {(el, index) => 

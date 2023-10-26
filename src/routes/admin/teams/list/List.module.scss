@@ -12,8 +12,7 @@
             text-align: center;
             border: 1px solid transparent;
             background-color: var(--clr-light-light);
-            width: 220px;
-            height: 220px;
+            width: 300px;
             border-radius: 5px;
             display: flex;
             align-items: center;
@@ -32,10 +31,16 @@
             }
             
             img{
+                margin: auto;
                 width: 120px;
                 height: 120px;
                 border-radius:  100px;
                 border: 2px solid black;
+            }
+
+            p{
+                margin: 1rem 0;
+                white-space: pre-line;
             }
         }
     }

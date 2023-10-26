@@ -10,12 +10,9 @@ import File from './File';
 import Line from '@components/line/Style1';
 import Container from '@components/containers/Style1';
 import Cover from '@components/cover';
-import Textarea from '@components/inputs/Textarea';
 import Input from '@components/inputs/Input';
+import Textarea from '@components/inputs/Textarea';
 import Button from '@components/button/Button';
-import Round from '@components/button/Round';
-
-import {RiDeleteBin4Line} from 'react-icons/ri'
 
 const List = () => {
 
@@ -25,7 +22,7 @@ const List = () => {
         return ( (actions === "")
             ?
                 <div className={styles.container}>
-                    {data.map((el, index) => 
+                    {data.map((el) => 
                         <Child key={el._id} data={el} />
                     )}
                 </div>
@@ -49,7 +46,7 @@ const Child = ({data}: {data: ITeamsApi}) => {
 
     const {onRemoveData} = useContext(Context);
 
-    const {values, onChange, onSubmit, onSetValue, loading} = useForm(data, callback);
+    const {values, onChange, onSubmit, onSetValue, loading, edited} = useForm(data, callback);
 
     async function callback(){
         await api.patch("/teams", values)
@@ -86,7 +83,11 @@ const Child = ({data}: {data: ITeamsApi}) => {
             <div className={styles.information}>
                 <div>
                     <button onClick={() => setOn("image")}><img src={values.images[0]} alt="THENAILIST" /></button>
-                    <button onClick={() => setOn("name")}>{values.name || "?"}</button>
+                    <button onClick={() => setOn("name")}>
+                        <b>{values.name || "DOE"}</b>    
+                        <p>{values.description}</p>
+                    </button>
+                    
                 </div>
             </div>
 
@@ -94,15 +95,15 @@ const Child = ({data}: {data: ITeamsApi}) => {
                 <Cover onClose={() => setOn("")}>
                     <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
-                            <header>
-                                <Button warning label1={"delete person"} color="red" onClick={onDeleteList}/>
-                            </header>
+                            <Button warning label1={"delete person"} color="red" onClick={onDeleteList}/>
 
                             <Line />
 
                             <Input placeholder="Name" name="name" value={values.name || ""} onChange={onChange} />
+
+                            <Textarea placeholder="Description" name="description" value={values.description || ""} onChange={onChange} />
             
-                            <Button label1="update" type="submit" loading={loading} color="black" />
+                            {edited && <Button label1="update" type="submit" loading={loading} color="black" />}
                         </form>
                     </Container>
                 </Cover>

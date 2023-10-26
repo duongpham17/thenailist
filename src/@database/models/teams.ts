@@ -4,6 +4,7 @@ export interface ITeamsApi {
     _id: string,
     images: string[],
     name: string,
+    description: string,
     timestamp: number
 }
 
@@ -11,6 +12,7 @@ export interface ITeams extends Partial<Document> {
     _id: Types.ObjectId,
     images: string[],
     name: string,
+    description: string,
     timestamp: number
 };
 
@@ -19,6 +21,9 @@ const schema = new Schema<ITeams>({
         String 
     ],
     name: {
+        type: String,
+    },
+    description:{
         type: String,
     },
     timestamp: {

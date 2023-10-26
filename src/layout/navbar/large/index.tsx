@@ -97,8 +97,8 @@ const Bars = () => {
             </>
           : 
             el.href ?  el.href.includes("http") 
-            ? <Link href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link> 
-            : <Link className={`${styles.btn} ${el.name.toLowerCase() === "book now" ? styles.book : ""}`} href={el.href}>{el.name.toUpperCase()}</Link> 
+            ? <button><Link className={styles.btn} href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link> </button>
+            : <button><Link className={`${styles.btn} ${el.name.toLowerCase() === "book now" ? styles.book : ""}`} href={el.href}>{el.name.toUpperCase()}</Link> </button>
             : null
           }
         </div>
