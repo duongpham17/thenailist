@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import connectDB from '@database';
 import FaqModel from '@database/models/faq';
-import middleware from 'pages/middleware';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectDB();
@@ -37,4 +36,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     };
 };
 
-export default middleware(handler);
+export default handler;
