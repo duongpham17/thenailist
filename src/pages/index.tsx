@@ -36,7 +36,10 @@ export const getStaticProps = async () => {
 export default function Index(props: PropsTypes) {
   return (
     <>
-      <Metadata title="Home" />
+      <Metadata 
+        title="Home" 
+        description='Discover nails, brows and beauty at thenailist'
+      />
       <Home {...props} />
     </>
   )

@@ -5,9 +5,19 @@ import Observer from '@components/observer/Observer';
 
 import {BsThreeDots, BsCursor, BsHeart, BsChat, BsFillHeartFill, BsBookmark} from 'react-icons/bs';
 
+interface InstagramTypes {
+  caption: string,
+  id: string,
+  media_type: "VIDEO",
+  media_url: string,
+  permalink: string,
+  thumbnail_url: string,
+  timestamp: string
+}
+
 interface Props {
   link: string, 
-  images: string[],
+  data: InstagramTypes[],
   username?: string,
   text?: string,
   time?: string,
@@ -15,7 +25,7 @@ interface Props {
   children: React.ReactNode | React.ReactElement
 };
 
-const Gallery = ({link, images, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago", children}: Props) => {
+const Gallery = ({link, data, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago", children}: Props) => {
 
     const [onLarge, setOnLarge] = useState(false);
 
@@ -65,9 +75,12 @@ const Gallery = ({link, images, username="doe_doe", text="#example #insta", like
         {onLarge && 
           <div className={styles.cover} onClick={() => setOnLarge(false)}>
             <div className={styles.contents} onClick={(e) => e.stopPropagation()}>
-              {images.map((el, index) =>
+              {data.map((el, index) =>
                 <Observer key={index}>
-                  <img key={index} src={el} alt={"mapped"}/> 
+                  {el.media_type === "VIDEO"
+                    ? <video src={el.media_url} controls/>
+                    : <img key={index} src={el.media_url} alt={"mapped"}/> 
+                  }
                 </Observer> 
               )}
             </div>

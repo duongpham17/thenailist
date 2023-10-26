@@ -2,11 +2,11 @@ import Metadata from '@metadata';
 import Styles from 'routes/styles';
 import api from '@database/api'
 import {IGalleryApi} from '@database/models/gallery';
-import { IReviewsApi } from '@database/models/reviews';
+import {IReviewsApi} from '@database/models/reviews';
 
 export interface PropsTypes {
   gallery: IGalleryApi[] | [],
-  reviews: IReviewsApi[] | []
+  reviews: IReviewsApi[] | [],
 }; 
 
 export const getStaticProps = async () => {
@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
     return {
       props: {
         gallery: [],
-        reviews: []
+        reviews: [],
       },
     }
   }

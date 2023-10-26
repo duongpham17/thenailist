@@ -7,9 +7,9 @@ import Helper from 'layout/helper';
 import Loading from 'layout/loading';
 import UseAuthentication from '@context/useAuthentication';
 import progress from '@misc/progress';
-import { Libre_Franklin } from 'next/font/google';
+import { Source_Sans_Pro } from 'next/font/google';
 
-const font = Libre_Franklin({subsets: ["latin"], weight: ["200", "400"]})
+const font = Source_Sans_Pro({subsets: ["latin"], weight: ["200", "400"]})
 progress();
 
 export default function App({ Component, pageProps }: AppProps) {

@@ -6,7 +6,7 @@ const CareersIndex = ({careers}: PropsTypes) => {
   return (
     <div className={styles.container}>
 
-      <h1>Careers</h1>
+      <h1>JOIN US</h1>
 
       <div className={styles.careers}>
         {careers.map(el => 
