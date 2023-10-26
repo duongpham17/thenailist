@@ -86,7 +86,10 @@
         }
         &:hover{
           .btn{
-            color: var(--clr-main-light);
+            color: var(--clr-main-dark);
+            span{
+              color: var(--clr-main-dark);
+            }
           }
         }
         ul{
@@ -94,10 +97,8 @@
           padding: 0.5rem 1rem;
           li{
             margin: 0.5rem 0;
-          }
-          a{
-            &:hover{
-              color: var(--clr-main-light);
+            &:hover * {
+              color: var(--clr-main-dark);
             }
           }
         }
