@@ -8,93 +8,94 @@
     max-width: 1200px;
     margin: auto;
 
-    .header{
-        border: 1px solid transparent;
-        text-align: center;
-        margin-bottom: 1rem;
-        cursor: pointer;
-        &:hover{
-            border: 1px solid var(--clr-blue);
+    .headerContainer{
+        .header{
+            border: 1px solid transparent;
+            text-align: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            &:hover{
+                border: 1px solid var(--clr-blue);
+            }
         }
     }
 
     .child{
+        position: relative;
+        padding: 1rem;
+
         .element{
-            position: relative;
             background-color: var(--clr-light-light);
+            margin: 1rem auto;
             padding: 1rem;
-            margin: 1rem 0;
+            gap: 1rem;
+            display: grid;
+            grid-template-columns: 35px 1fr 1fr;
+            grid-template-areas: "reorder information images";
+    
+            .information, .images{
+                border: 1px solid transparent;
+                &:hover{
+                    border: 1px solid var(--clr-blue);
+                }
+            }
 
             .reorder{
-                position: absolute;
-                top: 0;
-                left: 0;
-                border: 2px solid var(--clr-light-light);
-
+                grid-area: reorder;
                 button{
+                    padding: 0.5rem;
                     display: flex;
-                    padding: 0.3rem 0.5rem;
-                    color: white;
-                    background-color: black;
+                    border: 1px solid transparent;
+                    &:hover{
+                        border: 1px solid var(--clr-blue);
+                    }
                 }
                 .selected{
                     background-color: var(--clr-blue);
                 }
             }
-        }
-    }
-
-    .childItemsContainer{
-        gap: 1rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: "information images";
-
-        .information, .images{
-            cursor: pointer;
-            border: 1px solid transparent;
-            &:hover{
-                border: 1px solid var(--clr-blue);
-            }
-        }
-
-        .information{
-            grid-area: information;
-            padding: 1rem 0.5rem;
-            h2{
-                margin-bottom: 0.5rem;
-            }
-            p{
-                white-space: pre-line;
-            }
-            button{
-                display: block;
-                border: 1px solid transparent;
-                padding: 0.5rem 3rem;
-                margin: 1rem 0;
-                background-color: black;
-                color: white;
-                &:hover{
-                    border-color: var(--clr-blue);
+    
+            .information{
+                grid-area: information;
+                padding: 1rem 0.5rem;
+                h2{
+                    margin-bottom: 0.5rem;
+                }
+                p{
+                    white-space: pre-line;
+                }
+                button{
+                    display: block;
+                    border: 1px solid transparent;
+                    padding: 0.5rem 3rem;
+                    margin: 1rem 0;
+                    background-color: black;
+                    color: white;
+                    &:hover{
+                        border-color: var(--clr-blue);
+                    }
                 }
             }
-        }
-        .images{
-            grid-area: images;
-            img{
-                width: 100%;
-                height: 300px;
-                background-color: var(--clr-light);
+            .images{
+                grid-area: images;
+                img{
+                    width: 100%;
+                    height: 300px;
+                    background-color: var(--clr-light);
+                }
             }
         }
     }
 
     @media (max-width: 800px){
-        .childItemsContainer{
-            grid-template-columns: 1fr ;
-            grid-template-areas: 
-            "images"
-            "information";
+        .child{
+            .element{
+                grid-template-columns: 1fr ;
+                grid-template-areas: 
+                "reorder"
+                "images"
+                "information";
+            }
         }
     }
 }

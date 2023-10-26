@@ -1,7 +1,11 @@
 .container{
+    padding: 1rem;
+    max-width: 1000px;
+    margin: auto;
     
     .element{
-        border: 1px solid black;
+        background-color: var(--clr-light-light);
+        border: 1px solid transparent;
         padding: 1rem;
         margin-bottom: 0.5rem;
         display: flex;

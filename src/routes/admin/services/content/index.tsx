@@ -4,7 +4,6 @@ import {Context} from '../Context';
 import {IServicesApi} from '@database/models/services';
 import {api} from '@database/api';
 import {upload, remove} from '@thirdparty/nftstorage';
-import { generateid } from '@utils/function';
 import useForm from '@hooks/useForm';
 
 import Line from '@components/line/Style1';
@@ -22,34 +21,24 @@ import File from './File';
 interface ParentsProps {
     on: "" | "header",
     setOn: React.Dispatch<React.SetStateAction<"" | "header">>,
+    reorderIndex: number,
+    setReorderIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
 const ContentIndex = () => {
 
-    const {selectedData, actions, onUpdateData} = useContext(Context);
+    const {selectedData, actions} = useContext(Context);
 
     const [reorderIndex, setReorderIndex] = useState(-1);
 
     const [on, setOn] = useState<'header' | "">("");
 
-    const onReorder = async (index: number) => {
-        if(!selectedData) return;
-        if(reorderIndex === index) return setReorderIndex(-1);
-        if(reorderIndex === -1) return setReorderIndex(index);
-        setReorderIndex(-1);
-        const newData = {...selectedData};
-        const oldValue = selectedData.items[reorderIndex];
-        const newValue = selectedData.items[index];
-        newData.items[reorderIndex] = newValue;
-        newData.items[index] = oldValue;
-        onUpdateData(newData);
-        await api.patch("/services", newData);
-    };
-
     const props = {
         on, 
         setOn,
-        selectedData
+        selectedData,
+        reorderIndex,
+        setReorderIndex
     };
 
     return ( actions === "reorder" ?
@@ -61,18 +50,10 @@ const ContentIndex = () => {
                 </div>
             :
                 <div className={styles.container}>
-                    <h1 className={styles.header} onClick={() => setOn("header")}>{selectedData.name}</h1>
-                    {on === "header" && <ONHeader {...props} />}
-                    
+                    <ONHeader {...props} />
                     <div className={styles.child}>
                         {selectedData.items.map((el, index) =>
-                            <div className={styles.element}  key={el._id}>
-                                <div className={styles.reorder}>
-                                    <button className={reorderIndex === index ? styles.selected : ""} onClick={() => onReorder(index)}><HiMenuAlt4/></button>
-                                </div>
-                                <ChildItems element={el} index={index} />   
-                            </div>
-                         
+                            <ChildItems  key={el._id} element={el} index={index} props={props} />   
                         )}
                     </div>
                 </div>
@@ -83,7 +64,7 @@ export default ContentIndex;
 
 ///
 
-const ONHeader = ({setOn}: ParentsProps) => {
+const ONHeader = ({setOn, on}: ParentsProps) => {
 
     const {selectedData, setSelectedData, onUpdateData, onRemoveData} = useContext(Context);
 
@@ -110,26 +91,33 @@ const ONHeader = ({setOn}: ParentsProps) => {
     }
 
     return (
-        <Cover onClose={() => setOn("")}>
-            <Container style={{"maxWidth": "500px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
-                <form onSubmit={onSubmit}>
-                    <Flex>
-                        <h2>{selectedData?.name}</h2>
-                        <Button label1="delete category" warning color="red" onClick={onDeleteItem} style={{fontSize: "0.8rem"}}/>
-                    </Flex>
-                    
-                    <Line />
+        <div className={styles.headerContainer}>
+            <h1 className={styles.header} onClick={() => setOn("header")}>{selectedData?.name}</h1>
+            {on === "header" && 
+                <Cover onClose={() => setOn("")}>
+                    <Container style={{"maxWidth": "500px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
+                        <form onSubmit={onSubmit}>
+                            <Flex>
+                                <h2>{selectedData?.name}</h2>
+                                <Button label1="delete category" warning color="red" onClick={onDeleteItem} style={{fontSize: "0.8rem"}}/>
+                            </Flex>
+                            
+                            <Line />
 
-                    <Input label1="Header" name="name" value={values?.name || ""} onChange={onChange} />
-        
-                    <Button label1="update" type="submit" loading={loading} color="black" />
-                </form>
-            </Container>
-        </Cover>
+                            <Input label1="Header" name="name" value={values?.name || ""} onChange={onChange} />
+                
+                            <Button label1="update" type="submit" loading={loading} color="black" />
+                        </form>
+                    </Container>
+                </Cover>
+            }
+        </div>
     )
 };
 
-const ChildItems = ({element, index}: {element: IServicesApi["items"][0], index: number}) => {
+const ChildItems = ({element, index, props}: {element: IServicesApi["items"][0], index: number, props: ParentsProps}) => {
+
+    const {reorderIndex, setReorderIndex} = props;
 
     const {onUpdateData, selectedData} = useContext(Context);
 
@@ -187,13 +175,32 @@ const ChildItems = ({element, index}: {element: IServicesApi["items"][0], index:
         await api.patch("/services", newData);
     };
 
+    const onReorder = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.stopPropagation();
+        if(!selectedData) return;
+        if(reorderIndex === index) return setReorderIndex(-1);
+        if(reorderIndex === -1) return setReorderIndex(index);
+        setReorderIndex(-1);
+        const newData = {...selectedData};
+        const oldValue = selectedData.items[reorderIndex];
+        const newValue = selectedData.items[index];
+        newData.items[reorderIndex] = newValue;
+        newData.items[index] = oldValue;
+        onUpdateData(newData);
+        await api.patch("/services", newData);
+    };
+
+
     const onButton = (e: any) =>{
         e.stopPropagation();
         setOn("button")
-    }
+    };
 
     return(
-        <div className={styles.childItemsContainer} id={element._id}>
+        <div className={styles.element} id={element._id}>
+            <div className={styles.reorder}>
+                <button className={reorderIndex === index ? styles.selected : ""} onClick={onReorder}><HiMenuAlt4/></button>
+            </div>
             <div className={styles.information} onClick={(e) => setOn("edit")}>
                 <h2>{element.name}</h2>
                 <p>{element.description}</p>

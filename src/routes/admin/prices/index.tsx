@@ -1,10 +1,11 @@
+import styles from './Services.module.scss';
 import { useContext } from 'react';
 import { Context } from '@context/useAuthentication';
 import UseContext from './Context';
-import Actions from './actions';
-import Create from './create';
-import List from './list';
+
+import Content from './content';
 import Reorder from './reorder';
+import Sidebar from './sidebar';
 
 const AdminPricesIndex = () => {
 
@@ -14,15 +15,15 @@ const AdminPricesIndex = () => {
 
   return (
     <UseContext>
-
-      <Actions />
-
-      <List />
-
-      <Create />
-
-      <Reorder />
-      
+      <div className={styles.container}>
+        <div className={styles.sidebar}>
+          <Sidebar />
+        </div>  
+        <div className={styles.content}>
+            <Content />
+            <Reorder />
+        </div>
+      </div>
     </UseContext>
   )
 }

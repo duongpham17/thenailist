@@ -7,10 +7,12 @@ interface Props {
 };
 
 export interface PropsContextTypes {
-    actions: "" | "create" | "reorder",
-    setActions: React.Dispatch<React.SetStateAction<"" | "create" | "reorder">>,
+    actions: "" | "reorder",
+    setActions: React.Dispatch<React.SetStateAction<"" | "reorder">>,
     data: IPricesApi[] | [],
     setData: React.Dispatch<React.SetStateAction<IPricesApi[] | []>>,
+    selectedData: IPricesApi | null,
+    setSelectedData: React.Dispatch<React.SetStateAction<IPricesApi | null>>,
     onUpdateData: (data: IPricesApi) => void,
     onRemoveData: (data: IPricesApi) => void
 };
@@ -21,6 +23,8 @@ export const Context = createContext<PropsContextTypes>({
     setActions: (value) => "",
     data: [],
     setData: (value) => "",
+    selectedData: null,
+    setSelectedData: (value) => "",
     onUpdateData: (data) => "",
     onRemoveData: (data) => ""
 });
@@ -29,7 +33,9 @@ export const useTemplateContext = ({children}: Props) => {
 
     const [data, setData] = useState<IPricesApi[] | []>([]);
 
-    const [actions, setActions] = useState<"" | "create" | "reorder">("");
+    const [selectedData, setSelectedData] = useState<IPricesApi | null>(null);
+
+    const [actions, setActions] = useState<"" | "reorder">("");
   
     useEffect(() => {
       (async () => {
@@ -39,10 +45,11 @@ export const useTemplateContext = ({children}: Props) => {
     }, []);
 
     const onUpdateData = (data: IPricesApi) => {
-        setData(state => state.map(el => el._id === data._id ? data : el))
+        setData(state => state.map(el => el._id === data._id ? data : el));
+        setSelectedData(data)
     };
     const onRemoveData = (data: IPricesApi) => {
-        setData(state => state.filter(el => el._id !== data._id))
+        setData(state => state.filter(el => el._id !== data._id));
     };
   
     const value = {
@@ -51,7 +58,9 @@ export const useTemplateContext = ({children}: Props) => {
         actions,
         setActions,
         onUpdateData,
-        onRemoveData
+        onRemoveData,
+        setSelectedData,
+        selectedData
     }
 
     return (
