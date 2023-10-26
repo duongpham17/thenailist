@@ -28,18 +28,25 @@ $black: rgb(48, 48, 48);
             .left{
                 display: flex;
                 align-items: center;
+                img{
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50px;
+                    border: 1px solid black;
+                    object-fit: contain;
+                }
                 span:nth-child(1){
                     display: block;
                     width: 35px;
                     height: 35px;
                     background-color: $grey;
                     border-radius: 50px;
-                    margin-right: 0.5rem;
                     border: 3px double white;
                 }
                 span:nth-child(2){
                     font-size: 0.8rem;
                     color: $black;
+                    margin-left: 0.5rem;
                     &:hover{
                         color: $blue;
                     }

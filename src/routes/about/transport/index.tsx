@@ -11,8 +11,6 @@ const Transport = () => {
                 <p>{el.description}</p>
             </div>    
         )}
-
-
     </div>
   )
 }

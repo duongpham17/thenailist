@@ -18,6 +18,7 @@ interface InstagramTypes {
 interface Props {
   link: string, 
   data: InstagramTypes[],
+  image?: string,
   username?: string,
   text?: string,
   time?: string,
@@ -25,7 +26,7 @@ interface Props {
   children: React.ReactNode | React.ReactElement
 };
 
-const Gallery = ({link, data, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago", children}: Props) => {
+const Gallery = ({link, image, data, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago", children}: Props) => {
 
     const [onLarge, setOnLarge] = useState(false);
 
@@ -40,7 +41,7 @@ const Gallery = ({link, data, username="doe_doe", text="#example #insta", likes=
         <div className={styles.instagram}>
           <div className={styles.header}>
               <a className={styles.left} href={link}>
-                <span />
+                {image ? <img src={image} alt="insta" /> : <span />}
                 <span>{username}</span>
               </a>
               <div className={styles.right}>
