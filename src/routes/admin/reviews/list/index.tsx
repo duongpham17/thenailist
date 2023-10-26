@@ -21,8 +21,8 @@ const List = () => {
         return ( (actions === "" || actions === "create")
             ?
                 <div className={styles.container}>
-                    {data.map((el, index) => 
-                        <Element element={el} key={el._id} index={index} />
+                    {data.map((el) => 
+                        <Element element={el} key={el._id} />
                     )}
                 </div>
             :
@@ -39,7 +39,7 @@ const List = () => {
 
 export default List;
 
-const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
+const Element = ({element}: {element: IReviewsApi} ) => {
 
     const {onUpdateData, onRemoveData} = useContext(Context);
 
@@ -89,10 +89,8 @@ const Element = ({element, index}: {element: IReviewsApi, index: number} ) => {
                 <Cover onClose={() => setOn("")}>
                     <Container style={{"maxWidth": "400px", "padding": "1rem"}} onClick={e => e.stopPropagation()}>
                         <form onSubmit={onSubmit}>
-                            <header>
-                                <Button label1={"delete"} color="red" onClick={onDeleteList}/>
-                            </header>
-                            
+                            <Button label1={"delete"} warning color="red" onClick={onDeleteList}/>
+    
                             <Line />
 
                             <Input label1="name" name="name" value={values.name} onChange={onChange} />

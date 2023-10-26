@@ -1,12 +1,12 @@
 .container{
+    margin: auto;
+    max-width: 1000px;
+    padding: 1rem;
     
     .element{
         border: 1px solid black;
         padding: 1rem;
         margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         cursor: pointer;
 
         &:hover{
