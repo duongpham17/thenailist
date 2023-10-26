@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import connectDB from '@database';
 import ReviewsModel from '@database/models/reviews';
+import middleware from '../../middleware';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
@@ -18,4 +19,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 }
 
-export default handler;
+export default middleware(handler)

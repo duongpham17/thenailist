@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import connectDB from '@database';
 import TeamModel from '@database/models/teams';
+import middleware from '../../middleware';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
@@ -19,4 +20,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 }
 
-export default handler;
+export default middleware(handler)
