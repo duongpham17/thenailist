@@ -1,4 +1,23 @@
 .container{
-    background-color: var(--clr-light);
+    background-color: black;
     padding: 0.2rem;
+}
+
+.small{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: black;
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .button{
+        color: white;
+        padding: 0.5rem 2rem;
+        background-color: rgba(40, 40, 40, 0.835);
+    }
 }

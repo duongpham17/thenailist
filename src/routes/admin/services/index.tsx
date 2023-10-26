@@ -20,8 +20,8 @@ const AdminPricesIndex = () => {
           <Sidebar />
         </div>  
         <div className={styles.content}>
-          <Content />
-          <Reorder />
+            <Content />
+            <Reorder />
         </div>
       </div>
     </UseContext>

@@ -45,8 +45,7 @@ const Items = () => {
                         <div className={styles.items}>
                             {el.items.map((it, i) => 
                                 <Link href={`/admin/services#${it._id}`} key={it._id}>
-                                    <span> {i+1}. </span>
-                                    <span> {it.name.substring(0, 9)}...</span>
+                                    <span> {i+1}. {it.name.substring(0, 8)}... </span>
                                 </Link>
                             )}
                         </div>
@@ -59,7 +58,6 @@ const Items = () => {
                 <div className={styles.element} key={el._id} onClick={() => onSelectedData(el)}>
                     <div className={styles.boxed}>
                         <p>{el.name}</p>
-                        <small>{el._id.slice(-6).toUpperCase()}</small>
                     </div>
                 </div>
             )}

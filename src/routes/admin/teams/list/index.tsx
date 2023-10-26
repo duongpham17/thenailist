@@ -86,7 +86,7 @@ const Child = ({data}: {data: ITeamsApi}) => {
             <div className={styles.information}>
                 <div>
                     <button onClick={() => setOn("image")}><img src={values.images[0]} alt="THENAILIST" /></button>
-                    <button onClick={() => setOn("name")}>{values.name}</button>
+                    <button onClick={() => setOn("name")}>{values.name || "?"}</button>
                 </div>
             </div>
 

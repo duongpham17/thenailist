@@ -85,7 +85,7 @@ export default ContentIndex;
 
 const ONHeader = ({setOn}: ParentsProps) => {
 
-    const {selectedData, onUpdateData, onRemoveData} = useContext(Context);
+    const {selectedData, setSelectedData, onUpdateData, onRemoveData} = useContext(Context);
 
     const {onSubmit, onChange, values, loading} = useForm(selectedData, callback);
 
@@ -103,6 +103,7 @@ const ONHeader = ({setOn}: ParentsProps) => {
             const response = await api.delete(`/services/${selectedData?._id}`);
             onRemoveData(response.data.data);
             setOn("");
+            setSelectedData(null);
         } catch(err){
             console.log(err);
         }

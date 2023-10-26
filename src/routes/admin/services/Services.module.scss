@@ -2,16 +2,23 @@
     display: grid;
     grid-template-columns: 150px 1fr;
     grid-template-areas: "sidebar content";
-    max-width: 1200px;
-    margin: auto;
 
     .sidebar{
-        position: relative;
         grid-area: sidebar;
         height: 100%;
+        position: relative;
     }
 
     .content{
         grid-area: content;
+    }
+}
+
+@media (max-width: 700px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "sidebar"
+        "content";
     }
 }

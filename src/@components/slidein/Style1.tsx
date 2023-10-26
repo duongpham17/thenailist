@@ -7,10 +7,11 @@ interface Types {
   icon: ReactNode | ReactElement,
   iconOpen?: ReactNode | ReactElement,
   autoClose?: boolean
-  width?: number
+  width?: number,
+  background?: string,
 }
 
-const Sidebar = ({children, icon, autoClose=true, width=500, iconOpen}: Types) => {
+const Sidebar = ({children, icon, autoClose=true, width=500, iconOpen, background}: Types) => {
 
     const [open, setOpen] = useState<boolean>(false); 
 
@@ -42,7 +43,7 @@ const Sidebar = ({children, icon, autoClose=true, width=500, iconOpen}: Types) =
             </div>                                              
             { open &&
                 <div className={styles.cover} onClick={onOpen}>
-                    <div className={styles.sidebar} style={{maxWidth: `${width}px`}} onClick={e => e.stopPropagation()}>
+                    <div className={styles.sidebar} style={{maxWidth: `${width}px`, backgroundColor: background}} onClick={e => e.stopPropagation()}>
                         <div className={styles.iconOpen}>
                             <button className={styles.close} onClick={() => setOpen(!open)}><MdOutlineKeyboardBackspace/></button>
                             {iconOpen}

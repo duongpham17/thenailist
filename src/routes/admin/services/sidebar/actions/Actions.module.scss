@@ -1,23 +1,24 @@
 .container{
-    padding: 0.1rem;
+    display: flex;
 
     button{
         padding: 0.5rem;
         display: flex;
         justify-content: center;
         color: white;
-        background-color: black;
+        background-color: rgba(40, 40, 40, 0.835);
         width: 100%;
-        margin: 0.1rem 0;
+        margin: 0.3rem;
+        border: 2px solid transparent;
+
+        &:hover{
+            border-color: var(--clr-blue)
+        }
 
         svg{
             display: flex;
             color: white;
             font-size: 1.2rem;
-        }
-
-        &:hover{
-            background-color: var(--clr-dark-light);
         }
     }
 }
