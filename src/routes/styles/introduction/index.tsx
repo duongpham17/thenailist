@@ -5,7 +5,7 @@ const Introduction = () => {
   return (
     <div className={styles.container}>
         <div className={styles.content}>
-            <h1>OUR STYLES</h1>
+            <h1>OUR STYLE</h1>
             <span/>
             <p>
                 Here are a few things that we thought you would like to know about us here at.

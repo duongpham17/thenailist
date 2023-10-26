@@ -1,10 +1,9 @@
-import styles from './Style1.module.scss';
+import styles from './Style2.module.scss';
 import React, {useState, useEffect} from 'react';
 
 import Observer from '@components/observer/Observer';
 
 import {BsThreeDots, BsCursor, BsHeart, BsChat, BsFillHeartFill, BsBookmark} from 'react-icons/bs';
-import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md';
 
 interface Props {
   link: string, 
@@ -13,28 +12,17 @@ interface Props {
   text?: string,
   time?: string,
   likes?: string,
+  children: React.ReactNode | React.ReactElement
 };
 
-const Gallery = ({link, images, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago"}: Props) => {
+const Gallery = ({link, images, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago", children}: Props) => {
 
     const [onLarge, setOnLarge] = useState(false);
-
-    const [index, setIndex] = useState(0);
 
     useEffect(() => {
       if(onLarge) document.body.classList.add("bodyScrollBar");
       return () => document.body.classList.remove('bodyScrollBar');
     }, [onLarge]);
-
-    const onRight = () => {
-      if(images.length - 1 === index) return setIndex(0);
-      setIndex(index => index + 1);
-    };
-
-    const onLeft = () => {
-      if(index === 0) return;
-      setIndex(index => index - 1)
-    };
 
     return (
       <div className={styles.container}>
@@ -51,9 +39,7 @@ const Gallery = ({link, images, username="doe_doe", text="#example #insta", like
               </div>
           </div>
           <div className={styles.images}>
-              <button className={styles.left} onClick={onLeft}><MdKeyboardArrowLeft/></button>
-              <img src={images[index]} alt="instagram" />
-              <button className={styles.right} onClick={onRight}><MdKeyboardArrowRight/></button>
+            {children}
           </div>
           <div className={styles.emoji} onClick={() => setOnLarge(true)}>
             <div>

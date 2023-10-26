@@ -1,39 +1,40 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import connectDB from '@database';
 import FaqModel from '@database/models/faq';
+import middleware from 'pages/middleware';
 
-export default async function(req: NextApiRequest, res: NextApiResponse){
-
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectDB();
 
-    if(req.method === "GET"){
-        const data = await FaqModel.find().sort({timestamp: -1});
+    if (req.method === "GET") {
+        const data = await FaqModel.find().sort({ timestamp: 1 });
 
         return res
             .status(200)
-            .json({  
+            .json({
                 data
             });
     };
 
-    if(req.method === "POST"){
+    if (req.method === "POST") {
         const data = await FaqModel.create(req.body);
 
         return res
             .status(200)
-            .json({ 
+            .json({
                 data
             });
     };
 
-    if(req.method === "PATCH"){
-        const data = await FaqModel.findByIdAndUpdate(req.body._id, req.body, {new: true});
+    if (req.method === "PATCH") {
+        const data = await FaqModel.findByIdAndUpdate(req.body._id, req.body, { new: true });
 
         return res
             .status(200)
-            .json({ 
+            .json({
                 data
             });
     };
+};
 
-}
+export default middleware(handler);

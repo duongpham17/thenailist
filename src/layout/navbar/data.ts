@@ -74,11 +74,17 @@ export const adminLinks = [
     value: "services",
     href: "/admin/services",
   },
-    {
+  {
     id: "10",
     name: "Gallery",
     value: "gallery",
     href: "/admin/gallery",
+  },
+  {
+    id: "11",
+    name: "Careers",
+    value: "careers",
+    href: "/admin/careers",
   },
 ]
   
@@ -165,7 +171,7 @@ export const bars = [
     id: 6,
     name: "Careers",
     links: [],
-    href: "/example"
+    href: "/careers"
   },
   {
     id: 7,

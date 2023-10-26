@@ -153,8 +153,10 @@ const Menu = ({user, open, onOpen, onOpenItems, openItems}: Props) => {
                     </button>
                     { openItems.includes(el.id.toString()) &&
                       <ul>
-                        {el.links.map(l => 
-                          <li><Link href={l.href} onClick={onOpen}>{l.name.toUpperCase()}</Link></li>  
+                        {el.links.map((l, index) => 
+                          <li key={index}>
+                            <Link href={l.href} onClick={onOpen}>{l.name.toUpperCase()}</Link>
+                          </li>  
                         )}
                       </ul>
                     }
