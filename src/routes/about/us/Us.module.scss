@@ -36,10 +36,10 @@
                 font-weight: 600;
                 font-size: 2rem;
             }
-            p, b, small{
+            p, b, small, a{
                 margin: 1rem 0;
                 display: block;
-                font-weight: 400;
+                font-weight: 200;
                 line-height: 1.5rem;
                 font-size: 0.9rem;
             }
@@ -47,9 +47,8 @@
                 font-size: 0.8rem;
             }
             a{
-                display: block;
                 background-color: var(--clr-main-fade);
-                padding: 0.7rem;
+                padding: 0.5rem 0.7rem;
                 text-align: center;
                 max-width: 200px;
 

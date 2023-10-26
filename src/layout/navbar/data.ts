@@ -129,11 +129,11 @@ export const bars = [
     links: [
       {
         name: "Gallery",
-        href: "/style#gallery"
+        href: "/styles#gallery"
       },
       {
         name: "Clients reviews",
-        href: "/style#reviews"
+        href: "/styles#reviews"
       },
     ]
   },

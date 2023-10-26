@@ -1,0 +1,19 @@
+.container{
+    padding: 1rem;
+    max-width: 1000px;
+    margin: auto;
+
+    .header{
+        text-align: center;
+        margin: 3rem;
+    }
+
+    .instagram{
+        width: 100%;
+        margin: auto;
+        display: inline-flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+}

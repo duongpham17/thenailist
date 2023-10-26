@@ -44,17 +44,18 @@
             .item{
                 display: flex;
                 margin-bottom: 1rem;
+                b{
+                    font-size: 1rem;
+                    min-width: 30px;
+                }
                 p{
-                    margin-bottom: 0.5rem;
+                    font-weight: 200;
                     white-space: pre-line;
+                    margin-bottom: 0.5rem;
                 }
                 .answer{
                     color: rgb(62, 62, 62);
                 }
-            }
-            b{
-                font-size: 1rem;
-                width: 50px;
             }
         }
     }

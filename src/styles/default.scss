@@ -6,6 +6,20 @@ html, body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    }
+    
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px white; 
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background:var(--clr-main); 
+    border-radius: 10px;
+  }
 }
   
 body{
@@ -18,7 +32,7 @@ body{
   }
 }
   
-a, button, input, li, ul, p, q, textarea{
+a, button, input, li, ul, p, q, textarea, div{
   text-decoration: none;
   outline: none;
   border: none;

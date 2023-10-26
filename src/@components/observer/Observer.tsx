@@ -1,12 +1,12 @@
 import styles from './Observer.module.scss';
 import React, {useEffect, useRef} from 'react';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement>{
     children: React.ReactNode,
     threshold?: number
 }
 
-const Observer = ({children, threshold=0.5}: Props) => {
+const Observer = ({children, threshold=0.5, ...props}: Props) => {
 
     const ref = useRef<any>();
 
@@ -22,7 +22,7 @@ const Observer = ({children, threshold=0.5}: Props) => {
     }, [threshold]);
 
     return (
-        <div className={styles.container} ref={ref}>
+        <div className={styles.container} ref={ref} {...props}>
             {children}
         </div>
     )

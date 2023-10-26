@@ -2,7 +2,7 @@ import styles from './Terms.module.scss';
 import React from 'react';
 import {PropsTypes} from 'pages/terms';
 
-const Terms = (props: PropsTypes) => {
+const Styles = (props: PropsTypes) => {
 
     const {terms} = props;
 
@@ -30,4 +30,4 @@ const Terms = (props: PropsTypes) => {
     )
 }
 
-export default Terms
+export default Styles
