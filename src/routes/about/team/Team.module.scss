@@ -17,13 +17,69 @@
             text-align: center;
             margin: 1rem;
             img{
+                transition: ease-in-out 0.3s;
                 width: 180px;
                 height: 180px;
                 border-radius: 50%;
                 border: 2px solid var(--clr-main);
+                cursor: pointer;
+                &:hover{
+                    border: 2px solid var(--clr-main-fade);
+                }
             }
             p{
                 margin-top: 0.5rem;
+            }
+        }
+    }
+
+    .selected{
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: white;
+        max-width: 400px;
+        position: relative;
+        text-align: center;
+        button{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: white;
+            border-radius: 50px;
+            display: flex;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+
+            &:hover{
+                color: var(--clr-main-dark);
+            }
+        }
+        img{
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            animation: grow 0.5s linear forwards;
+        }
+        b{
+            font-size: 2rem;
+            padding: 0.5rem 0;
+            display: block;
+        }
+
+        @keyframes grow {
+            0%{
+                transform: scale(0.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px){
+            img{
+                width: 200px;
+                height: 200px;
             }
         }
     }

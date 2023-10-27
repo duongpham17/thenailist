@@ -1,0 +1,25 @@
+.large{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1000px;
+    margin: 1rem auto;
+    gap: 1rem;
+    .element{
+        padding: 1.5rem;
+        background-color: var(--clr-main-light);
+        p{
+            white-space: pre-line;
+        }
+    }
+}
+
+.small{
+    padding: 1rem;
+    background-color: var(--clr-main-light);
+
+    .element{
+        p{
+            white-space: pre-line;
+        }
+    }
+}

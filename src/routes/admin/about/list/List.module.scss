@@ -1,5 +1,7 @@
 .container{
     padding: 1rem;
+    margin: auto;
+    max-width: 1000px;
 
     .child{
         background-color: var(--clr-light-light);

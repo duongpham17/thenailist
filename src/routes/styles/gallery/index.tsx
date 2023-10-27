@@ -2,7 +2,7 @@ import styles from './Gallery.module.scss';
 import React, {useState, useEffect} from 'react';
 import {PropsTypes} from 'pages/styles';
 import {instagram} from '@data/business';
-import { getInstagramMedia, InstgramMediaApi } from '@thirdparty/instagram';
+import {getInstagramMedia, InstgramMediaApi} from '@thirdparty/instagram';
 import InstagramComponent from '@components/instagram/Style2';
 import Observer from '@components/observer/Observer';
 import Swiper from '@components/swiper';

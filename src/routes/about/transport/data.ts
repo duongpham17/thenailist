@@ -2,7 +2,7 @@ export const data = [
     {
         id: 1,
         name: "By Train",
-        descritpion:`
+        description:`
             Goldhawk Road Station (Circle & Hammersmith line) - 7 minutes walk
 
             Shepherd's Bush (Central line, Overground and Southern rail) - 8 minutes walk
