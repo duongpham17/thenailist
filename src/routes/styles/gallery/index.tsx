@@ -37,7 +37,7 @@ const Gallery = ({gallery}: PropsTypes) => {
                             time={"1 minute ago"}
                             image={"/favicon.ico"}
                         >
-                            <Swiper data={dataInsta} slidersPerView={1} autoplay={5000} id={"123"}>
+                            <Swiper data={dataInsta} slidersPerView={1} autoplay={10000}>
                                 {(el, index) => 
                                     el.media_type === "VIDEO" 
                                     ? <video src={el.media_url} controls/>
