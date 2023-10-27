@@ -1,6 +1,7 @@
 import styles from './Map.module.scss';
 import React, { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
+import { google_location } from '@data/business';
 
 const GoogleMap = () => {
   const mapContainer = useRef(null);
@@ -10,7 +11,7 @@ const GoogleMap = () => {
 
     const initializeMap = async () => {
       const loader = new Loader({
-        apiKey: api,
+        apiKey: "AIzaSyBGnipUkxd-_YNFLr4rGkeAj5_z3sdOozo",
         version: 'weekly',
       });
 
@@ -41,10 +42,12 @@ const GoogleMap = () => {
 
         const contentString = `
           <div>
-            <h3>The Nailist</h3>
-            <p>38 Shepherds Bush Road</p>
-            <p>London</p>
-            <p>W6 7PJ</p>
+            <a href=${google_location} rel="noopener noreferrer" target="_blank">
+              <h3>The Nailist</h3>
+              <p>38 Shepherds Bush Road</p>
+              <p>London</p>
+              <p>W6 7PJ</p>
+            </a>
           </div>
         `;
 
