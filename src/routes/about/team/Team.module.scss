@@ -66,6 +66,9 @@
             padding: 0.5rem 0;
             display: block;
         }
+        p{
+            white-space: pre-line;
+        }
 
         @keyframes grow {
             0%{
