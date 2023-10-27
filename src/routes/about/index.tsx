@@ -4,7 +4,7 @@ import { PropsTypes } from 'pages/about';
 import Introduction from './introduction';
 import Team from './team';
 import Us from './us';
-import Location from './location';
+import Map from './map';
 import Transport from './transport';
 
 const AboutIndex = (props: PropsTypes) => {
@@ -18,9 +18,9 @@ const AboutIndex = (props: PropsTypes) => {
 
       <Us {...props} />
 
-      <Location />
-
       <Transport />
+
+      <Map />
       
     </div>
   )
