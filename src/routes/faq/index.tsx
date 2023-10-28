@@ -44,8 +44,8 @@ const Faq = (props: PropsTypes) => {
 
                {!!results.length && 
                 <div className={styles.results}>
-                    <h3>Results: {results.length}</h3>
-                    {results.map((el, index) => 
+                    <h3>Results: {results.slice(0, 10).length}</h3>
+                    {results.slice(0, 10).map((el, index) => 
                         <div className={styles.item} key={el._id}>
                             <b>{index+1}.</b>
                             <div>

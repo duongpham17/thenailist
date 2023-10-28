@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import { PropsTypes } from 'pages/about';
 
 import Cover from '@components/cover/Cover';
-import Container from '@components/containers/Style1';
 
 import {AiOutlineClose} from 'react-icons/ai';
 
