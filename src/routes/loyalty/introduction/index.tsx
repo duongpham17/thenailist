@@ -5,7 +5,7 @@ const Introduction = () => {
   return (
     <div className={styles.container} id="loyalty">
         <div className={styles.content}>
-            <h1>Loyalty</h1>
+            <h1>LOYALTY</h1>
             <span/>
             <p>
               Here are a few things that we thought you would like to know about us here at.
