@@ -1,0 +1,17 @@
+.container{
+    margin: 3rem auto;
+    max-width: 1000px;
+    h1{
+        margin: 3rem 0;
+        text-align: center;
+    }
+    div{
+        margin: 1rem;
+        b{
+            display: block;
+            color: var(--clr-main);
+            margin: 0.2rem 0;
+            font-size: 1.1rem;
+        }
+    }
+}

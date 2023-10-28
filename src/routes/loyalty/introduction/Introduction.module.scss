@@ -1,0 +1,29 @@
+.container{
+    background-image: url(/home4.jpg);
+    background-size: cover;
+    background-position: center center;  
+    height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content{
+        text-align: center;
+        padding: 3rem 2rem;
+        background-color: white;
+        width: 76%;
+
+        span{
+            border: 1px solid black;
+            width: 30px;
+            display: block;
+            margin: 1rem auto;
+        }
+
+        p{
+            font-size: 0.9rem;
+            font-weight: 200;
+        }
+    }
+}

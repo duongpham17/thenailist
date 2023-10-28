@@ -1,0 +1,18 @@
+.container{
+    margin: 4rem 0;
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 1rem 1rem;
+
+    h1{
+        text-align: center;
+    }
+
+    div{
+        margin: 1rem;
+        text-align: center;
+        p{
+            white-space: pre-line;
+        }
+    }
+}

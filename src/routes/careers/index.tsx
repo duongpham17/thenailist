@@ -1,23 +1,17 @@
-import styles from './Careers.module.scss';
 import React from 'react';
 import { PropsTypes } from 'pages/careers';
+import Introduction from './introduction';
+import Message from './message';
 
-const CareersIndex = ({careers}: PropsTypes) => {
+const CareersIndex = (props: PropsTypes) => {
   return (
-    <div className={styles.container}>
+    <>
 
-      <h1>JOIN US</h1>
+      <Introduction />
 
-      <div className={styles.careers}>
-        {careers.map(el => 
-          <div key={el._id}>
-            <p>{el.message}</p>
-          </div>
-        )}
-      </div>
+      <Message {...props} />
 
-
-    </div>
+    </>
   )
 }
 

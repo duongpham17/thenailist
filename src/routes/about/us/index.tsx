@@ -23,7 +23,7 @@ const Us = ({about}: PropsTypes) => {
                       : el.includes("<small>") ?
                           <small key={index}>{el.replaceAll("<small>", " ").replaceAll("</small>", " ")}</small>
                       : el.includes("<h>") ?
-                          <h2 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h2>
+                          <h3 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h3>
                       : ""
                   )}
                   {el.button.href &&

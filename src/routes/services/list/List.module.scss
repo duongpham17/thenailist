@@ -1,6 +1,6 @@
 .container {
-    background-color: white;
     padding: 3rem 0;
+    background-color: white;
 
     .header{
         text-align: center;
@@ -14,9 +14,9 @@
 
     .element{
         padding: 1rem;
-        h2{
+        h1{
             text-align: center;
-            background-color: var(--clr-main-fade);
+            border-bottom: 1px solid var(--clr-main-fade);
             padding: 1rem;
         }
     }
@@ -27,6 +27,9 @@
         align-items: center;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
+        background-color: var(--clr-main-fade);
+        padding: 1rem;
+        
 
         &:nth-child(odd) {
             grid-template-areas: 
@@ -40,22 +43,22 @@
 
         .information {
             grid-area: information;
-            b{
-                font-size: 1.5rem;
-                display: block;
+            p, b, small, a{
                 margin: 0.5rem 0;
+                display: block;
             }
-            p{
-                white-space: pre-line;
-                font-weight: 200;
+            p, a{
+                font-size: 0.9rem;
+            }
+            small {
+                font-size: 0.8rem;
             }
             a{
-                margin: 1rem 0;
-                display: block;
                 background-color: var(--clr-main-fade);
-                padding: 0.7rem;
+                padding: 0.5rem 0.7rem;
                 text-align: center;
                 max-width: 200px;
+                margin: 1rem 0;
 
                 &:hover{
                     background-color: var(--clr-main);

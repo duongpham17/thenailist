@@ -30,7 +30,7 @@ const TeamIndex = (props: PropsTypes) => {
       {selected &&
         <Cover onClose={() => setSelected(null)}>
             <div className={styles.selected} onClick={e => e.stopPropagation()}>
-              <button><AiOutlineClose/></button>
+              <button onClick={() => setSelected(null)}><AiOutlineClose/></button>
               <img src={selected.images[0]} alt="user"/>
               <b>{selected.name}</b>
               <p>{selected.description}</p>

@@ -96,6 +96,7 @@ export const bars = [
   {
     id: 1,
     name: "About Us",
+    href: "/about",
     links: [
       {
         name: "Our Team",
@@ -114,6 +115,7 @@ export const bars = [
   {
     id: 2,
     name: "Services",
+    href: "/services",
     links: [
       {
         name: "Nails",
@@ -132,6 +134,7 @@ export const bars = [
   {
     id: 3,
     name: "Our Style",
+    href: "/styles",
     links: [
       {
         name: "Gallery",

@@ -3,7 +3,6 @@ import {PropsTypes} from 'pages/services';
 
 import Introduction from './introduction';
 import List from './list';
-import Shapes from './shapes';
 
 const ServicesIndex = (props: PropsTypes) => {
   return (
@@ -11,8 +10,6 @@ const ServicesIndex = (props: PropsTypes) => {
       <Introduction />
 
       <List {...props} />
-
-      <Shapes />
     </>
   )
 }

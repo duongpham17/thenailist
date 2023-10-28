@@ -3,7 +3,7 @@ import React from 'react';
 
 const Introduction = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="styles">
         <div className={styles.content}>
             <h1>OUR STYLE</h1>
             <span/>

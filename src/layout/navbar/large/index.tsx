@@ -88,7 +88,7 @@ const Bars = () => {
         <div className={styles.bar} key={el.id}>
           {el.links.length ?
             <>
-              <button className={styles.btn}><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></button>
+              <button className={styles.btn}><Link href={el.href ? el.href : ""}><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></Link></button>
               <ul>
                 {el.links.map((l, i) => 
                   <li key={i}><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
