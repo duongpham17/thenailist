@@ -11,7 +11,7 @@ const GoogleMap = () => {
 
     const initializeMap = async () => {
       const loader = new Loader({
-        apiKey: "AIzaSyBGnipUkxd-_YNFLr4rGkeAj5_z3sdOozo",
+        apiKey: api,
         version: 'weekly',
       });
 

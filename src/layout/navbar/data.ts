@@ -163,9 +163,9 @@ export const bars = [
   },
   {
     id: 5,
-    name: "Rewards",
+    name: "loyalty",
     links: [],
-    href: "/example"
+    href: "/loyalty"
   },
   {
     id: 6,
