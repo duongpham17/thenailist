@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
 
         <div className={styles.container}>
-            { width >= 800  
+            { width >= 850  
                 ?
                     <Large />
                 :

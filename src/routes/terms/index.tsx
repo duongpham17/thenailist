@@ -17,7 +17,6 @@ const Styles = (props: PropsTypes) => {
                         <div className={styles.text}>
                             {el.terms.map((x, index) => 
                                 <div key={x._id}>
-                                    <b>{index+1}.</b>
                                     <p>{x.description}</p>
                                 </div>  
                             )}

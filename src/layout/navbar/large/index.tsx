@@ -87,18 +87,29 @@ const Bars = () => {
       {bars.map(el => 
         <div className={styles.bar} key={el.id}>
           {el.links.length ?
-            <>
-              <button className={styles.btn}><Link href={el.href ? el.href : ""}><span>{el.name.toUpperCase()}</span> <MdKeyboardArrowDown /></Link></button>
+            <div className={styles.dropdown}>
+              <button className={styles.dropdownBtn}>
+                <Link href={el.href ? el.href : ""}>
+                  <span>{el.name.toUpperCase()}</span> 
+                  <MdKeyboardArrowDown />
+                </Link>
+              </button>
               <ul>
                 {el.links.map((l, i) => 
-                  <li key={i}><Link href={l.href}>{l.name.toUpperCase()}</Link></li>  
+                  <li key={i}>
+                    <Link href={l.href}>{l.name.toUpperCase()}</Link>
+                  </li>  
                 )}
               </ul>
-            </>
+            </div>
           : 
             el.href ?  el.href.includes("http") 
-            ? <button><Link className={styles.btn} href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link> </button>
-            : <button><Link className={`${styles.btn} ${el.name.toLowerCase() === "book now" ? styles.book : ""}`} href={el.href}>{el.name.toUpperCase()}</Link> </button>
+            ? <button className={styles.dropdownBtn}>
+                <Link href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link> 
+              </button>
+            : <button className={styles.dropdownBtn}>
+                <Link className={el.name.toLowerCase() === "book now" ? styles.booknow : ""} href={el.href}>{el.name.toUpperCase()}</Link> 
+              </button>
             : null
           }
         </div>
