@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
         services: services.data.data || [],
         prices: prices.data.data || []
       },
-      //revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: 60 * 60 * 24 * 1  // in days
     }
   } catch(err){
     return {
@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
         services: [],
         prices: [],
       },
-      //revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: 60 * 60 * 24 * 1  // in days
     }
   }
 };
