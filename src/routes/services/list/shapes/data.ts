@@ -1,69 +1,69 @@
 export const french = [
     {
         name: "Classic",
-        src: "classic.webp"
+        src: "classic.png"
     },
     {
         name: "Deep",
-        src: "deep.webp"
+        src: "deep.png"
     },
     {
         name: "Double",
-        src: "double.webp"
+        src: "double.png"
     },
     {
         name: "V",
-        src: "v.webp"
+        src: "v.png"
     },
     {
         name: "Straight",
-        src: "straight.webp"
+        src: "straight.png"
     },
     {
         name: "Reverse",
-        src: "reverse.webp"
+        src: "reverse.png"
     },
     {
         name: "Outline",
-        src: "outline.webp"
+        src: "outline.png"
     },
     {
         name: "Border",
-        src: "border.webp"
+        src: "border.png"
     },
 ]
 
 export const nail = [
     {
         name: "Square",
-        src: "square.webp"
+        src: "square.png"
     },
     {
         name: "Squoval",
-        src: "squoval.webp"
+        src: "squoval.png"
     },
     {
-        name: "Tapered / Square",
-        src: "tapered_square.webp"
+        name: "Tapered Square",
+        src: "tapered_square.png"
     },
     {
-        name: "Coffin / Ballerina",
-        src: "coffin_ballerina.webp"
+        name: "Coffin",
+        src: "coffin_ballerina.png"
     },
     {
         name: "Round",
-        src: "round.webp"
+        src: "round.png"
     },
     {
         name: "Almond",
-        src: "almond.webp"
+        src: "almond.png"
     },
     {
         name: "Almondetto",
-        src: "almondetto.webp"
+        src: "almondetto.png"
     },
     {
         name: "Stiletto",
-        src: "stiletto.webp"
+        src: "stiletto.png"
     },
 ]

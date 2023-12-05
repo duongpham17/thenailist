@@ -13,9 +13,10 @@ interface Props {
   text?: string,
   time?: string,
   likes?: string,
+  icon?: string,
 };
 
-const Gallery = ({link, images, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago"}: Props) => {
+const Gallery = ({link, icon, images, username="doe_doe", text="#example #insta", likes="100", time="10 minutes ago"}: Props) => {
 
     const [onLarge, setOnLarge] = useState(false);
 
@@ -42,7 +43,7 @@ const Gallery = ({link, images, username="doe_doe", text="#example #insta", like
         <div className={styles.instagram}>
           <div className={styles.header}>
               <a className={styles.left} href={link}>
-                <span />
+                {icon ? <img src={icon} alt="iag" /> : <span />}
                 <span>{username}</span>
               </a>
               <div className={styles.right}>

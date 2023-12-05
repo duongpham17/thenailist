@@ -1,7 +1,7 @@
 .container{
     padding: 4rem 0;
 
-    h1{
+    h1, h2{
         text-align: center;
         padding: 1rem;
     }
@@ -13,13 +13,14 @@
         .pricelist{
             background-color: white;
             padding: 1rem;
-            margin: 1rem 0;
+            margin: 0.5rem;
 
             .headers{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 padding: 0.5rem;
+                
                 div{
                     display: flex;
                     justify-content: space-between;
@@ -63,6 +64,49 @@
         }
     }
     @media (max-width: 600px){
+        .content{    
+            .pricelist{
+                .headers{
+                    div{
+                        p{
+                            width: 60px;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+    
+                .price{
+                    .priceElement{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 0.5rem;
+    
+                        .name{
+                            p{
+                                font-size: 0.9rem;
+                            }
+                            small{
+                                font-size: 0.8rem;
+                            }
+                        }
+    
+                        .header{
+                            p{
+                                width: 60px;
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+                    .priceElement:nth-child(odd){
+                        background-color: var(--clr-main-fade);
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 340px){
         .content{    
             .pricelist{
                 .headers{

@@ -18,7 +18,7 @@ const Items = () => {
         try{
             if(!selectedData) return null;
             const data = {
-                name: "unknown",
+                name: "",
                 small: "",
                 discount: 0,
                 hfirst: 0,

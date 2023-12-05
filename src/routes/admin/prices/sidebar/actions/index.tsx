@@ -11,7 +11,7 @@ const Actions = () => {
 
   const create = async () => {
     const response = await api.post("/prices", {
-      name: "unknown",
+      name: "NEW_TITLE",
       headers: {first: "", second: ""},
       prices: [],
       timestamp: Date.now()

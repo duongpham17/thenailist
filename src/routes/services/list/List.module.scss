@@ -15,8 +15,9 @@
     .element{
         padding: 1rem;
         h1{
+            font-size: 1.6rem;
             text-align: center;
-            border-bottom: 1px solid var(--clr-main-fade);
+            border-bottom: 2px solid var(--clr-main);
             padding: 1rem;
         }
     }

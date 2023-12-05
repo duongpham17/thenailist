@@ -1,10 +1,16 @@
 .container{
-    padding: 2rem 0.5rem;
-    border: 5px solid var(--clr-main-fade);
-    h3{
-        text-align: center;
-    }
+
     section{
+        padding: 2rem 0.5rem;
+        border: 2px solid var(--clr-main-fade);
+        margin: 0.1rem 0;
+        background-color: var(--clr-main-fade);
+        h3{
+            text-align: center;
+        }
+    }
+
+    .map{
         display: inline-flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -12,18 +18,17 @@
         margin: 1rem auto;
     }
     .element{
-        width: 160px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         img{
-            width: 120px;
-            height: 120px;
-            border: 2px solid white;
-            background-color: var(--clr-main-light);
+            width: 100px;
+            height: 100px;
+            border: 1px solid var(--clr-main);
             border-radius: 50%;
             margin: 1rem;
+            background-blend-mode: multiply;
+            filter: brightness(1.1)
+        }
+        p{
+            text-align: center;
         }
     }
 

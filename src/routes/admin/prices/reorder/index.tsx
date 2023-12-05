@@ -27,7 +27,7 @@ const ReorderIndex = () => {
     ?
       <div className={styles.container}>
         {data.map((el, index) => 
-          <div className={styles.element} key={el._id} onClick={() => onReorder(index)}>
+          <div className={`${styles.element} ${index===reorderIndex && styles.selected}`} key={el._id} onClick={() => onReorder(index)}>
             <p>{el.name}</p>
             <p>items [{el.prices.length} ]</p>
           </div>  

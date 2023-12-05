@@ -6,7 +6,8 @@
         text-align: center;
     }
     div{
-        margin: 1rem;
+        border-bottom: 2px solid var(--clr-main-light);
+        padding: 1rem;
         b{
             display: block;
             color: var(--clr-main);

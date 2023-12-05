@@ -5,14 +5,14 @@ import { PropsTypes } from 'pages/services';
 const PricesIndex = ({prices}: PropsTypes) => {
 
   return (  !prices ? null :  
-    <div className={styles.container}>
+    <div className={styles.container} id="pricelist">
 
       <h1>PRICE LIST</h1>
 
       <div className={styles.content}>
         {prices.map(el =>
           <div key={el._id} className={styles.pricelist}>
-            <h1>{el.name}</h1>
+            <h2>{el.name}</h2>
             <div className={styles.headers}>
               <div/>
               <div>
@@ -28,8 +28,8 @@ const PricesIndex = ({prices}: PropsTypes) => {
                     <small>{p.small}</small>
                   </div>
                   <div className={styles.header}>
-                    {p.hsecond ? <p>{p.hsecond}</p> : ""}
-                    {p.hfirst ? <p>{p.hfirst}</p> : ""}
+                    <p>{p.hsecond || ""}</p>
+                    <p>{p.hfirst || ""}</p>
                   </div>
                 </div>  
               )}

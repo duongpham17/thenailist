@@ -1,5 +1,5 @@
 import styles from './Content.module.scss';
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {Context} from '../Context';
 import {IPricesApi} from '@database/models/prices';
 import {api} from '@database/api';
@@ -66,7 +66,9 @@ const ONHeader = ({setOn, on}: ParentsProps) => {
 
     const {selectedData, setSelectedData, onUpdateData, onRemoveData} = useContext(Context);
 
-    const {onSubmit, onChange, values, loading, edited} = useForm(selectedData, callback);
+    const {onSubmit, onChange, values, loading, edited, setValues} = useForm(selectedData, callback);
+
+    useEffect(() => setValues(selectedData), [selectedData]);
 
     async function callback(){
         try{
@@ -117,7 +119,9 @@ const ONSubHeaders = ({setOn, on}: ParentsProps) => {
 
     const {selectedData, setSelectedData, onUpdateData, onRemoveData} = useContext(Context);
 
-    const {onSubmit, onChange, values, loading, edited} = useForm(selectedData, callback);
+    const {onSubmit, onChange, values, loading, edited, setValues} = useForm(selectedData, callback);
+
+    useEffect(() => setValues(selectedData), [selectedData]);
 
     async function callback(){
         try{
@@ -236,8 +240,8 @@ const ChildItems = ({element, index, props}: {element: IPricesApi["prices"][0], 
                     <small>{values.small}</small>
                 </div>
                 <div className={styles.headers}  onClick={() => setOn("edit")}>
-                    <p>{values.hsecond}</p>
-                    <p>{values.hfirst}</p>
+                    <p>{values.hsecond || ""}</p>
+                    <p>{values.hfirst || ""}</p>
                 </div>
             </div>
 

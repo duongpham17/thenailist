@@ -9,7 +9,7 @@ const Transport = () => {
   const {width} = useWindow()
 
   return ( width >= 1000 ?
-    <div className={styles.large}>
+    <div className={styles.large} id="location">
         <h1>GETTING HERE</h1>
         <div className={styles.transport}>
           {data.map(el =>
@@ -21,7 +21,7 @@ const Transport = () => {
         </div>
     </div>
     :
-    <div className={styles.small}>
+    <div className={styles.small} id="location">
       <h1>GETTING HERE</h1>
       <Swiper data={data} slidersPerView={1} arrows>
         {(el =>
