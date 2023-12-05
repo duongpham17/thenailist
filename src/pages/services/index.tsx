@@ -1,26 +1,31 @@
 import Metadata from '@metadata';
 import Services from 'routes/services';
 import api from '@database/api';
-import {IServicesApi} from '@database/models/services';
+import { IServicesApi } from '@database/models/services';
+import { IPricesApi } from '@database/models/prices';
 
 export interface PropsTypes {
-  services: IServicesApi[] | []
+  services: IServicesApi[] | [],
+  prices: IPricesApi[] | [],
 }; 
 
 export const getStaticProps = async () => {
   try{
-    const res = await api.get('/services');
+    const services = await api.get('/services');
+    const prices = await api.get('/prices');
 
     return {
       props: {
-        services: res.data.data || []
+        services: services.data.data || [],
+        prices: prices.data.data || []
       },
       //revalidate: 60 * 60 * 24 * 1  // in days
     }
   } catch(err){
     return {
       props: {
-        services: []
+        services: [],
+        prices: [],
       },
       //revalidate: 60 * 60 * 24 * 1  // in days
     }

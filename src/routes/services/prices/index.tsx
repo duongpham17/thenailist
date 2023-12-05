@@ -1,11 +1,8 @@
 import styles from './Prices.module.scss';
 import React from 'react';
-import {PropsTypes} from 'pages/prices';
-import useOpen from '@hooks/useOpen';
+import { PropsTypes } from 'pages/services';
 
 const PricesIndex = ({prices}: PropsTypes) => {
-
-  const {onOpenItems, openItems} = useOpen({initialState: ""})
 
   return (  !prices ? null :  
     <div className={styles.container}>

@@ -129,6 +129,10 @@ export const bars = [
         name: "Beauty",
         href: "/services#beauty"
       },
+      {
+        name: "Price List",
+        href: "/services#pricelist"
+      },
     ]
   },
   {
