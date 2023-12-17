@@ -7,7 +7,7 @@ const Introduction = () => {
         <div className={styles.content}>
             <h1>OUR SERVICES</h1>
             <span/>
-            <p>  Here are a few things that we thought you would like to know about us here at. </p>
+            <p> </p>
         </div>
     </div>
   )

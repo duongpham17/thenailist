@@ -20,7 +20,6 @@ const Small = () => {
         <div>
           <b>HOURS</b>
           <p> {hours.weekdays.name} : {hours.weekdays.time} </p>           
-          <p> {hours.saturday.name} : {hours.saturday.time} </p>    
           <p> {hours.sunday.name} : {hours.sunday.time} </p>  
         </div>
 

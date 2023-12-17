@@ -6,21 +6,17 @@ export const google_location = "https://www.google.com/maps/place/The+Nailist/@5
 
 export const shop_location = "38 Shepherds Bush Road, London, W6 7PJ";
 
-export const phone = "02086167977";
+export const phone = "02086171780";
 
 export const email = "hello@thenailist.co.uk";
 
 export const hours = {
     weekdays: {
-        name: "Monday - Friday",
+        name: "Monday - Saturday",
         time: "10am - 7pm "
-    },
-    saturday: {
-        name: "Saturday",
-        time: "9am - 6pm",
     },
     sunday: {
         name: "Sunday",
-        time: "10am - 5pm"
+        time: "11am - 5pm"
     }
 }
