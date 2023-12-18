@@ -7,10 +7,6 @@ import {BsShop} from 'react-icons/bs';
 
 const Others = (props: PropsTypes) => {
 
-  const {reviews} = props;
-
-  const images = ["home1.jpg", "home2.jpg", "home3.jpg", "home4.jpg"]
-
   return (
     <div className={styles.container}>
 
@@ -32,14 +28,14 @@ const Others = (props: PropsTypes) => {
 export default Others
 
 const Images = () => {
-  const images = ["home1.jpg", "home2.jpg", "home3.jpg", "home4.jpg"]
+  const images = ["/home/1.jpg", "/home/2.jpg", "/polish/3.jpg"]
 
   return (
     <section className={styles.box2}>
       <Swiper data={images} slidersPerView={1} arrows autoplay={10000} id={"1"}>
         {(el, index) => 
           <div key={index} className={styles.review}>
-            <img src={el} alt={el}/>
+            <img src={el} alt={el} />
           </div>
         }
       </Swiper>
