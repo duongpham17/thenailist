@@ -5,10 +5,9 @@ import Swiper from '@components/swiper';
 const Index = () => {
 
   const data = [
-    {image: "/home1.jpg"},
-    {image: "/home2.jpg"},
-    {image: "/home3.jpg"},
-    {image: "/home4.jpg"},
+    {image: "/home/1.jpg"},
+    {image: "/home/2.jpg"},
+    {image: "/home/3.jpg"},
   ];
 
   return (
