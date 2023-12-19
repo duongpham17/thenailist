@@ -1,4 +1,4 @@
-.large{
+.container{
     padding: 1rem 0;
 
     h1{
@@ -20,21 +20,9 @@
                 text-align: center;
             }
         }
-    }
-}
 
-.small{
-    h1{
-        text-align: center;
-        margin: 3rem 0;
-    }
-
-    .element{
-        padding: 2rem 1rem;
-        background-color: var(--clr-main-fade);
-        p, h2{
-            white-space: pre-line;
-            text-align: center;
+        @media (max-width: 900px){
+            grid-template-columns: 1fr;
         }
     }
 }
