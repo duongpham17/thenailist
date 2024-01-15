@@ -24,10 +24,6 @@ const Records = () => {
         return () => document.body.classList.remove('bodyScrollBar');
     }, [openValue]);
 
-    const filter = () => {
-        
-    }
-
     return (
         <div className={styles.container}>
             <table>

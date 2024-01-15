@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import connectDB from '@database';
 import ClientModel from '@database/models/client';
-import middleware from '../middleware';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectDB();
@@ -25,16 +24,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                 data
             });
     };
-
-    if (req.method === "PATCH") {
-        const data = await ClientModel.findByIdAndUpdate(req.body._id, req.body, { new: true });
-
-        return res
-            .status(200)
-            .json({
-                data
-            });
-    };
 };
 
-export default middleware(handler);
+export default handler;
