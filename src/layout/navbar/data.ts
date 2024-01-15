@@ -86,6 +86,12 @@ export const adminLinks = [
     value: "careers",
     href: "/admin/careers",
   },
+  {
+    id: "12",
+    name: "Client records",
+    value: "clients",
+    href: "/admin/client",
+  },
 ]
   
 export const userLinks = [

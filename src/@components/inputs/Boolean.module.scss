@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+
+    button{
+        display: block;
+        width: 40px;
+        height: 30px;
+        background-color: white;
+        border: 1px solid grey;
+        border-radius: 5px;
+        margin-right: 0.5rem;
+    }
+
+    .selected{
+        background-color: var(--clr-main);
+    }
+
+    p{
+        font-weight: 200;
+    }
+}
