@@ -112,11 +112,19 @@ const Client = () => {
                 onChange={onChange}
             />
 
-            <Boolean 
-                value={values.marketing}
-                message="BY CLICKING THE BOX, I AGREE TO RECIEVE EMAIL ABOUT PROMOTIONS AND OFFERS."
-                onClick={() => onSetValue({marketing: !values.marketing})}
-            />
+            <div className={styles.marketing}>
+                <Boolean 
+                    value={values.marketing}
+                    message="BY CLICKING THE BOX, I AGREE TO RECIEVE EMAIL ABOUT PROMOTIONS AND OFFERS."
+                    onClick={() => onSetValue({marketing: !values.marketing})}
+                />
+            </div>
+
+            {Object.keys(validationErrors).length !== 0 &&
+                <div className={styles.errors}>
+                    <p>* Missing fields, please fill in the information that are highlighted in red.</p>
+                </div>
+            }
 
             <Button 
                 label1="submit" 
@@ -126,9 +134,9 @@ const Client = () => {
             />
 
             {sent &&
-                <p className={styles.done}>
-                    Thank you
-                </p>
+                <h3 className={styles.done}>
+                    Thank you, information saved.
+                </h3>
             }
 
         </form>

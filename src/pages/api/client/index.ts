@@ -7,7 +7,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectDB();
 
     if (req.method === "GET") {
-        const data = await ClientModel.find().sort({ timestamp: 1 });
+        const data = await ClientModel.find().limit(1000).sort({ timestamp: -1 });
 
         return res
             .status(200)

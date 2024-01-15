@@ -6,4 +6,16 @@
     .done{
         margin: 1rem 0;
     }
+
+    .marketing{
+        border-top: 1px solid var(--clr-main);
+        border-bottom: 1px solid var(--clr-main);
+        margin: 0.5rem 0;
+    }
+    .errors{
+        margin: 1rem 0;
+        p{
+            color: var(--clr-red);
+        }
+    }
 }

@@ -6,16 +6,32 @@
 
     .element{
         background-color: white;
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            width: 100%;
+        }
         td{
             padding: 0.5rem;
             max-width: 200px;
             word-wrap: break-word;
         }
         p{
-            white-space: pre;
+            white-space: pre-line;
         }
         h3{
             margin-bottom: 0.5rem;
+        }
+
+        .medicial{
+            background-color: white;
+            border-radius: 5px;
+            max-width: 500px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
         }
     }
 }
