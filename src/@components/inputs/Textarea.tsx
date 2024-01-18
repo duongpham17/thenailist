@@ -4,11 +4,12 @@ import React from 'react';
 interface Props extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
     color?: "black",
     label1?: string | number, 
-    label2?: string | number,
+    label2?: any,
+    error?: boolean,
     smallLabelColor?: "red" | "none",
 };
 
-const Textarea = ({color, label1, label2, smallLabelColor = "none", ...props}:Props) => {
+const Textarea = ({color, label1, label2, error, smallLabelColor = "none", ...props}:Props) => {
   return (
     <div className={styles.container}>
 
@@ -25,7 +26,7 @@ const Textarea = ({color, label1, label2, smallLabelColor = "none", ...props}:Pr
             </label>
         }
 
-        <textarea {...props} className={styles[color ? color : "plain"]} />
+        <textarea {...props} className={`${styles[color ? color : "plain"]} ${error ? styles.error : ""}`} />
 
     </div>
   )

@@ -38,4 +38,8 @@
         background-color: var(--clr-black);
         color: white;
     }
+
+    .error{
+        border: 1px solid var(--clr-red);
+    }
 }

@@ -18,4 +18,17 @@
             color: var(--clr-red);
         }
     }
+
+    .medical{
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        p{
+            white-space: pre-line;
+            margin-top: 1rem;
+        }
+    }
 }

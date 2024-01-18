@@ -7,6 +7,7 @@ export interface Validation {
     city?: string,
     postcode?: string,
     date_of_birth?: string,
+    medical_history?:string,
 }
 
 export const validation = (values: Validation) => {
@@ -62,6 +63,13 @@ export const validation = (values: Validation) => {
         if(!values.date_of_birth) {
             errors.date_of_birth = "*";
         };
+    } 
+
+
+    if(check("medical_history")){
+        if(!values.medical_history) {
+            errors.medical_history = "*";
+        }
     } 
 
     return errors

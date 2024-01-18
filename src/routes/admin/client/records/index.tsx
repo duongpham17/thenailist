@@ -45,14 +45,18 @@ const Records = () => {
                             <td>{new Date(el.timestamp).toISOString().split("Z").join(" ").split("T").join(", ").slice(0, 20)}</td>
                             <td>
                                 <>
-                                {el.medical_history ? <button onClick={() => onOpenValue(el._id)}><p>view</p></button> : ""}
-                                {openValue === el._id &&
-                                    <Cover onClose={() => onOpenValue("")}>
-                                        <div className={styles.medicial} onClick={e => e.stopPropagation()}>
-                                            <h3>{el.first_name} {el.last_name}, medicial history</h3>
-                                            <p>{el.medical_history}</p>
-                                        </div>
-                                    </Cover>
+                                {el.medical_history.toLowerCase() === "n/a" || el.medical_history.toLowerCase() === "na" ? "" :
+                                    <>
+                                        {el.medical_history ? <button onClick={() => onOpenValue(el._id)}><p>view</p></button> : ""}
+                                        {openValue === el._id &&
+                                            <Cover onClose={() => onOpenValue("")}>
+                                                <div className={styles.medicial} onClick={e => e.stopPropagation()}>
+                                                    <h3>{el.first_name} {el.last_name}, medicial history</h3>
+                                                    <p>{el.medical_history}</p>
+                                                </div>
+                                            </Cover>
+                                        }
+                                    </>
                                 }
                                 </>
                             </td>

@@ -8,9 +8,14 @@ import Textarea from '@components/inputs/Textarea';
 import Boolean from '@components/inputs/Boolean';
 import Flex from '@components/flex/Style1';
 import Button from '@components/button/Button';
+import { FaInfoCircle } from "react-icons/fa";
+import { medical } from './data';
+import Openarrow from '@components/button/Openarrows'
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const Client = () => {
 
+    const [medicalOpen, setMedicalOpen] = useState(false);
     const [sent, setSent] = useState(false);
 
     const initialState = {
@@ -106,11 +111,21 @@ const Client = () => {
 
             <Textarea 
                 label1="Medical History" 
-                label2="optional"
+                label2={<a href="/faq#health&medical" rel="noopener noreferrer" target="_blank"><FaInfoCircle /></a>}
+                placeholder='Please enter N/A if not applicable'
+                error={validationErrors.medical_history}
                 name="medical_history" 
                 value={values.medical_history} 
                 onChange={onChange}
             />
+
+            <div className={styles.medical}>
+                <button onClick={() => setMedicalOpen(!medicalOpen)} type="button">
+                    <span>Medical Information</span> 
+                    <MdKeyboardArrowDown/>
+                </button>
+                {medicalOpen && <p onClick={e => e.stopPropagation()}>{medical}</p>}
+            </div>
 
             <div className={styles.marketing}>
                 <Boolean 

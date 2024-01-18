@@ -1,5 +1,6 @@
 import styles from './Faq.module.scss';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useRouter} from 'next/router'
 import {PropsTypes} from 'pages/faq';
 
 import useOpen from '@hooks/useOpen';
@@ -8,15 +9,23 @@ import {BsDot} from 'react-icons/bs';
 
 const Faq = (props: PropsTypes) => {
 
-    const {openItems, onOpenItems} = useOpen({initialState: ""});
+    const location = useRouter();
 
     const {faq} = props;
+
+    const {openItems, onOpenItems} = useOpen({initialState: ""});
 
     const AllQuestions = faq.map(el => el.questions.map(x => x)).flat();
 
     const [results, setResults] = useState<PropsTypes["faq"][0]["questions"] | []>([]);
 
     const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        const idIndex = faq.findIndex(el => el.name.toLowerCase().split(" ").join("").includes(location.asPath.slice(5).toLowerCase()));
+        const id = faq[idIndex];
+        onOpenItems(id._id);
+    }, [])
 
     const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -60,7 +69,7 @@ const Faq = (props: PropsTypes) => {
 
             <div className={styles.map}>
                 {faq.map(el => 
-                    <div className={styles.element} key={el._id}>
+                    <div className={styles.element} key={el._id} id={el.name}>
                         <button onClick={() => onOpenItems(el._id)}>
                             <MdArrowRight className={openItems.includes(el._id) ? styles.open : ""}/>
                             <b>{el.name.toUpperCase()}</b>
@@ -83,4 +92,4 @@ const Faq = (props: PropsTypes) => {
     )
 }
 
-export default Faq
+export default Faq;
