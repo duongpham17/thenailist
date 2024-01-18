@@ -48,7 +48,7 @@ const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, autoplay
                 </Swiper>
             }
 
-            {arrows && data.length - 2 > 0 &&
+            {arrows && data.length - 3 > 0 &&
                 <div className={styles.navBtnRight} >
                     <button className={`next-${id}`}><MdOutlineKeyboardArrowRight/></button>
                 </div>
