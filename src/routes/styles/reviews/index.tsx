@@ -21,7 +21,7 @@ const Reviews = ({reviews}: PropsTypes) => {
             <div className={styles.container} id="reviews">
 
                 <div className={styles.header}>
-                    <h1>WHAT OUR CLIENT SAYS</h1>
+                    <h1>WHAT OUR CLIENTS SAY</h1>
                 </div>
 
                 <div className={styles.reviews}>
