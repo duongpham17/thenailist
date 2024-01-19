@@ -9,8 +9,7 @@ import Boolean from '@components/inputs/Boolean';
 import Flex from '@components/flex/Style1';
 import Button from '@components/button/Button';
 import { FaInfoCircle } from "react-icons/fa";
-import { medical } from './data';
-import Openarrow from '@components/button/Openarrows'
+import { data } from './data';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const Client = () => {
@@ -43,6 +42,10 @@ const Client = () => {
 
     return (
         <form className={styles.container} onSubmit={onSubmit}>
+            <div className={styles.policy}>
+                <p>{data.policy}</p>
+            </div>
+
             <Flex>
                 <Input 
                     label1="First Name" 
@@ -124,13 +127,13 @@ const Client = () => {
                     <span>Medical Information</span> 
                     <MdKeyboardArrowDown/>
                 </button>
-                {medicalOpen && <p onClick={e => e.stopPropagation()}>{medical}</p>}
+                {medicalOpen && <p onClick={e => e.stopPropagation()}>{data.medical}</p>}
             </div>
 
             <div className={styles.marketing}>
                 <Boolean 
                     value={values.marketing}
-                    message="BY CLICKING THE BOX, I AGREE TO RECIEVE EMAIL ABOUT PROMOTIONS AND OFFERS."
+                    message={data.marketing}
                     onClick={() => onSetValue({marketing: !values.marketing})}
                 />
             </div>
