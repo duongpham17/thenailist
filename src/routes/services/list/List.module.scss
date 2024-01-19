@@ -82,22 +82,23 @@
                 }
             }
         }
-    }
 
 
-    @media (max-width: 800px){
-        .item{
-            &:nth-child(odd) {
-                grid-template-areas: 
-                "information information"
-                "images images";
-            }
-            &:nth-child(even) {
-                grid-template-areas: 
-                "information information"
-                "images images";
+        @media (max-width: 800px){
+            .item{
+                &:nth-child(odd) {
+                    grid-template-areas: 
+                    "information information"
+                    "images images";
+                }
+                &:nth-child(even) {
+                    grid-template-areas: 
+                    "information information"
+                    "images images";
+                }
             }
         }
+
     }
 
 }
