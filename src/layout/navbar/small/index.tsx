@@ -90,7 +90,7 @@ const Bars = () => {
   const quickbar = [
     {
       name: "Book",
-      href: "/"
+      href: "https://www.fresha.com/a/the-nailist-london-uk-38-shepherds-bush-road-tfngro34"
     },
     {
       name: "Services",
@@ -105,6 +105,8 @@ const Bars = () => {
   return (
     <div className={styles.barsContainer}>
       {quickbar.map(el =>
+        el.href.includes("http")?                 
+        <Link key={el.name} href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link>  :
         <Link key={el.name} href={el.href}>{el.name.toUpperCase()}</Link>  
       )}
     </div>

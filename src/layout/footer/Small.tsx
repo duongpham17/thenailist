@@ -26,7 +26,7 @@ const Small = () => {
         <div>
           <b>CONTACT</b>
           <Link href={`mailto:${email}`}>{email}</Link>
-          <Link href={`tel:${phone}`}> {phone.slice(0, 5)} {phone.slice(5, 8)} {phone.slice(8)}</Link>
+          <Link href={`tel:${phone}`}>{phone.slice(0, 4)} {phone.slice(4, 7)} {phone.slice(7)}</Link>
         </div>
 
       </section>

@@ -15,7 +15,7 @@ const List = ({services}: PropsTypes) => {
 
           {services?.map(el => 
               <div className={styles.element} key={el._id} id={el.name.toLowerCase()}>
-                <h1>{el.name.toUpperCase()}</h1>
+                <h1 className={styles.header}>{el.name.toUpperCase()}</h1>
                 {el.items.map(item => 
                   <div key={item._id} className={styles.item}>
                       <div className={styles.information}>
@@ -27,8 +27,10 @@ const List = ({services}: PropsTypes) => {
                             : el.includes("<small>") ?
                                 <small key={index}>{el.replaceAll("<small>", " ").replaceAll("</small>", " ")}</small>
                             : el.includes("<h>") ?
-                                <h3 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h3>
-                            : ""
+                                <h1 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h1>
+                            : el.includes("<h2>") ?
+                                <h2 key={index}>{el.replaceAll("<h2>", " ").replaceAll("</h2>", " ")}</h2>
+                            : el
                         )}
                         {
                           item.button.href ?  item.button.href.includes("http") 

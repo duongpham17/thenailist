@@ -21,7 +21,7 @@ const News = ({news}: PropsTypes) => {
                     : el.includes("<small>") ?
                         <small key={index}>{el.replaceAll("<small>", " ").replaceAll("</small>", " ")}</small>
                     : el.includes("<h>") ?
-                        <h2 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h2>
+                        <h1 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h1>
                     : ""
                 )}
                 {
