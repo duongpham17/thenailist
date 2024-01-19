@@ -1,6 +1,7 @@
 import Metadata from '@metadata';
 import Faq from 'routes/faq';
 import api from '@database/api'
+import {all} from '@data/revalidate';
 import {IFaqApi} from '@database/models/faq';
 
 export interface PropsTypes {
@@ -15,14 +16,14 @@ export const getStaticProps = async () => {
       props: {
         faq: res.data.data || []
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all  // in days
     }
   } catch(err){
     return {
         props: {
           faq: []
         },
-        // revalidate: 60 * 60 * 24 * 1  // in days
+        // revalidate: all  // in days
       }
   }
 };

@@ -1,6 +1,7 @@
 import Metadata from '@metadata';
 import Terms from 'routes/terms';
-import api from '@database/api'
+import api from '@database/api';
+import {all} from '@data/revalidate';
 import {ITermsApi} from '@database/models/terms';
 
 export interface PropsTypes {
@@ -15,14 +16,14 @@ export const getStaticProps = async () => {
       props: {
         terms: res.data.data || []
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all  // in days
     }
   } catch(err){
     return {
         props: {
           terms: []
         },
-        revalidate: 60 * 60 * 24 * 1  // in days
+        revalidate: all  // in days
       }
   }
 };

@@ -1,6 +1,7 @@
 import Metadata from '@metadata';
 import Policy from 'routes/policy';
-import api from '@database/api'
+import api from '@database/api';
+import {all} from '@data/revalidate';
 import {IPolicyApi} from '@database/models/policy';
 
 export interface PropsTypes {
@@ -15,14 +16,14 @@ export const getStaticProps = async () => {
       props: {
         policy: res.data.data || []
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all // in days
     }
   } catch(err){
     return {
         props: {
           policy: []
         },
-        //revalidate: 60 * 60 * 24 * 1  // in days
+        //revalidate: all // in days
       }
   }
 };

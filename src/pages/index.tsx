@@ -1,7 +1,7 @@
 import api from '@database/api'
 import Metadata from '@metadata';
 import Home from 'routes/home';;
-
+import {all} from '@data/revalidate';
 import {INewsApi} from '@database/models/news';
 import {IReviewsApi} from '@database/models/reviews';
 
@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
         news: news.data.data || [],
         reviews: reviews.data.data || [],
       },
-      //revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all  // in days
     }
   } catch(err){
     return {
@@ -28,7 +28,7 @@ export const getStaticProps = async () => {
         news: [],
         reviews: [],
       },
-      //revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all  // in days
     }
   }
 };

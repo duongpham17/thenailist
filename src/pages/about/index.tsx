@@ -1,6 +1,7 @@
 import Metadata from '@metadata';
 import About from 'routes/about';
 import api from '@database/api'
+import {all} from '@data/revalidate';
 import {IAboutApi} from '@database/models/about';
 import {ITeamsApi} from '@database/models/teams';
 
@@ -19,7 +20,7 @@ export const getStaticProps = async () => {
       about: about.data.data || [],
       teams: teams.data.data || []
     },
-    revalidate: 60 * 60 * 24 * 1  // in days
+    revalidate: all // in days
   } 
   } catch(err){
     return {

@@ -1,6 +1,7 @@
 import Metadata from '@metadata';
 import Services from 'routes/services';
 import api from '@database/api';
+import {all} from '@data/revalidate';
 import { IServicesApi } from '@database/models/services';
 import { IPricesApi } from '@database/models/prices';
 
@@ -19,7 +20,7 @@ export const getStaticProps = async () => {
         services: services.data.data || [],
         prices: prices.data.data || []
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all  // in days
     }
   } catch(err){
     return {
@@ -27,7 +28,7 @@ export const getStaticProps = async () => {
         services: [],
         prices: [],
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all  // in days
     }
   }
 };

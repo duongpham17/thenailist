@@ -1,6 +1,7 @@
 import Metadata from '@metadata';
 import Styles from 'routes/styles';
-import api from '@database/api'
+import api from '@database/api';
+import {all} from '@data/revalidate';
 import {IGalleryApi} from '@database/models/gallery';
 import {IReviewsApi} from '@database/models/reviews';
 
@@ -19,7 +20,7 @@ export const getStaticProps = async () => {
         gallery: gallery.data.data || [],
         reviews: reviews.data.data || [],
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all  // in days
     }
   } catch(err){
     return {

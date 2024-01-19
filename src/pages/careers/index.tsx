@@ -1,6 +1,7 @@
 import Metadata from '@metadata';
 import Careers from 'routes/careers';
-import api from '@database/api'
+import api from '@database/api';
+import {all} from '@data/revalidate';
 import {ICareersApi} from '@database/models/careers';
 
 export interface PropsTypes {
@@ -15,14 +16,14 @@ export const getStaticProps = async () => {
       props: {
         careers: res.data.data || []
       },
-      revalidate: 60 * 60 * 24 * 1  // in days
+      revalidate: all // in days
     }
   } catch(err){
     return {
         props: {
           careers: []
         },
-        revalidate: 60 * 60 * 24 * 1  // in days
+        revalidate: all // in days
       }
   }
 };
