@@ -90,7 +90,7 @@ const Bars = () => {
   const quickbar = [
     {
       name: "Book",
-      href: "https://www.fresha.com/a/the-nailist-london-uk-38-shepherds-bush-road-tfngro34"
+      href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/services?lid=1178907&pId=1118303"
     },
     {
       name: "Services",

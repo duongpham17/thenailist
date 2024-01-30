@@ -3,7 +3,7 @@ export const links = [
       id: "1",
       name: "Book now",
       value: "Book now",
-      href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/all-offer?id=1178907&pId=1118303",
+      href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/services?lid=1178907&pId=1118303",
     },
     {
       id: "2",
@@ -190,6 +190,6 @@ export const bars = [
     id: 7,
     name: "Book now",
     links: [],
-    href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/all-offer?id=1178907&pId=1118303"
+    href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/services?lid=1178907&pId=1118303"
   },
 ]
