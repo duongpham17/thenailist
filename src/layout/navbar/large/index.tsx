@@ -103,9 +103,9 @@ const Bars = () => {
               </ul>
             </div>
           : 
-            el.href ?  el.href.includes("http") 
+            el.href ? el.href.includes("http") 
             ? <button className={styles.dropdownBtn}>
-                <Link href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link> 
+                <Link className={el.name.toLowerCase() === "book now" ? styles.booknow : ""} href={el.href} rel="noopener noreferrer" target="_blank">{el.name.toUpperCase()} </Link> 
               </button>
             : <button className={styles.dropdownBtn}>
                 <Link className={el.name.toLowerCase() === "book now" ? styles.booknow : ""} href={el.href}>{el.name.toUpperCase()}</Link> 
