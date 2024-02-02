@@ -29,7 +29,7 @@ export const Metadata = (
     <meta name="theme-color" content="#000000" />
     <meta name="description" content={description} />
     <meta name="og:title" content={ogTitle} key="og:title" />
-    <meta property="og:url" content="https://www.exmple.co.uk" key="og:url"/>
+    <meta property="og:url" content="https://www.thenailist.co.uk" key="og:url"/>
     <meta property="og:type" content="website" key="og:type"/>
     <meta property="og:image" content={image || defaultOgImage} key="ogimage"/>
     <meta property="og:description" content={description} />

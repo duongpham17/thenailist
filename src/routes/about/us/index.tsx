@@ -26,9 +26,12 @@ const Us = ({about}: PropsTypes) => {
                           <h3 key={index}>{el.replaceAll("<h>", " ").replaceAll("</h>", " ")}</h3>
                       : ""
                   )}
-                  {el.button.href &&
-                      <Link href={`/${el.button.href}`}>{el.button.name.toUpperCase()}</Link>
-                  }
+                    {
+                        el.button.href ?  el.button.href.includes("http") 
+                        ? <Link href={el.button.href} rel="noopener noreferrer" target="_blank">{el.button.name} </Link> 
+                        : <Link className={`${styles.btn} ${el.button.name.toLowerCase() === "book now" ? styles.book : ""}`} href={el.button.href}>{el.button.name}</Link> 
+                        : null
+                    }
                   </div>
                   <div className={styles.images}>
                       <img src={el.images[0]} alt="sample" />
