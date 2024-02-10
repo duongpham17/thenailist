@@ -186,10 +186,10 @@ export const bars = [
     links: [],
     href: "/careers"
   },
-  // {
-  //   id: 7,
-  //   name: "Book now",
-  //   links: [],
-  //   href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/services?lid=1178907&pId=1118303"
-  // },
+  {
+    id: 7,
+    name: "Book now",
+    links: [],
+    href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/services?lid=1178907&pId=1118303"
+  },
 ]

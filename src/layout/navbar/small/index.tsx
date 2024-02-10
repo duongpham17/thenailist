@@ -88,13 +88,9 @@ const Header = ({open, onOpen}: Props) => {
 const Bars = () => {
 
   const quickbar = [
-    // {
-    //   name: "Book",
-    //   href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/services?lid=1178907&pId=1118303"
-    // },
     {
-      name: "About",
-      href: "/about"
+      name: "Book",
+      href: "https://www.fresha.com/book-now/the-nailist-oswnfuoq/services?lid=1178907&pId=1118303"
     },
     {
       name: "Services",
