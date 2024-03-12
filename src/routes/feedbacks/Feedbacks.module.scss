@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 1rem;
+
+    .done{
+        text-align: center;
+    }
+
+    .review{
+        h1{
+            text-align: center;
+        }
+        .stars{
+            text-align: center;
+            margin: 1rem;
+            svg{
+                cursor: pointer;
+                font-size: 1.5rem;
+                margin: 0.3rem;
+            }
+        }
+
+        .google{
+            text-align: center;
+            a{
+                &:hover{
+                    color: var(--clr-main-dark);
+                }
+            }
+        }
+    }
+}

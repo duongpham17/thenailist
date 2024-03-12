@@ -1,0 +1,49 @@
+.container{
+    padding: 1rem;
+
+    .date{
+        border-bottom: 1px solid var(--clr-main);
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .element{
+        padding: 1rem;
+        border: 2px solid transparent;
+        margin: 1rem 0;
+        border-radius: 5px;
+        background-color: var(--clr-main-light);
+
+        &:hover{
+            border-color: var(--clr-main);
+        }
+
+        p{
+            white-space: pre-line;
+        }
+
+        .summary{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            span{
+                font-weight: 800;
+            }
+        }
+
+        .info{
+            white-space: pre-line;
+            word-break: break-all;
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+
+            span{
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}

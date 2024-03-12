@@ -10,6 +10,8 @@ export const phone = "02086171780";
 
 export const email = "hello@thenailist.co.uk";
 
+export const review_page = "https://www.google.com/search?sca_esv=7479081811d2e948&sca_upv=1&q=the+nailist&spell=1&sa=X&ved=2ahUKEwjnhLyUne-EAxUhX0EAHaFKBk8QBSgAegQIBxAC&biw=1860&bih=1300&dpr=1#lrd=0x48760f17ad33e4e1:0x1ec5b298a9e84c81,1,,,,"
+
 export const hours = {
     weekdays: {
         name: "Monday - Saturday",

@@ -44,7 +44,7 @@ const LoggedIn = () => {
 
   return ( user?.role ?
       <div className={styles.loggedInContainer}>
-        <SlideIn icon={"Logged in menu"} iconOpen={<Button label1={<Flex><small>Logout</small> <MdLogout/></Flex>} onClick={logout} />}>
+        <SlideIn icon={"Admin Routes"} iconOpen={<Button label1={<Flex><small>Logout</small> <MdLogout/></Flex>} onClick={logout} />}>
             <small>{user.role} | {user.email}</small>
             <Line />
             {(user.role === "admin" ? adminLinks : userLinks).map(el => 
