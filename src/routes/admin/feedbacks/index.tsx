@@ -1,13 +1,18 @@
 import styles from './Feedbacks.module.scss';
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useEffect, useMemo, useContext} from 'react';
 import { IFeedbacksApi } from '@database/models/feedbacks';
 import api from '@database/api';
 import { formatDate, isToday } from '@utils/function';
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { MdEmail, MdPerson } from "react-icons/md";
 import Button from '@components/button/Round';
+import { Context } from '@context/useAuthentication';
 
 const FeedbacksIndex = () => {
+
+  const {protect} = useContext(Context);
+
+  protect(["admin"]);
 
   const [data, setData] = useState<IFeedbacksApi[] | []>();
 
